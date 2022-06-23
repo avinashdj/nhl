@@ -1,13 +1,15 @@
-Feature: Registration of Mobile Email and Setup Pin
+Feature:
+  Registration of Mobile Email and Setup Pin
 
   @Smoke
   Scenario: Mobile Email and Set up pin
     Given the user clicks on the Lets Get Started button
     When the user enters the mobile number "555555555"
     And the user clicks on register button
-    And the user enter the valid mobile registration OTP "123456"
-    And the user enters the valid email Address "test@test.com"
-    And the user enters the valid email OTP "123456"
+    And the user enter the mobile registration OTP "123456"
+    And the user enters the email Address "test@test.com"
+    And the user clicks on Continue for email button
+    And the user enters the email OTP "123456"
     And the user enters the login pin "1234"
     And the user confirms the login pin "1234"
     And the user clicks on later for Location
@@ -27,6 +29,52 @@ Feature: Registration of Mobile Email and Setup Pin
     And the user clicks on register button
     Then Appropriate Error message "It seems your mobile number isn't registered. Please visit any FAB NHL branch to update your contact details." should be shown
 
+  @smokeTest3
+  Scenario: User Enters an invalid email length
+    Given the user clicks on the Lets Get Started button
+    When the user enters the mobile number "555555555"
+    And the user clicks on register button
+    And the user enter the mobile registration OTP "123456"
+    And the user enters the email Address "qwertyuiopasdfghjklzxcvbnmqwertyuiopasdfghjklzxcvbnm@test.com"
+    Then continue button in email page should be "disabled"
+
+  @SmokeTest4
+  Scenario: Mobile Email and Set up pin and incorrect Confirm pin
+    Given the user clicks on the Lets Get Started button
+    When the user enters the mobile number "555555555"
+    And the user clicks on register button
+    And the user enter the mobile registration OTP "123456"
+    And the user enters the email Address "test@test.com"
+    And the user clicks on Continue for email button
+    And the user enters the email OTP "123456"
+    And the user enters the login pin "1234"
+    And the user confirms the login pin "1111"
+    Then Appropriate Error message "The PIN does not match. Please enter the same PIN as before." should be shown
+
+  @SmokeTest5
+  Scenario: User allows location
+    Given the user clicks on the Lets Get Started button
+    When the user enters the mobile number "555555555"
+    And the user clicks on register button
+    And the user enter the mobile registration OTP "123456"
+    And the user enters the email Address "test@test.com"
+    And the user clicks on Continue for email button
+    And the user enters the email OTP "123456"
+    And the user enters the login pin "1234"
+    And the user confirms the login pin "1234"
+    And the user clicks on allow for Location
+    And the user clicks on later for Biometric
+    Then the user lands on the OCR screen
+
+  @smokeTest6
+  Scenario: User Enters an invalid email length
+    Given the user clicks on the Lets Get Started button
+    When the user enters the mobile number "555555555"
+    And the user clicks on register button
+    And the user enter the mobile registration OTP "123456"
+    And the user enters the email Address "test!#$%^&*()@test.com"
+    Then continue button in email page should be "disabled"
+
 #  @Smoke1
 #  Scenario: Mobile Email and Set up pin
 #    Given the user opens the NHL Mobile application
@@ -40,7 +88,4 @@ Feature: Registration of Mobile Email and Setup Pin
 #    Given i am registering my mobile number
 
 
-  @ExtentReport
-  Scenario: Test extent report
-    Given the user clicks on the Lets Get Started button
 

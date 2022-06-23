@@ -52,4 +52,57 @@ public class ReferenceDetailsStepDef {
         System.out.println("Consent screen is displayed");
     }
 
+    @And("the continue button on reference details should be disabled")
+    public void theContinueButtonOnReferenceDetailsShouldBeDisabled() {
+        Assert.assertFalse(new ReferenceDetailsPage().isClickEnabled(),"Continue button is not disabled");
+    }
+
+
+    @And("the user gets {string} error in first reference contact number")
+    public void theUserGetsErrorInFirstReferenceContactNumber(String errMsg) {
+        String actErr = new ReferenceDetailsPage().errContactNumberFirst();
+        Assert.assertEquals(actErr, errMsg,
+                String.format("Actual message %s does not match expected message %s",
+                        actErr, errMsg ));
+    }
+
+    @And("the user gets {string} error in first reference alternate contact number")
+    public void theUserGetsErrorInFirstReferenceAlternateContactNumber(String errMsg) {
+        String actErr = new ReferenceDetailsPage().errAltContactNumberFirst();
+        Assert.assertEquals(actErr, errMsg,
+                String.format("Actual message %s does not match expected message %s",
+                        actErr, errMsg ));
+    }
+
+    @And("the user gets {string} error in first reference office contact number")
+    public void theUserGetsErrorInFirstReferenceOfficeContactNumber(String errMsg) {
+        String actErr = new ReferenceDetailsPage().errOfficeNumberFirst();
+        Assert.assertEquals(actErr, errMsg,
+                String.format("Actual message %s does not match expected message %s",
+                        actErr, errMsg ));
+    }
+
+    @And("the user gets {string} error in Second reference contact number")
+    public void theUserGetsErrorInSecondReferenceContactNumber(String errMsg) {
+        String actErr = new ReferenceDetailsPage().errContactNumberSecond();
+        Assert.assertEquals(actErr, errMsg,
+                String.format("Actual message %s does not match expected message %s",
+                        actErr, errMsg ));
+    }
+
+    @And("the user gets {string} error in Second reference alternate contact number")
+    public void theUserGetsErrorInSecondReferenceAlternateContactNumber(String errMsg) {
+        String actErr = new ReferenceDetailsPage().errAltContactNumberSecond();
+        Assert.assertEquals(actErr, errMsg,
+                String.format("Actual message %s does not match expected message %s",
+                        actErr, errMsg ));
+    }
+
+    @And("the user gets {string} error in Second reference office contact number")
+    public void theUserGetsErrorInSecondReferenceOfficeContactNumber(String errMsg) {
+        String actErr = new ReferenceDetailsPage().errOfficeNumberSecond();
+        Assert.assertEquals(actErr, errMsg,
+                String.format("Actual message %s does not match expected message %s",
+                        actErr, errMsg ));
+    }
 }
