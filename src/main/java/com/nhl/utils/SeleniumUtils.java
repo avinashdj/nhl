@@ -84,24 +84,9 @@ public final class SeleniumUtils {
     }
 
     private static String getFileFromResourceAsStream(String fileName) {
-        File file = new File("D:\\coderepo\\nhlmobile\\SeleniumFramework\\src\\test\\resources\\files\\file1.pdf");
+        File file = new File(System.getProperty("user.dir") + "\\src\\test\\resources\\files\\file1.pdf");
         return file.getAbsolutePath();
     }
-
-//    private static InputStream getFileFromResourceAsStream(String fileName) {
-//
-//        // The class loader that loaded the class
-//        ClassLoader classLoader = SeleniumUtils.class.getClassLoader();
-//        InputStream inputStream = classLoader.getResourceAsStream(fileName);
-//
-//        // the stream holding the file content
-//        if (inputStream == null) {
-//            throw new IllegalArgumentException("file not found! " + fileName);
-//        } else {
-//            return inputStream;
-//        }
-//
-//    }
 
     /**
      * Upload document
@@ -128,13 +113,6 @@ public final class SeleniumUtils {
         } catch(Exception e){
             e.printStackTrace();
         }
-
-//        WebDriverWait wait2 = new WebDriverWait(DriverManager.getDriver(), 100);
-//        wait2.until(ExpectedConditions.visibilityOf(DriverManager.getDriver().findElement(linkSitePlan))).click();
-//        By eleFile = By.xpath("//*[@text=\"site-plan-doc.pdf\"]");
-//        wait2.until(ExpectedConditions.visibilityOfElementLocated(eleFile));
-//        driver.findElement(eleFile).click();
-
     }
 
     public static boolean isEnabled(final By by, final String elementName){
@@ -151,4 +129,27 @@ public final class SeleniumUtils {
         WebElement element = waitUntilElementPresent(by);
         return element.getAttribute("displayed").equalsIgnoreCase("true") ? true : false;
     }
+
+
 }
+
+//    private static InputStream getFileFromResourceAsStream(String fileName) {
+//
+//        // The class loader that loaded the class
+//        ClassLoader classLoader = SeleniumUtils.class.getClassLoader();
+//        InputStream inputStream = classLoader.getResourceAsStream(fileName);
+//
+//        // the stream holding the file content
+//        if (inputStream == null) {
+//            throw new IllegalArgumentException("file not found! " + fileName);
+//        } else {
+//            return inputStream;
+//        }
+//
+//    }
+
+//        WebDriverWait wait2 = new WebDriverWait(DriverManager.getDriver(), 100);
+//        wait2.until(ExpectedConditions.visibilityOf(DriverManager.getDriver().findElement(linkSitePlan))).click();
+//        By eleFile = By.xpath("//*[@text=\"site-plan-doc.pdf\"]");
+//        wait2.until(ExpectedConditions.visibilityOfElementLocated(eleFile));
+//        driver.findElement(eleFile).click();

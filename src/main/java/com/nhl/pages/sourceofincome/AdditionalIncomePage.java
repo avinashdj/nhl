@@ -4,23 +4,23 @@ import org.openqa.selenium.By;
 
 import static com.nhl.utils.SeleniumUtils.*;
 
-public class SalaryDetailsPage {
+public class AdditionalIncomePage {
 
     //Back Button
     private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
 
     private static final By SCREEN_NAME = By.xpath("//android.view.View[@content-desc='Source of income']");
-    private static final By TITLE= By.xpath("//android.view.View[@content-desc='Salary details']");
+    private static final By TITLE= By.xpath("//android.view.View[@content-desc='Additional income']");
     private static final By DESCRIPTION = By.xpath("//android.view.View[contains(@content-desc, 'source of income')]");
 
-    private static final By TOTAL_MONTHLY_SALARY = By.xpath("//android.widget.EditText");
-    private static final By SALARY_CERTIFICATE = By.xpath("//android.widget.ImageView[@content-desc='Salary certificate']");
+    private static final By TOTAL_MONTHLY_INCOME = By.xpath("//android.widget.EditText");
+    private static final By PENSION_CERTIFICATE = By.xpath("//android.widget.ImageView[contains(@content-desc,'Pension certificate')]");
     private static final By BANK_STATEMENT = By.xpath("//android.widget.ImageView[@content-desc='Bank statement']");
 
     private static final By ADD = By.xpath("//android.widget.Button[@content-desc='Add']");
 
     //Remove icon
-    private static final By SALARY_CERTIFICATE_REMOVE_ICON = By.xpath("android.widget.ImageView[2]");
+    private static final By PENSION_CERTIFICATE_REMOVE_ICON = By.xpath("android.widget.ImageView[2]");
     private static final By BANK_STATEMENT_REMOVE_ICON = By.xpath("android.widget.ImageView[4]");
 
     private static final By BANK_STATEMENT_REMOVE_ICON_AFTER= By.xpath("android.widget.ImageView[3]");
@@ -35,7 +35,7 @@ public class SalaryDetailsPage {
     private static final By ALL_DOCUMENT_REMOVAL_POPUP_CANCEL = By.xpath("//android.widget.Button[@content-desc='Cancel']");
     private static final By ALL_DOCUMENT_REMOVAL_POPUP_REMOVE = By.xpath("//android.widget.Button[@content-desc='Remove']");
 
-    public SalaryDetailsPage(){
+    public AdditionalIncomePage(){
     }
 
     public String getScreenName(){
@@ -50,8 +50,8 @@ public class SalaryDetailsPage {
         return getContentDesc(DESCRIPTION);
     }
 
-    public void clickSalaryCertificate(){
-        click(SALARY_CERTIFICATE, "Salary certificate");
+    public void clickPensionCertificate(){
+        click(PENSION_CERTIFICATE, "Pension certificate");
     }
 
     public void clickBankStatement(){
@@ -59,12 +59,12 @@ public class SalaryDetailsPage {
     }
 
     public void enterTotalMonthlySalary(final String salary){
-        click(TOTAL_MONTHLY_SALARY, "Total Monthly salary text field");
-        sendKeys(TOTAL_MONTHLY_SALARY, salary, "Total Monthly Salary");
+        click(TOTAL_MONTHLY_INCOME, "Total Monthly salary text field");
+        sendKeys(TOTAL_MONTHLY_INCOME, salary, "Total Monthly Salary");
     }
 
-    public void uploadSalaryCertificate(){
-        uploadDocument("file1", SALARY_CERTIFICATE, "Salary Certificate");
+    public void uploadPensionCertificate(){
+        uploadDocument("file1", PENSION_CERTIFICATE, "Pension Certificate");
     }
 
     public void uploadBankStatement(){
@@ -72,7 +72,7 @@ public class SalaryDetailsPage {
     }
 
     public void removeSalaryCertificate(){
-        click(SALARY_CERTIFICATE_REMOVE_ICON, "Salary Certificate remove icon");
+        click(PENSION_CERTIFICATE_REMOVE_ICON, "Salary Certificate remove icon");
         click(DOCUMENT_REMOVAL_POPUP_REMOVE, "Remove option on Document Removal");
     }
 

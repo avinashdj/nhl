@@ -10,6 +10,10 @@ import static com.nhl.utils.SeleniumUtils.*;
 
 public class IncomeDetailsPage {
 
+    //Back Button
+    private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
+
+
     private static final By SCREEN_NAME = By.xpath("//android.view.View[@content-desc='Source of income']");
     private static final By TITLE= By.xpath("//android.view.View[@content-desc='Income details']");
     private static final By DESCRIPTION = By.xpath("//android.view.View[contains(@content-desc, 'source of income')]");
@@ -35,7 +39,7 @@ public class IncomeDetailsPage {
         return getContentDesc(ADDITIONAL_INCOME);
     }
 
-    public void clickConfirm(){
+    public void clickContinue(){
         click(CONTINUE, "Continue Button");
     }
 
@@ -67,7 +71,9 @@ public class IncomeDetailsPage {
         return isEnabled(CONTINUE, "Continue Button");
     }
 
-
+    public void clickBackButton(){
+        click(BACK, "BACK Button");
+    }
 
     //Text to validate
     // Total monthly salary Salary certificate, Bank statement

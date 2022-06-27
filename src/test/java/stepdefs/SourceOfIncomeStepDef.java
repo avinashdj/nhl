@@ -57,13 +57,10 @@ public class SourceOfIncomeStepDef {
 
     @Then("continue button should be {string}")
     public void continueButtonShouldBe(String isDisabled) {
-        //if(isDisabled.equalsIgnoreCase("true"))
         if(isDisabled.equalsIgnoreCase("Disabled")){
             Assert.assertFalse(new IncomeDetailsPage().checkIfContinueButtonIsEnabled());
         } else {
             Assert.assertTrue(new IncomeDetailsPage().checkIfContinueButtonIsEnabled());
         }
-        System.out.println(new IncomeDetailsPage().checkIfContinueButtonIsEnabled());
     }
-
 }

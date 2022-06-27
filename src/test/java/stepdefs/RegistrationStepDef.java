@@ -49,8 +49,6 @@ public class RegistrationStepDef {
         new StayUpdatedPage().enterEmail(emailAddress);
     }
 
-
-
     @When("the user enters the email OTP {string}")
     public void theUserEntersTheValidEmailOTP(String emailOTP) {
         new EmailOTPVerificationPage().enterOTP(emailOTP).clickContinue();
@@ -116,5 +114,10 @@ public class RegistrationStepDef {
     @And("the user clicks on allow for Location")
     public void theUserClicksOnAllowForLocation() {
         new LocationPage().allowLocation();
+    }
+
+    @And("the user clicks on skip link for email address")
+    public void theUserClicksOnSkipLinkForEmailAddress() {
+        new StayUpdatedPage().clickSkip();
     }
 }

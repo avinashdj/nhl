@@ -54,9 +54,8 @@ public class ReferenceDetailsStepDef {
 
     @And("the continue button on reference details should be disabled")
     public void theContinueButtonOnReferenceDetailsShouldBeDisabled() {
-        Assert.assertFalse(new ReferenceDetailsPage().isClickEnabled(),"Continue button is not disabled");
+        Assert.assertFalse(new ReferenceDetailsPage().isContinueButtonClickable(),"Continue button is not Clickable");
     }
-
 
     @And("the user gets {string} error in first reference contact number")
     public void theUserGetsErrorInFirstReferenceContactNumber(String errMsg) {

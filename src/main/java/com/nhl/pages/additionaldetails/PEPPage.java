@@ -12,14 +12,22 @@ public class PEPPage {
     private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
 
     //Screen title and Other headings
-    private static final By SCREEN_TITLE = By.xpath("(//android.view.View[@content-desc='Additional details'])[1]");
-    private static final By HEADING = By.xpath("(//android.view.View[@content-desc='Additional details'])[2]");
+    private static final By SCREEN_TITLE = By.xpath("//android.view.View[@content-desc='Additional details'][1]");
+    private static final By HEADING = By.xpath("(//android.view.View[@content-desc='Additional details'][2]");
     private static final By SUB_HEADING = By.xpath("//android.view.View[contains(@content-desc,'position?')]");
 
     //Consent Content
     private static String content = "(//android.view.View[contains(@content-desc,'position?')]/following-sibling::android.view.View)[%s]";
     private static final By CONSENT_CONTENT_1 = By.xpath(String.format(content, "1"));
     //What counts as politically exposed?
+    private static final By CONSENT_CONTENT_BULLET_1 = By.xpath(String.format(content, "2"));
+    private static final By CONSENT_CONTENT_BULLET_2 = By.xpath(String.format(content, "3"));
+    private static final By CONSENT_CONTENT_BULLET_3 = By.xpath(String.format(content, "4"));
+    private static final By CONSENT_CONTENT_BULLET_4 = By.xpath(String.format(content, "5"));
+    private static final By CONSENT_CONTENT_BULLET_5 = By.xpath(String.format(content, "6"));
+    private static final By CONSENT_CONTENT_BULLET_6 = By.xpath(String.format(content, "7"));
+    private static final By CONSENT_CONTENT_BULLET_7 = By.xpath(String.format(content, "8"));
+    private static final By CONSENT_CONTENT_BULLET_8 = By.xpath(String.format(content, "9"));
 
     //Radio Button - PEP - Yes or No
     private static final By PEP_YES = By.xpath("//android.widget.RadioButton[@content-desc='Yes']");
@@ -32,6 +40,22 @@ public class PEPPage {
 
     //Button
     private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");
+
+    public boolean isPePYesEnabled(){
+        return isEnabled(PEP_YES, "PEP yes");
+    }
+
+    public boolean isPePNoEnabled(){
+        return isEnabled(PEP_NO, "PEP No");
+    }
+
+    public boolean isInsideUAEEnabled(){
+        return isEnabled(INSIDE_UAE, "Inside UAE");
+    }
+
+    public boolean isOutsideUAEEnabled(){
+        return isEnabled(OUTSIDE_UAE, "Outside UAE");
+    }
 
 
     public PEPPage(){
@@ -76,5 +100,23 @@ public class PEPPage {
     public String getConsentContentHeading(){
         return getContentDesc(CONSENT_CONTENT_1);
     }
+
+    public boolean isContinueButtonEnabled(){
+        return isEnabled(CONTINUE, "Continue Button");
+    }
+
+    public String getConsentContent(final String bullet){
+        return getContentDesc(By.xpath(String.format(content, (Integer.parseInt(bullet) + 1 + ""))));
+    }
+
+    public void clickContinue(){
+        click(CONTINUE, "Continue Button");
+    }
+
+    public void clickBackButton(){
+        click(BACK, "BACK Button");
+    }
+
+    public boolean isContinueButtonClickable() {return isClickable(CONTINUE,"Continue Button");}
 
 }

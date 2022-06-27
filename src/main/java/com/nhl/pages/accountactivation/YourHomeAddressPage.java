@@ -2,6 +2,8 @@ package com.nhl.pages.accountactivation;
 
 import org.openqa.selenium.By;
 
+import java.security.URIParameter;
+
 import static com.nhl.utils.SeleniumUtils.*;
 
 public class YourHomeAddressPage {
@@ -117,6 +119,22 @@ public class YourHomeAddressPage {
 
     public void clickContinue(){
         click(CONTINUE, "Continue button");
+    }
+
+    public boolean isUpdateLinkEnabled(){
+        return isEnabled(UPDATE, "Update Link");
+    }
+
+    public boolean isConfirmButtonEnabled(){
+        return isEnabled(CONFIRM, "Confirm Button");
+    }
+
+    public boolean isConfirmButtonDisplayed(){
+        return isDisplayed(CONFIRM, "Confirm Button");
+    }
+
+    public boolean isContinueButtonDisplayed(){
+        return isDisplayed(CONTINUE, "Confirm Button");
     }
 
 }
