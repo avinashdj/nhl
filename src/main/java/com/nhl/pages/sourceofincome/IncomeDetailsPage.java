@@ -13,16 +13,18 @@ public class IncomeDetailsPage {
     //Back Button
     private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
 
-
+    //Title, Screen title and Subtitle
     private static final By SCREEN_NAME = By.xpath("//android.view.View[@content-desc='Source of income']");
     private static final By TITLE= By.xpath("//android.view.View[@content-desc='Income details']");
-    private static final By DESCRIPTION = By.xpath("//android.view.View[contains(@content-desc, 'source of income')]");
+    private static final By SUB_TITLE = By.xpath("//android.view.View[contains(@content-desc, 'source of income')]");
 
-    private static final By CONTINUE = By.xpath("//*[@content-desc='Continue']");
-
+    //cards
     private static final By SALARY_DETAILS = By.xpath("//android.view.View[contains(@content-desc,'SALARY DETAILS')]");
     private static final By OWN_BUSINESS = By.xpath("//android.view.View[contains(@content-desc,'OWN BUSINESS')]");
     private static final By ADDITIONAL_INCOME = By.xpath("//android.view.View[contains(@content-desc,'ADDITIONAL INCOME')]");
+
+    //Continue button
+    private static final By CONTINUE = By.xpath("//*[@content-desc='Continue']");
 
     public IncomeDetailsPage(){
     }
@@ -35,44 +37,44 @@ public class IncomeDetailsPage {
         return getContentDesc(TITLE);
     }
 
-    public String getAddtionalIncomeText(){
-        return getContentDesc(ADDITIONAL_INCOME);
+    public String getSubTitle() {
+        return getContentDesc(SUB_TITLE);
     }
 
-    public void clickContinue(){
-        click(CONTINUE, "Continue Button");
-    }
-
-    public void clickSalaryDetails(){
-        click(SALARY_DETAILS, "Salary Details card");
-    }
-
-    public void clickOwnBusiness(){
-        click(OWN_BUSINESS, "Own Business card");
-    }
-
-    public void clickAdditionalIncome(){
-        click(ADDITIONAL_INCOME, "Additional income card");
+    public void clickBackButton(){
+        click(BACK, "BACK Button");
     }
 
     public String getSalaryDetailsText(){
         return getContentDesc(SALARY_DETAILS);
     }
 
-    public String getOwnBusinessText(){
-        return getContentDesc(TITLE);
+    public void clickSalaryDetails(){
+        click(SALARY_DETAILS, "Salary Details card");
     }
 
-    public String getDescription(){
-        return getContentDesc(DESCRIPTION);
+    public String getOwnBusinessText(){
+        return getContentDesc(OWN_BUSINESS);
+    }
+
+    public void clickOwnBusiness(){
+        click(OWN_BUSINESS, "Own Business card");
+    }
+
+    public String getAdditionalIncomeText() {
+        return getContentDesc(ADDITIONAL_INCOME);
+    }
+
+    public void clickAdditionalIncome(){
+        click(ADDITIONAL_INCOME, "Additional income card");
     }
 
     public boolean checkIfContinueButtonIsEnabled(){
         return isEnabled(CONTINUE, "Continue Button");
     }
 
-    public void clickBackButton(){
-        click(BACK, "BACK Button");
+    public void clickContinue(){
+        click(CONTINUE, "Continue Button");
     }
 
     //Text to validate

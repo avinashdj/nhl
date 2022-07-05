@@ -29,10 +29,6 @@ public class YourBankAccountPage {
     private static final By BANK_ACCOUNT_DETAILS_HEADING = By.xpath("//android.view.View[@content-desc='BANK ACCOUNT DETAILS']");
     //BANK ACCOUNT DETAILS - value to be used
 
-    
-
-
-
     //Button
     private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");
 

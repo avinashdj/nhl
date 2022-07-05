@@ -1,11 +1,13 @@
 package com.nhl.utils;
 
+import com.google.common.util.concurrent.Uninterruptibles;
 import com.nhl.config.ConfigFactory;
 import com.nhl.driver.DriverManager;
 import com.nhl.enums.WaitType;
 import com.nhl.reports.ExtentLogger;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,6 +17,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public final class SeleniumUtils {
 
@@ -49,6 +53,12 @@ public final class SeleniumUtils {
        // ExtentLogger.pass(value + " is entered "+ " successfully in "+elementName);
     }
 
+    public static void clear(By by, String elementName){
+        WebElement element = waitUntilElementPresent(by);
+        element.clear();
+        // ExtentLogger.pass(value + " is entered "+ " successfully in "+elementName);
+    }
+
     public static String getTextFromLabel(By by){
         WebElement element = waitUntilElementPresent(by);
         return element.getAttribute("content-desc");
@@ -59,17 +69,22 @@ public final class SeleniumUtils {
         new Actions(DriverManager.getDriver()).sendKeys(value).perform();
     }
 
-    private static WebElement waitUntilElementToBeVisible(By by) {
+    public static WebElement waitUntilElementToBeVisible(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), ConfigFactory.getConfig().timeout());
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
-    private static WebElement waitUntilElementPresent(By by) {
+    public static boolean waitUntilElementToBeInvisible(By by) {
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), ConfigFactory.getConfig().timeout());
+        return wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
+    public static WebElement waitUntilElementPresent(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), ConfigFactory.getConfig().timeout());
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
-    private static WebElement waitUntilElementToBeClickable(By by) {
+    public static WebElement waitUntilElementToBeClickable(By by) {
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), ConfigFactory.getConfig().timeout());
         return wait.until(ExpectedConditions.elementToBeClickable(by));
     }
@@ -84,7 +99,8 @@ public final class SeleniumUtils {
     }
 
     private static String getFileFromResourceAsStream(String fileName) {
-        File file = new File(System.getProperty("user.dir") + "\\src\\test\\resources\\files\\file1.pdf");
+        File file = new File(System.getProperty("user.dir") +
+                String.format("\\src\\test\\resources\\%s", fileName));
         return file.getAbsolutePath();
     }
 
@@ -94,12 +110,11 @@ public final class SeleniumUtils {
     public static void uploadDocument(final String fileName, final By docToUpload, final String documentType) {
         //click(docToUpload, documentType);
         try{
-            String filePathInDevice = String.format("/sdcard/download/%s.pdf", fileName);
-            String filePathInResource = String.format("/files/%s.pdf", fileName);
+            String filePathInDevice = String.format("/sdcard/download/%s", fileName);
+            String filePathInResource = String.format("/files/%s", fileName);
 
             ((AndroidDriver) DriverManager.getDriver()).pushFile(filePathInDevice,
                     new File(getFileFromResourceAsStream(filePathInResource)));
-
             click(docToUpload, documentType);
 
             try{
@@ -108,12 +123,20 @@ public final class SeleniumUtils {
             }catch(Exception e){
 
             }
-            By fileInDevice = By.xpath(String.format("//*[@text='%s.pdf']", fileName));
+            click(By.xpath("//android.widget.TextView[@content-desc='Search']"), "Search icon");
+            sendKeys(By.xpath("//android.widget.EditText"), fileName, "Search field");
+            hideKeyboard();
+            Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
+            By fileInDevice = By.xpath("//android.widget.LinearLayout[@resource-id='com.android.documentsui:id/nameplate']");
+            //By fileInDevice = By.xpath(String.format("//*[contains(@text,'%s')]", fileName));
             click(fileInDevice, fileName);
+            Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
         } catch(Exception e){
             e.printStackTrace();
         }
     }
+
+
 
     public static boolean isEnabled(final By by, final String elementName){
         WebElement element = waitUntilElementPresent(by);
@@ -128,6 +151,21 @@ public final class SeleniumUtils {
     public static boolean isDisplayed(final By by, final String elementName){
         WebElement element = waitUntilElementPresent(by);
         return element.getAttribute("displayed").equalsIgnoreCase("true") ? true : false;
+    }
+
+    public static boolean isChecked(final By by, final String elementName){
+        WebElement element = waitUntilElementPresent(by);
+        return element.getAttribute("checked").equalsIgnoreCase("true") ? true : false;
+    }
+
+    public static boolean isElementPresent(final By by, final String elementName){
+        boolean isElementPresent = true;
+        try{
+            WebElement element = DriverManager.getDriver().findElement(by);
+        } catch(NoSuchElementException nsee) {
+            isElementPresent = false;
+        }
+        return isElementPresent;
     }
 
 

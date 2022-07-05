@@ -14,15 +14,24 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static com.nhl.utils.SeleniumUtils.click;
+import static com.nhl.utils.SeleniumUtils.waitUntilElementToBeClickable;
 
 public class LoginPage {
 
-    private static final By NEXT = By.xpath("//*[@content-desc='Next']");
+    //Title, Screen title and Subtitle
+    private static final By SCREEN_NAME = By.xpath("//android.view.View[@content-desc='Login']");
+    private static final By TITLE= By.xpath("//android.view.View[@content-desc='Welcome back']");
+    private static final By SUB_TITLE = By.xpath("//android.view.View[contains(@content-desc, 'Enter your PIN')]");
+
+    private static final By FORGOT_PIN = By.xpath("//android.widget.Button[@content-desc='Forgot PIN?']");
+    private static final By NOT_YOU = By.xpath("//android.widget.Button[@content-desc='Not you?']");
+
 
     public LoginPage(){
     }
 
     public LoginPage login(final String value){
+        waitUntilElementToBeClickable(FORGOT_PIN);
         Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
         new Actions(DriverManager.getDriver()).sendKeys(value).perform();
         Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
@@ -30,13 +39,11 @@ public class LoginPage {
         return this;
     }
 
-    public void clickNext(){
-        click(NEXT, "Next Button");
-    }
+
 
     public void swapRightToLeftMortgage(){
         Dimension size = DriverManager.getDriver().manage().window().getSize();
-        int anchor = (int) (size.height * 0.5);
+        int anchor = (int) (size.height * 0.3);
         int startPoint = (int) (size.width * 0.70);
         int endPoint = (int) (size.width * 0.30);
         new TouchAction((PerformsTouchActions) DriverManager.getDriver())
@@ -44,11 +51,7 @@ public class LoginPage {
                 .waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
                 .moveTo(PointOption.point(endPoint, anchor))
                 .release().perform();
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
     }
 
 }

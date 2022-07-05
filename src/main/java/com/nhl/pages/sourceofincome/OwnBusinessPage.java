@@ -20,10 +20,10 @@ public class OwnBusinessPage {
     private static final By ADD = By.xpath("//android.widget.Button[@content-desc='Add']");
 
     //Remove icon
-    private static final By TRADE_LICENSE_REMOVE_ICON = By.xpath("android.widget.ImageView[2]");
-    private static final By BANK_STATEMENT_REMOVE_ICON = By.xpath("android.widget.ImageView[4]");
+    private static final By TRADE_LICENSE_REMOVE_ICON = By.xpath("//android.view.View[@content-desc='Trade License']/following-sibling::android.widget.ImageView[1]");
+    private static final By BANK_STATEMENT_REMOVE_ICON = By.xpath("//android.view.View[@content-desc='Bank statement']/following-sibling::android.widget.ImageView[1]");
 
-    private static final By BANK_STATEMENT_REMOVE_ICON_AFTER= By.xpath("android.widget.ImageView[3]");
+    private static final By BANK_STATEMENT_REMOVE_ICON_AFTER= By.xpath("//android.view.View[@content-desc='Bank statement']/following-sibling::android.widget.ImageView[1]");
 
     //Document Removal Popup
     private static final By DOCUMENT_REMOVAL_POPUP_HEADING = By.xpath("//android.view.View[@content-desc='Document removal']");
@@ -60,7 +60,7 @@ public class OwnBusinessPage {
         click(BANK_STATEMENT, "Bank Statement");
     }
 
-    public void enterTotalMonthlySalary(final String income){
+    public void enterTotalMonthlyIncome(final String income){
         click(TOTAL_MONTHLY_INCOME, "Total Monthly Income text field");
         sendKeys(TOTAL_MONTHLY_INCOME, income, "Total Monthly Income");
     }
@@ -79,7 +79,7 @@ public class OwnBusinessPage {
         uploadDocument("file1", BANK_STATEMENT, "Bank Statement");
     }
 
-    public void removeSalaryCertificate(){
+    public void removeTradeLicense(){
         click(TRADE_LICENSE_REMOVE_ICON, "Trade License remove icon");
         click(DOCUMENT_REMOVAL_POPUP_REMOVE, "Remove option on Document Removal");
     }
