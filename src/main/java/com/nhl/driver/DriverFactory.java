@@ -23,6 +23,8 @@ public final class DriverFactory {
         if(browserName.equalsIgnoreCase("android")){
             DesiredCapabilities capabilties = new DesiredCapabilities();
             //capabilties.setCapability(MobileCapabilityType.UDID, "R58M248NA3N");
+            capabilties.setCapability(MobileCapabilityType.UDID, "dav49pyhgaztdyww");
+            capabilties.setCapability(MobileCapabilityType.APP,"D:\\app-debug.apk");
             //capabilties.setCapability(MobileCapabilityType.APP,System.getProperty("user.dir") + "\\src\\test\resources\\apkfiles\\app-release.apk");
             capabilties.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.bankfab.nhl");
             capabilties.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".MainActivity");

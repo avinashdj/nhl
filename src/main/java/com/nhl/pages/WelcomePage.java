@@ -10,17 +10,20 @@ public class WelcomePage {
 
     private static final By LETS_GET_STARTED = By.xpath("(//android.widget.Button[(@content-desc,'Let')])[2]");
     private TopMenuComponent topMenuComponent;
-    
+
     public WelcomePage(){
 		this.topMenuComponent = new TopMenuComponent();
     }
 
+    /**
+     * action
+     */
     public void clickLetsGetStartedButton(){
         click(LETS_GET_STARTED, "Let's Get Started Button");
     }
 	
 	/**
-     * action : perform top right-conver menu icon
+     * Step : perform top right-conver menu icon
      * @author shiwantha
      * @update 5/7/2022
      * @return
