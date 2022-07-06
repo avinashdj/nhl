@@ -9,7 +9,8 @@ import static com.nhl.utils.SeleniumUtils.click;
 public class WelcomePage {
 
     private static final By LETS_GET_STARTED = By.xpath("(//android.widget.Button[(@content-desc,'Let')])[2]");
-
+    private TopMenuComponent topMenuComponent;
+    
     public WelcomePage(){
 		this.topMenuComponent = new TopMenuComponent();
     }
