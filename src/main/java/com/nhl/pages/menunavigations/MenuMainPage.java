@@ -1,5 +1,6 @@
 package com.nhl.pages.menunavigations;
 
+import com.nhl.pages.SetPinPage;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -17,17 +18,16 @@ public class MenuMainPage {
     public MenuMainPage() {
     }
 
-    private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
-    private static final By PAGE_TITLE = By.xpath("//*[@contentDescription='Menu']");
-    private static final By IDENTITY_VERIFY_TAB = By.xpath("//*[contains(text(),'Verify your identity')]");
-    private static final By ISLAMIC_PRODUCTS_TAB = By.xpath("//*[contains(text(),'FAB Islamic products')]");
-    private static final By NHL_BRANCH_TAB = By.xpath("//*[contains(text(),'NHL branches')]");
+    private static final By BACK = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button");
+    private static final By PAGE_TITLE = By.xpath("//android.view.View[@content-desc='Menu']");
+    private static final By IDENTITY_VERIFY_TAB = By.xpath("//android.view.View[@content-desc='OTHER FAB PRODUCTS']/preceding-sibling::*");
+    private static final By ISLAMIC_PRODUCTS_TAB = By.xpath("//android.view.View[@content-desc='OTHER FAB PRODUCTS']/following-sibling::android.view.View[1]");
+    private static final By NHL_BRANCH_TAB = By.xpath("//android.view.View[@content-desc='NATIONAL HOUSING LOAN']/following-sibling::android.view.View[1]");
     ;
-    private static final By FAQs_TAB = By.xpath("//*[contains(text(),'FAQs')]");
-    private static final By ABOUT_NHL_TAB = By.xpath("//*[contains(text(),'About NHL')]");
-    ;
+    private static final By FAQs_TAB = By.xpath("//android.view.View[@content-desc='NATIONAL HOUSING LOAN']/following-sibling::android.view.View[2]");
+    private static final By ABOUT_NHL_TAB = By.xpath("//android.view.View[@content-desc='NATIONAL HOUSING LOAN']/following-sibling::android.view.View[3]");
 
-    private static final By LOGOUT = By.xpath("//*[@contentDescription='Log Out']");
+    private static final By LOGOUT = By.xpath("//android.view.View[@content-desc='NATIONAL HOUSING LOAN']/following-sibling::android.view.View[4]");
 
     /**
      * Step : User check and validate already loaded menu main page
@@ -35,8 +35,9 @@ public class MenuMainPage {
      * @author shiwantha
      * @update 4/7/2022
      */
-    public void check_and_validate_menuTitle() {
+    public MenuMainPage check_and_validate_menuTitle() {
         Assert.assertTrue(SeleniumUtils.isDisplayed(PAGE_TITLE, "Page Title - Menu"));
+        return this;
     }
 
     /**
@@ -95,8 +96,9 @@ public class MenuMainPage {
      * @author shiwnatha
      * @update 4/7/2022
      */
-    public void step_logoutNHL() {
+    public SetPinPage step_logoutNHL() {
         click(LOGOUT, "Logout");
+        return new SetPinPage();
     }
 
     /**

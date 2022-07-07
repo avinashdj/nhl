@@ -1,14 +1,18 @@
 package com.nhl.pages;
 
+import com.nhl.driver.DriverManager;
 import com.nhl.pages.menunavigations.MenuMainPage;
 import com.nhl.pages.pagecomponent.TopMenuComponent;
+import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 import static com.nhl.utils.SeleniumUtils.click;
 
 public class WelcomePage {
 
     private static final By LETS_GET_STARTED = By.xpath("(//android.widget.Button[(@content-desc,'Let')])[2]");
+    private static final By WELCOME_TITLE = By.xpath("//android.view.View[@content-desc='Welcome!']");
     private TopMenuComponent topMenuComponent;
 
     public WelcomePage(){
@@ -21,7 +25,20 @@ public class WelcomePage {
     public void clickLetsGetStartedButton(){
         click(LETS_GET_STARTED, "Let's Get Started Button");
     }
-	
+
+
+
+    /**
+     * Step : User check and validate already loaded menu main page
+     *
+     * @author shiwantha
+     * @update 4/7/2022
+     */
+    public WelcomePage check_and_validate_menuTitle() {
+        Assert.assertEquals(DriverManager.getDriver().findElement(WELCOME_TITLE).getText(),"Welcome!","Oops.. Welcome page does not load !");
+        return this;
+    }
+
 	/**
      * Step : perform top right-conver menu icon
      * @author shiwantha
@@ -29,7 +46,7 @@ public class WelcomePage {
      * @return
      */
     public MenuMainPage switchTOMenu(){
-        this.topMenuComponent.clickOnMenu("Menu");
+        this.topMenuComponent.clickOnTopMenu();
         return new MenuMainPage();
     }
 }

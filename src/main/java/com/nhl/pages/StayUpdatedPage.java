@@ -16,7 +16,7 @@ import static com.nhl.utils.SeleniumUtils.sendKeys;
 public class StayUpdatedPage {
 
     public static final By PAGE_TITLE = By.xpath("//android.view.View[contains(@content-desc,'Stay updated')]");
-    private static final By SKIP_FLOW = By.xpath("");
+    private static final By SKIP_FLOW = By.xpath("//android.widget.Button[@content-desc=\"Skip\"]");
     private static final By EMAIL = By.xpath("//*[@class='android.widget.EditText']");
     private static final By CONTINUE = By.xpath("//*[@content-desc='Continue']");
 
@@ -60,9 +60,9 @@ public class StayUpdatedPage {
      * @author shiwantha
      * @update 6/7/2022
      */
-    public EmailOTPVerificationPage step_SkipWithoutEmail() {
+    public SetPinPage step_SkipWithoutEmail() {
         SeleniumUtils.click(SKIP_FLOW, "Skip");
-        return new EmailOTPVerificationPage();
+        return new SetPinPage();
     }
 
 }

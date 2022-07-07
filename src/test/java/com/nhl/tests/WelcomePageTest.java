@@ -18,7 +18,7 @@ public class WelcomePageTest extends BaseTest {
     public void letsGetStartedTest() {
         //new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760182").step_registrationSubmit().step_setContinueWithOTP("").step_SkipWithoutEmail();
 
-        new SetPinPage().step_setPin("1234").step_SignIn().switchTOMenu();
+        new SetPinPage().step_setPin("1234").step_SignIn().switchTOMenu().step_logoutNHL();
 
     }
 }

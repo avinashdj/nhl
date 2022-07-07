@@ -1,7 +1,10 @@
 package com.nhl.pages;
 
+import com.nhl.driver.DriverManager;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 /**
@@ -37,7 +40,9 @@ public class GetStaterPage {
      * @update 6/7/2022
      */
     public RegisterYourMobilePage step_getStarted() {
-        SeleniumUtils.click(not,"Not You");
+        //SeleniumUtils.click(not,"Not You");
+        //WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 10);
+        //wait.until(ExpectedConditions.visibilityOf(DriverManager.getDriver().findElement(LETS_GET_STARTED))).click();
         SeleniumUtils.click(LETS_GET_STARTED, "Let Get Started");
         return new RegisterYourMobilePage();
     }

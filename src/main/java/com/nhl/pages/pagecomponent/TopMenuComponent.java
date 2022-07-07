@@ -8,6 +8,8 @@ public class TopMenuComponent {
 
    // private static final By LNK_ADMIN = By.id("menu_admin_viewAdminModule");
     private String topMenus = "menu_%replaceable%";
+    private static final By TOP_MENU = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.widget.ImageView[2]");
+
 
    /* @FindBy(id = "menu_pim_viewPimModule")
     private WebElement LNK_PIM;
@@ -33,4 +35,13 @@ public class TopMenuComponent {
     public void clickPIMMenu(){
         SeleniumUtils.click(LNK_PIM);
     }*/
+
+    public void clickOnTopMenu(){
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+        click(TOP_MENU,"Menu");
+    }
 }

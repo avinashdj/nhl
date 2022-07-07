@@ -10,6 +10,7 @@ import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 
 import static com.nhl.utils.SeleniumUtils.click;
+import static com.nhl.utils.SeleniumUtils.sendKeys;
 
 /**
  * Capture customer's secret pin confirm and continue
@@ -19,6 +20,7 @@ import static com.nhl.utils.SeleniumUtils.click;
  */
 public class ConfirmPinPage {
     public static final By PAGE_TITLE = By.xpath("//android.view.View[contains(@content-desc,'Confirm PIN code')]");
+    public static final By PIN_TXT = By.xpath("//android.widget.EditText");
     private static final By NEXT = By.xpath("//*[@content-desc='Confirm']");
 
     public ConfirmPinPage(){
@@ -51,8 +53,9 @@ public class ConfirmPinPage {
      * @update 6/7/2022
      */
     public ConfirmPinPage step_setConfirmPin(String pin) {
-        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
-        new Actions(DriverManager.getDriver()).sendKeys(pin).perform();
+        //Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
+        //new Actions(DriverManager.getDriver()).sendKeys(pin).perform();
+        sendKeys(PIN_TXT,pin,"Pin Code");
         return this;
     }
 

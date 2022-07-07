@@ -60,7 +60,7 @@ public class SetPinPage {
         /**WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 100);
         wait.until(ExpectedConditions.visibilityOf(DriverManager.getDriver().findElement(PIN_TEXT)));
         driver.findElement(PIN_TEXT).sendKeys("1234");**/
-        sendKeys(PIN_TEXT,"1234","Pin Code");
+        sendKeys(PIN_TEXT,pin,"Pin Code");
         return this;
     }
 
