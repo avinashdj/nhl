@@ -2,6 +2,8 @@ package com.nhl.tests;
 
 import com.nhl.annotations.FrameworkAnnotation;
 import com.nhl.listeners.TestListener;
+import com.nhl.pages.GetStaterPage;
+import com.nhl.pages.SetPinPage;
 import com.nhl.pages.WelcomePage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -14,16 +16,9 @@ public class WelcomePageTest extends BaseTest {
     @FrameworkAnnotation
     @Test(description = "To check whether the Lets get started button is clicked")
     public void letsGetStartedTest() {
-        WelcomePage welcomePage = new WelcomePage();
-        welcomePage.clickLetsGetStartedButton();
-//        LoginPage loginPage = new LoginPage();
-//        String actualTitle = loginPage
-//                .loginToApplication(testdata.username, testdata.password)
-//                .getHomePageTitle();
-//
-//        Assert.assertEquals(actualTitle, testdata.expectedTitle);
+        //new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760182").step_registrationSubmit().step_setContinueWithOTP("").step_SkipWithoutEmail();
 
+        new SetPinPage().step_setPin("1234").step_SignIn().switchTOMenu();
 
-        //to keep all your locators and methods in one class
     }
 }

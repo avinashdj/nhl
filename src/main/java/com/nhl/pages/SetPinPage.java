@@ -1,15 +1,18 @@
 package com.nhl.pages;
 
 import com.google.common.util.concurrent.Uninterruptibles;
+import com.nhl.driver.Driver;
 import com.nhl.driver.DriverManager;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.nhl.utils.SeleniumUtils.click;
+import static com.nhl.utils.SeleniumUtils.*;
 
 /**
  * Capture customer's secret pin and continue
@@ -20,7 +23,8 @@ import static com.nhl.utils.SeleniumUtils.click;
 public class SetPinPage {
 
     public static final By PAGE_TITLE = By.xpath("//android.view.View[contains(@content-desc,'PIN code')]");
-    private static final By NEXT = By.xpath("//*[@content-desc='Next']");
+    public static final By PIN_TEXT = By.xpath("//android.widget.EditText");
+    private static final By NEXT = By.xpath("//android.widget.Button[@content-desc=\"Next\"]");
 
     public SetPinPage() {
     }
@@ -53,8 +57,10 @@ public class SetPinPage {
      * @update 6/7/2022
      */
     public SetPinPage step_setPin(String pin) {
-        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
-        new Actions(DriverManager.getDriver()).sendKeys(pin).perform();
+        /**WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 100);
+        wait.until(ExpectedConditions.visibilityOf(DriverManager.getDriver().findElement(PIN_TEXT)));
+        driver.findElement(PIN_TEXT).sendKeys("1234");**/
+        sendKeys(PIN_TEXT,"1234","Pin Code");
         return this;
     }
 
@@ -67,5 +73,16 @@ public class SetPinPage {
     public ConfirmPinPage step_moveNext(){
         SeleniumUtils.click(NEXT,"Move Next");
         return new ConfirmPinPage();
+    }
+
+    /**
+     * Step : User move into next phase by clicking next button
+     *
+     * @author shiwantha
+     * @update 6/7/2022
+     */
+    public WelcomePage step_SignIn(){
+        SeleniumUtils.click(NEXT,"Move Next");
+        return new WelcomePage();
     }
 }

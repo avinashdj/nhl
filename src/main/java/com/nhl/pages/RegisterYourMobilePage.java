@@ -15,7 +15,8 @@ import static com.nhl.utils.SeleniumUtils.*;
 public class RegisterYourMobilePage {
 
     public static final By PAGE_TITLE = By.xpath("//android.view.View[contains(@content-desc,'contact number')]");
-    private static final By PHONE_NUMBER = By.xpath("//android.widget.EditText");
+    private static final By PHONE_NUMBER = By.xpath("//android.widget.Button[@content-desc=\"Register\"]/preceding-sibling::android.widget.EditText");
+    //By.xpath("//android.widget.EditText");
     private static final By SUBMIT_REGISTER = By.xpath("//android.widget.Button[@content-desc=\"Register\"]");
 
     public static final By SCREEN_TITLE = By.xpath("//android.view.View[@content-desc='Register your mobile']");

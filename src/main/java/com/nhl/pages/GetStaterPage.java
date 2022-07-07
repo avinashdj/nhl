@@ -15,9 +15,10 @@ public class GetStaterPage {
     public GetStaterPage() {
     }
 
-    private static final By PAGE_TITLE = By.xpath("");
-    private static final By LETS_GET_STARTED = By.xpath("(//android.widget.Button[(@content-desc,'Let')])[2]");
-
+    private static final By PAGE_TITLE = By.xpath("(//android.widget.Button[(@content-desc,'Let')])[2]");
+    private static final By LETS_GET_STARTED = By.xpath("//android.widget.Button[@content-desc=\"Let’s get started\"]");
+    private static final By not = By.xpath("//android.widget.Button[@content-desc=\"Not you?\"]");
+//By.xpath("//android.widget.Button[@content-desc=\"Let’s get started\"]");
     /**
      * Step : User validate current page
      *
@@ -36,6 +37,7 @@ public class GetStaterPage {
      * @update 6/7/2022
      */
     public RegisterYourMobilePage step_getStarted() {
+        SeleniumUtils.click(not,"Not You");
         SeleniumUtils.click(LETS_GET_STARTED, "Let Get Started");
         return new RegisterYourMobilePage();
     }
