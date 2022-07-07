@@ -1,7 +1,6 @@
 package stepdefs;
 
-import com.google.common.util.concurrent.Uninterruptibles;
-import com.nhl.pages.*;
+import com.nhl.pages.LoginPage;
 import com.nhl.pages.referencedetails.ReferenceDetailsPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -11,12 +10,11 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class ReferenceDetailsStepDef {
 
     @Given("the user confirms Source of income")
-    public void theUserConfirmSourceOfIncome() {
+    public void theUserConfirmsSourceOfIncome() {
         System.out.println("The source of income screen is displayed");
     }
 
@@ -103,5 +101,113 @@ public class ReferenceDetailsStepDef {
         Assert.assertEquals(actErr, errMsg,
                 String.format("Actual message %s does not match expected message %s",
                         actErr, errMsg ));
+    }
+
+    @When("the user enters the details of reference details list")
+    public void theUserEntersTheDetailsOfReferenceDetailsList(DataTable dt) {
+        ReferenceDetailsPage rdp1 = new ReferenceDetailsPage();
+        ReferenceDetailsPage rdp2 = new ReferenceDetailsPage();
+        List<List<String>> rdl = dt.asLists();
+        for(List l : rdl){
+            rdp1.enterFirstReferenceFullName(l.get(0).toString());
+            rdp1.enterFirstReferenceRelationship(l.get(1).toString());
+            rdp1.enterFirstReferenceMobileNumber(l.get(2).toString());
+            rdp1.enterFirstReferenceAltContactNumber(l.get(3).toString());
+            rdp1.enterFirstReferenceOfficeNumber(l.get(4).toString());
+            rdp1.enterSecondReferenceFullName(l.get(5).toString());
+            rdp1.enterSecondReferenceRelationship(l.get(6).toString());
+            rdp1.enterSecondReferenceMobileNumber(l.get(7).toString());
+            rdp1.enterSecondReferenceAltContactNumber(l.get(8).toString());
+            rdp1.enterSecondReferenceOfficeNumber(l.get(9).toString());
+
+
+            //click on contine after entering the data
+            new ReferenceDetailsPage().clickContinue();
+
+            //Error check for first reference contact numbers
+            if(!l.get(2).toString().startsWith("5")){
+                theUserGetsErrorInFirstReferenceContactNumber("Please enter a valid number");
+            }
+            if(!l.get(3).toString().startsWith("5")){
+                theUserGetsErrorInFirstReferenceAlternateContactNumber("Please enter a valid number");
+            }
+            if(!(l.get(4).toString().startsWith("02") || l.get(4).toString().startsWith("04") || l.get(4).toString().startsWith("08"))){
+                theUserGetsErrorInFirstReferenceOfficeContactNumber("Please enter a valid number");
+            }
+
+
+            //Error check for second reference contact numbers
+
+            if(!l.get(7).toString().startsWith("5")){
+                theUserGetsErrorInFirstReferenceContactNumber("Please enter a valid number");
+            }
+            if(!l.get(8).toString().startsWith("5")){
+                theUserGetsErrorInFirstReferenceAlternateContactNumber("Please enter a valid number");
+            }
+            if(!(l.get(9).toString().startsWith("02") || l.get(9).toString().startsWith("04") || l.get(9).toString().startsWith("08"))){
+                theUserGetsErrorInFirstReferenceOfficeContactNumber("Please enter a valid number");
+            }
+
+//            //Blank check
+//            if(l.get(0).toString().isBlank() || l.get(1).toString().isBlank() || l.get(2).toString().isBlank() || l.get(3).toString().isBlank() || l.get(5).toString().isBlank() || l.get(6).toString().isBlank() || l.get(7).toString().isBlank() || l.get(8).toString().isBlank()){
+//                theContinueButtonOnReferenceDetailsShouldBeDisabled();
+//            }
+//
+//            //
+//            else
+//            {
+//                //click on continue
+//                new ReferenceDetailsPage().clickContinue();
+//                //Error check for first reference contact numbers
+//                if(!l.get(2).toString().startsWith("5")){
+//                    theUserGetsErrorInFirstReferenceContactNumber("Please enter a valid number");
+//                }
+//                if(!l.get(3).toString().startsWith("5")){
+//                    theUserGetsErrorInFirstReferenceAlternateContactNumber("Please enter a valid number");
+//                }
+//                if(!(l.get(4).toString().startsWith("02") || l.get(4).toString().startsWith("04") || l.get(4).toString().startsWith("08"))){
+//                    theUserGetsErrorInFirstReferenceOfficeContactNumber("Please enter a valid number");
+//                }
+//
+//
+//                //Error check for second reference contact numbers
+//
+//                if(!l.get(7).toString().startsWith("5")){
+//                    theUserGetsErrorInFirstReferenceContactNumber("Please enter a valid number");
+//                }
+//                if(!l.get(8).toString().startsWith("5")){
+//                    theUserGetsErrorInFirstReferenceAlternateContactNumber("Please enter a valid number");
+//                }
+//                if(!(l.get(9).toString().startsWith("02") || l.get(9).toString().startsWith("04") || l.get(9).toString().startsWith("08"))){
+//                    theUserGetsErrorInFirstReferenceOfficeContactNumber("Please enter a valid number");
+//                }
+//            }
+            }
+        }
+
+
+        //it was not populating the DataTable in the parameter
+    @When("the user enters the details of reference details list blank values")
+    public void theUserEntersTheDetailsOfReferenceDetailsListBlankValues(DataTable dt) {
+        ReferenceDetailsPage rdp1 = new ReferenceDetailsPage();
+        List<List<String>> rdl = dt.asLists();
+        for(List l : rdl) {
+            rdp1.enterFirstReferenceFullName(l.get(0).toString());
+            rdp1.enterFirstReferenceRelationship(l.get(1).toString());
+            rdp1.enterFirstReferenceMobileNumber(l.get(2).toString());
+            rdp1.enterFirstReferenceAltContactNumber(l.get(3).toString());
+            rdp1.enterFirstReferenceOfficeNumber(l.get(4).toString());
+            rdp1.enterSecondReferenceFullName(l.get(5).toString());
+            rdp1.enterSecondReferenceRelationship(l.get(6).toString());
+            rdp1.enterSecondReferenceMobileNumber(l.get(7).toString());
+            rdp1.enterSecondReferenceAltContactNumber(l.get(8).toString());
+            rdp1.enterSecondReferenceOfficeNumber(l.get(9).toString());
+        }
+            Assert.assertFalse(new ReferenceDetailsPage().isContinueButtonClickable());
+    }
+
+    @And("the user swipes to Account Opening card")
+    public void theUserSwipesToAccountOpeningCard() {
+        new LoginPage().swapRightToLeftMortgage();
     }
 }

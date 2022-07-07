@@ -59,6 +59,9 @@ public class MRNPage {
         //Please share the same mortgage registration number as before.
     }
 
+    public boolean isMRNHelpEnabled(){
+        return isClickable(MRN_HELP_LINK,"MRN Help link");}
+
     public void clickMRNHelpLink(){
         click(MRN_HELP_LINK, "What is MRN?");
     }

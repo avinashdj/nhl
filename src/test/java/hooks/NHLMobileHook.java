@@ -9,14 +9,14 @@ public class NHLMobileHook {
     @Before
     public void setUp(Scenario scenario){
         System.out.println("Before");
-        Driver.initDriver();
+//        Driver.initDriver();
     }
 
     @After
     public void tearDown(Scenario scenario){
         System.out.println("After");
         System.out.println(scenario.getStatus());
-        Driver.quitDriver();
+//        Driver.quitDriver();
     }
 
 //    @Before("@Regression")

@@ -40,7 +40,7 @@ public class RegistrationStepDef {
 
     @When("the user enter the mobile registration OTP {string}")
     public void theUserEnterTheValidMobileRegistrationOTP(String mobileOTP) {
-        Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
+        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
         new MobileOTPVerificationPage().enterOTP(mobileOTP).clickContinue();
     }
 
