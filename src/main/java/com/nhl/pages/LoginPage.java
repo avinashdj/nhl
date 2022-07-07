@@ -8,7 +8,10 @@ import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
@@ -18,12 +21,14 @@ import static com.nhl.utils.SeleniumUtils.click;
 public class LoginPage {
 
     private static final By NEXT = By.xpath("//*[@content-desc='Next']");
-
+    private static final By FORGOT_PIN = By.xpath("//android.widget.Button[@content-desc=\"Forgot PIN?\"]");
     public LoginPage(){
     }
 
     public LoginPage login(final String value){
-        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
+//        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(FORGOT_PIN));
         new Actions(DriverManager.getDriver()).sendKeys(value).perform();
         Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
         swapRightToLeftMortgage();
