@@ -64,11 +64,19 @@ public class AdditionalIncomePage {
     }
 
     public void uploadPensionCertificate(){
-        uploadDocument("file1", PENSION_CERTIFICATE, "Pension Certificate");
+        uploadDocument("file1.pdf", PENSION_CERTIFICATE, "Pension Certificate");
+    }
+
+    public void uploadPensionCertificateGreaterThan4MB(){
+        uploadDocument("file10MB.pdf", PENSION_CERTIFICATE, "Pension Certificate");
     }
 
     public void uploadBankStatement(){
-        uploadDocument("file1", BANK_STATEMENT, "Bank Statement");
+        uploadDocument("file1.pdf", BANK_STATEMENT, "Bank Statement");
+    }
+
+    public void uploadBankStatementGreaterThan4MB(){
+        uploadDocument("file10MB.pdf", BANK_STATEMENT, "Bank Statement");
     }
 
     public void removePensionCertificate(){
@@ -77,7 +85,7 @@ public class AdditionalIncomePage {
     }
 
     public void removeBankStatement(){
-        click(BANK_STATEMENT_REMOVE_ICON_AFTER, "Bank Statement remove icon");
+        click(BANK_STATEMENT_REMOVE_ICON, "Bank Statement remove icon");
         click(DOCUMENT_REMOVAL_POPUP_REMOVE, "Remove option on Document Removal");
     }
 

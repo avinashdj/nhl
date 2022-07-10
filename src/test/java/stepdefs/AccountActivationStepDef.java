@@ -1,6 +1,7 @@
 package stepdefs;
 
 import com.nhl.pages.acccountactivation.DDAAuthorizationPage;
+import com.nhl.pages.acccountactivation.SIOAuthorizationPage;
 import com.nhl.pages.acccountactivation.YourBankAccountPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -69,5 +70,68 @@ public class AccountActivationStepDef {
         Assert.assertTrue(new DDAAuthorizationPage().getScreenTitle().equalsIgnoreCase("DDA authorisation"));
     }
 
-    
+    @Then("the Continue button in the DDA is disabled")
+    public void theContinueButtonInTheDDAIsDisabled() {
+        Assert.assertFalse(new DDAAuthorizationPage().isContinueButtonEnabled());
+    }
+
+    @When("the user clicks on I Authorise in DDA page")
+    public void theUserClicksOnIAuthoriseInDDAPage() {
+        new DDAAuthorizationPage().selectConsent();
+    }
+
+    @Then("the Continue button in the DDA is enabled")
+    public void theContinueButtonInTheDDAIsEnabled() {
+        Assert.assertTrue(new DDAAuthorizationPage().isContinueButtonEnabled());
+    }
+
+    @When("the user clicks on Continue button in the DDA page")
+    public void theUserClicksOnContinueButtonInTheDDAPage() {
+        new DDAAuthorizationPage().clickContinue();
+    }
+
+    @Then("the {string} authorisation page is shown")
+    public void theAuthorisationPageIsShown(String authorisation) {
+        if(authorisation.equalsIgnoreCase("DDA")) {
+            Assert.assertTrue(new DDAAuthorizationPage().getScreenTitle().equalsIgnoreCase("DDA authorisation"));
+        } else {
+            Assert.assertTrue(new SIOAuthorizationPage().getScreenTitle().equalsIgnoreCase("SIO authorisation"));
+        }
+    }
+
+    @Then("the Continue button in the {string} authorisation page is disabled")
+    public void theContinueButtonInTheAuthorisationPageIsDisabled(String authorisation) {
+        if(authorisation.equalsIgnoreCase("DDA")) {
+            Assert.assertFalse(new DDAAuthorizationPage().isContinueButtonEnabled());
+        } else {
+            Assert.assertFalse(new SIOAuthorizationPage().isContinueButtonEnabled());
+        }
+    }
+
+    @When("the user clicks on I Authorise in {string} authorisation page")
+    public void theUserClicksOnIAuthoriseInAuthorisationPage(String authorisation) {
+        if(authorisation.equalsIgnoreCase("DDA")) {
+            new DDAAuthorizationPage().selectConsent();
+        } else {
+            new SIOAuthorizationPage().selectConsent();
+        }
+    }
+
+    @Then("the Continue button in the {string} authorisation page is enabled")
+    public void theContinueButtonInTheAuthorisationPageIsEnabled(String authorisation) {
+        if(authorisation.equalsIgnoreCase("DDA")) {
+            Assert.assertTrue(new DDAAuthorizationPage().isContinueButtonEnabled());
+        } else {
+            Assert.assertTrue(new SIOAuthorizationPage().isContinueButtonEnabled());
+        }
+    }
+
+    @When("the user clicks on Continue button in the {string} authorisation page")
+    public void theUserClicksOnContinueButtonInTheAuthorisationPage(String authorisation) {
+        if(authorisation.equalsIgnoreCase("DDA")) {
+            new DDAAuthorizationPage().clickContinue();
+        } else {
+            new SIOAuthorizationPage().clickContinue();
+        }
+    }
 }
