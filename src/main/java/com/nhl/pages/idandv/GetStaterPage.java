@@ -1,10 +1,7 @@
-package com.nhl.pages;
+package com.nhl.pages.idandv;
 
-import com.nhl.driver.DriverManager;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 /**

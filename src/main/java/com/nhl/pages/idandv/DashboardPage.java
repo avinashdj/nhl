@@ -1,4 +1,4 @@
-package com.nhl.pages;
+package com.nhl.pages.idandv;
 
 import com.nhl.driver.DriverManager;
 import io.appium.java_client.PerformsTouchActions;

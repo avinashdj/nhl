@@ -1,4 +1,4 @@
-package com.nhl.pages.sourceofincome;
+package com.nhl.pages.accountcreation.sourceofincome;
 
 import org.openqa.selenium.By;
 

@@ -1,7 +1,7 @@
 package stepdefs;
 
-import com.nhl.pages.LoginPage;
-import com.nhl.pages.referencedetails.ReferenceDetailsPage;
+import com.nhl.pages.idandv.LoginPage;
+import com.nhl.pages.accountcreation.referencedetails.ReferenceDetailsPage;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

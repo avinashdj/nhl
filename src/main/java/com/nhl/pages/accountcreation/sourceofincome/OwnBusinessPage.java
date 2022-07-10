@@ -1,29 +1,29 @@
-package com.nhl.pages.sourceofincome;
+package com.nhl.pages.accountcreation.sourceofincome;
 
 import org.openqa.selenium.By;
 
 import static com.nhl.utils.SeleniumUtils.*;
 
-public class AdditionalIncomePage {
+public class OwnBusinessPage {
 
     //Back Button
     private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
 
     private static final By SCREEN_NAME = By.xpath("//android.view.View[@content-desc='Source of income']");
-    private static final By TITLE= By.xpath("//android.view.View[@content-desc='Additional income']");
+    private static final By TITLE= By.xpath("//android.view.View[@content-desc='Own business']");
     private static final By DESCRIPTION = By.xpath("//android.view.View[contains(@content-desc, 'source of income')]");
 
     private static final By TOTAL_MONTHLY_INCOME = By.xpath("//android.widget.EditText");
-    private static final By PENSION_CERTIFICATE = By.xpath("//android.widget.ImageView[contains(@content-desc,'Pension certificate')]");
+    private static final By TRADE_LICENSE = By.xpath("//android.widget.ImageView[@content-desc='Trade License']");
     private static final By BANK_STATEMENT = By.xpath("//android.widget.ImageView[@content-desc='Bank statement']");
 
     private static final By ADD = By.xpath("//android.widget.Button[@content-desc='Add']");
 
     //Remove icon
-    private static final By PENSION_CERTIFICATE_REMOVE_ICON = By.xpath("//android.widget.ImageView[2]");
-    private static final By BANK_STATEMENT_REMOVE_ICON = By.xpath("//android.widget.ImageView[4]");
+    private static final By TRADE_LICENSE_REMOVE_ICON = By.xpath("//android.view.View[@content-desc='Trade License']/following-sibling::android.widget.ImageView[1]");
+    private static final By BANK_STATEMENT_REMOVE_ICON = By.xpath("//android.view.View[@content-desc='Bank statement']/following-sibling::android.widget.ImageView[1]");
 
-    private static final By BANK_STATEMENT_REMOVE_ICON_AFTER= By.xpath("//android.widget.ImageView[3]");
+    private static final By BANK_STATEMENT_REMOVE_ICON_AFTER= By.xpath("//android.view.View[@content-desc='Bank statement']/following-sibling::android.widget.ImageView[1]");
 
     //Document Removal Popup
     private static final By DOCUMENT_REMOVAL_POPUP_HEADING = By.xpath("//android.view.View[@content-desc='Document removal']");
@@ -35,7 +35,9 @@ public class AdditionalIncomePage {
     private static final By ALL_DOCUMENT_REMOVAL_POPUP_CANCEL = By.xpath("//android.widget.Button[@content-desc='Cancel']");
     private static final By ALL_DOCUMENT_REMOVAL_POPUP_REMOVE = By.xpath("//android.widget.Button[@content-desc='Remove']");
 
-    public AdditionalIncomePage(){
+    public static final By INDUSTRY = By.xpath("(//android.widget.ImageView)[1]");
+
+    public OwnBusinessPage(){
     }
 
     public String getScreenName(){
@@ -50,8 +52,8 @@ public class AdditionalIncomePage {
         return getContentDesc(DESCRIPTION);
     }
 
-    public void clickPensionCertificate(){
-        click(PENSION_CERTIFICATE, "Pension certificate");
+    public void clickTradeLicense(){
+        click(TRADE_LICENSE, "Salary certificate");
     }
 
     public void clickBankStatement(){
@@ -63,12 +65,18 @@ public class AdditionalIncomePage {
         sendKeys(TOTAL_MONTHLY_INCOME, income, "Total Monthly Income");
     }
 
-    public void uploadPensionCertificate(){
-        uploadDocument("file1.pdf", PENSION_CERTIFICATE, "Pension Certificate");
+    public void selectIndustry(final String value){
+        click(INDUSTRY, "Industry Dropdown");
+        String industryValue = String.format("//android.view.View[@content-desc='%s']", value);
+        click(By.xpath(industryValue), value);
     }
 
-    public void uploadPensionCertificateGreaterThan4MB(){
-        uploadDocument("file10MB.pdf", PENSION_CERTIFICATE, "Pension Certificate");
+    public void uploadTradeLicense(){
+        uploadDocument("file1.pdf", TRADE_LICENSE, "Trade License");
+    }
+
+    public void uploadTradeLicenseGreaterThan4MB(){
+        uploadDocument("file10MB.pdf", TRADE_LICENSE, "Trade License");
     }
 
     public void uploadBankStatement(){
@@ -76,11 +84,11 @@ public class AdditionalIncomePage {
     }
 
     public void uploadBankStatementGreaterThan4MB(){
-        uploadDocument("file10MB.pdf", BANK_STATEMENT, "Bank Statement");
+        uploadDocument("file10MB.pdf", BANK_STATEMENT, "Trade License");
     }
 
-    public void removePensionCertificate(){
-        click(PENSION_CERTIFICATE_REMOVE_ICON, "Salary Certificate remove icon");
+    public void removeTradeLicense(){
+        click(TRADE_LICENSE_REMOVE_ICON, "Trade License remove icon");
         click(DOCUMENT_REMOVAL_POPUP_REMOVE, "Remove option on Document Removal");
     }
 
@@ -120,7 +128,4 @@ public class AdditionalIncomePage {
     public void clickBackButton(){
         click(BACK, "BACK Button");
     }
-
-
-
 }

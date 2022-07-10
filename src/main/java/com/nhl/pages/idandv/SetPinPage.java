@@ -1,13 +1,10 @@
-package com.nhl.pages;
+package com.nhl.pages.idandv;
 
 import com.google.common.util.concurrent.Uninterruptibles;
-import com.nhl.driver.Driver;
 import com.nhl.driver.DriverManager;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;

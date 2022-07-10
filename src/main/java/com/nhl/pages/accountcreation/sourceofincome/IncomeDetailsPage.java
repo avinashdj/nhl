@@ -1,10 +1,6 @@
-package com.nhl.pages.sourceofincome;
+package com.nhl.pages.accountcreation.sourceofincome;
 
-import com.nhl.driver.DriverManager;
-import com.nhl.pages.ConfirmPinPage;
-import org.bouncycastle.jcajce.provider.symmetric.DES;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 
 import static com.nhl.utils.SeleniumUtils.*;
 

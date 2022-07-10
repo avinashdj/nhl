@@ -1,4 +1,4 @@
-package com.nhl.pages.additionaldetails;
+package com.nhl.pages.accountcreation.additionaldetails;
 
 import org.openqa.selenium.By;
 

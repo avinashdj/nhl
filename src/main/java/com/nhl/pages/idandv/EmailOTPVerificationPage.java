@@ -1,11 +1,8 @@
-package com.nhl.pages;
+package com.nhl.pages.idandv;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.nhl.driver.DriverManager;
 import com.nhl.utils.SeleniumUtils;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileDriver;
-import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;

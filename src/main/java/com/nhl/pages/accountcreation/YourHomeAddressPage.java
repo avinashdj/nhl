@@ -1,4 +1,4 @@
-package com.nhl.pages.acccountcreation;
+package com.nhl.pages.accountcreation;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import org.openqa.selenium.By;

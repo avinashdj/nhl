@@ -1,4 +1,4 @@
-package com.nhl.pages.mrn;
+package com.nhl.pages.accountcreation.mrn;
 
 import org.openqa.selenium.By;
 

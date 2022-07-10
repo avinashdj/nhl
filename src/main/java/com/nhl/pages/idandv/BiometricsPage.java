@@ -1,4 +1,4 @@
-package com.nhl.pages;
+package com.nhl.pages.idandv;
 
 import org.openqa.selenium.By;
 

@@ -1,9 +1,8 @@
-package com.nhl.pages;
+package com.nhl.pages.idandv;
 
 import com.nhl.driver.DriverManager;
 import com.nhl.pages.menunavigations.MenuMainPage;
 import com.nhl.pages.pagecomponent.TopMenuComponent;
-import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 

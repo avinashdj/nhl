@@ -1,7 +1,7 @@
 package stepdefs;
 
-import com.nhl.pages.additionaldetails.PEPPage;
-import com.nhl.pages.additionaldetails.TandCPEPPage;
+import com.nhl.pages.accountcreation.additionaldetails.PEPPage;
+import com.nhl.pages.accountcreation.additionaldetails.TandCPEPPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

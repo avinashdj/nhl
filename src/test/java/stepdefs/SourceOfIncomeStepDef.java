@@ -1,9 +1,9 @@
 package stepdefs;
 
-import com.nhl.pages.sourceofincome.AdditionalIncomePage;
-import com.nhl.pages.sourceofincome.IncomeDetailsPage;
-import com.nhl.pages.sourceofincome.OwnBusinessPage;
-import com.nhl.pages.sourceofincome.SalaryDetailsPage;
+import com.nhl.pages.accountcreation.sourceofincome.AdditionalIncomePage;
+import com.nhl.pages.accountcreation.sourceofincome.IncomeDetailsPage;
+import com.nhl.pages.accountcreation.sourceofincome.OwnBusinessPage;
+import com.nhl.pages.accountcreation.sourceofincome.SalaryDetailsPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

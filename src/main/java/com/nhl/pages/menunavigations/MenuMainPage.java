@@ -1,6 +1,6 @@
 package com.nhl.pages.menunavigations;
 
-import com.nhl.pages.SetPinPage;
+import com.nhl.pages.idandv.SetPinPage;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;

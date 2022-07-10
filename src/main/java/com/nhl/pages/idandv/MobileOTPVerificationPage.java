@@ -1,8 +1,6 @@
-package com.nhl.pages;
+package com.nhl.pages.idandv;
 
-import com.nhl.driver.DriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 
 import static com.nhl.utils.SeleniumUtils.*;
 

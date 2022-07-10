@@ -1,9 +1,7 @@
 package stepdefs;
 
 import com.google.common.util.concurrent.Uninterruptibles;
-import com.nhl.driver.DriverManager;
-import com.nhl.pages.*;
-import com.nhl.pages.sourceofincome.IncomeDetailsPage;
+import com.nhl.pages.idandv.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,9 +9,6 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReadWriteLock;
-
-import static com.nhl.utils.SeleniumUtils.isEnabled;
 
 public class RegistrationStepDef {
 
