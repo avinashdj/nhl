@@ -7,7 +7,7 @@ import static com.nhl.utils.SeleniumUtils.*;
 public class DDAAuthorizationPage {
 
     //Back Arrow
-    private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
+    private static final By BACK = By.xpath("//android.widget.Button[1]");
 
     //Screen title and Other headings
     private static final By SCREEN_TITLE = By.xpath("//android.view.View[@content-desc='DDA authorisation']");
@@ -48,6 +48,7 @@ public class DDAAuthorizationPage {
     }
 
     public String getScreenTitle(){
+        waitUntilElementPresent(SCREEN_TITLE);
         return getContentDesc(SCREEN_TITLE);
     }
 

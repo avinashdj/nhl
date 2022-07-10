@@ -7,7 +7,7 @@ import static com.nhl.utils.SeleniumUtils.*;
 public class YourBankAccountPage {
 
     //Back Arrow
-    private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
+    private static final By BACK = By.xpath("//android.widget.Button[1]");
 
     //Screen title and Other headings
     private static final By SCREEN_TITLE = By.xpath("//android.view.View[@content-desc='Your bank account'][1]");
@@ -26,7 +26,6 @@ public class YourBankAccountPage {
 
     //Loading
     private static final By LOADING = By.xpath("//android.view.View[@content-desc='Loading']");
-
 
     //Button
     private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");

@@ -7,7 +7,7 @@ import static com.nhl.utils.SeleniumUtils.*;
 public class SIOAuthorizationPage {
 
     //Back Arrow
-    private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
+    private static final By BACK = By.xpath("//android.widget.Button[1]");
 
     //Screen title and Other headings
     private static final By SCREEN_TITLE = By.xpath("//android.view.View[@content-desc='SIO authorisation'][1]");

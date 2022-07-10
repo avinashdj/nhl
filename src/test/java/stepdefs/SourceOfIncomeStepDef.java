@@ -154,19 +154,19 @@ public class SourceOfIncomeStepDef {
                 new SalaryDetailsPage().uploadSalaryCertificateGreaterThan4MB();
                 break;
             case "Salary-Bank statement" :
-                new SalaryDetailsPage().uploadBankStatement();
+                new SalaryDetailsPage().uploadBankStatementGreaterThan4MB();
                 break;
             case "Trade license":
-                new OwnBusinessPage().uploadTradeLicense();
+                new OwnBusinessPage().uploadTradeLicenseGreaterThan4MB();
                 break;
             case "Own Business-Bank statement" :
-                new OwnBusinessPage().uploadBankStatement();
+                new OwnBusinessPage().uploadBankStatementGreaterThan4MB();
                 break;
             case "Pension certificate":
-                new AdditionalIncomePage().uploadPensionCertificate();
+                new AdditionalIncomePage().uploadPensionCertificateGreaterThan4MB();
                 break;
             case "Additional Income-Bank statement" :
-                new AdditionalIncomePage().uploadBankStatement();
+                new AdditionalIncomePage().uploadBankStatementGreaterThan4MB();
                 break;
         }
     }

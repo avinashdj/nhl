@@ -23,8 +23,6 @@ public class SalaryDetailsPage {
     private static final By SALARY_CERTIFICATE_REMOVE_ICON = By.xpath("//android.widget.ImageView[2]");
     private static final By BANK_STATEMENT_REMOVE_ICON = By.xpath("//android.widget.ImageView[4]");
 
-    private static final By BANK_STATEMENT_REMOVE_ICON_AFTER= By.xpath("//android.widget.ImageView[3]");
-
     //Document Removal Popup
     private static final By DOCUMENT_REMOVAL_POPUP_HEADING = By.xpath("//android.view.View[@content-desc='Document removal']");
     private static final By DOCUMENT_REMOVAL_POPUP_CANCEL = By.xpath("//android.widget.Button[@content-desc='Cancel']");
@@ -88,7 +86,7 @@ public class SalaryDetailsPage {
     }
 
     public void removeBankStatement(){
-        click(BANK_STATEMENT_REMOVE_ICON_AFTER, "Bank Statement remove icon");
+        click(BANK_STATEMENT_REMOVE_ICON, "Bank Statement remove icon");
         click(DOCUMENT_REMOVAL_POPUP_REMOVE, "Remove option on Document Removal");
     }
 
