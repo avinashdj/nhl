@@ -35,12 +35,12 @@ public class WelcomePage {
      * @update 4/7/2022
      */
     public WelcomePage check_and_validate_menuTitle() {
-        Assert.assertEquals(DriverManager.getDriver().findElement(WELCOME_TITLE).getText(),"Welcome!","Oops.. Welcome page does not load !");
+        Assert.assertEquals(SeleniumUtils.getContentDesc(WELCOME_TITLE),"Welcome!","Oops.. Welcome page does not load !");
         return this;
     }
 
 	/**
-     * Step : perform top right-conver menu icon
+     * Step : perform top right-corner menu icon
      * @author shiwantha
      * @update 5/7/2022
      * @return

@@ -1,6 +1,7 @@
 package com.nhl.pages.menunavigations;
 
 import com.nhl.pages.SetPinPage;
+import com.nhl.pages.WelcomePage;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -46,8 +47,9 @@ public class MenuMainPage {
      * @author shiwantha
      * @update 4/7/2022
      */
-    public void step_identityVerifyClickAndNavigate() {
+    public PersonalInfoPage step_identityVerifyClickAndNavigate() {
         click(IDENTITY_VERIFY_TAB, "Verify Identity");
+        return new PersonalInfoPage();
     }
 
     /**
@@ -56,9 +58,9 @@ public class MenuMainPage {
      * @author shiwnatha
      * @update 4/7/2022
      */
-    public void step_islamicProductClickAndNavigate() {
+    public IslamicProductPage step_islamicProductClickAndNavigate() {
         click(ISLAMIC_PRODUCTS_TAB, "Islamic Products");
-    }
+        return new IslamicProductPage();    }
 
     /**
      * Step : User perform nhl-branch navigation
@@ -76,8 +78,9 @@ public class MenuMainPage {
      * @author shiwnatha
      * @update 4/7/2022
      */
-    public void step_faqsClickAndNavigate() {
+    public FaqsNHLPage step_faqsClickAndNavigate() {
         click(FAQs_TAB, "FAQs");
+        return new FaqsNHLPage();
     }
 
     /**
@@ -86,8 +89,9 @@ public class MenuMainPage {
      * @author shiwnatha
      * @update 4/7/2022
      */
-    public void step_aboutClickAndNavigate() {
+    public AboutNHLPage step_aboutClickAndNavigate() {
         click(ABOUT_NHL_TAB, "About NHL");
+        return new AboutNHLPage();
     }
 
     /**
@@ -107,7 +111,8 @@ public class MenuMainPage {
      * @author shiwnatha
      * @update 4/7/2022
      */
-    public void step_navigateBack() {
+    public WelcomePage step_navigateBack() {
         click(BACK, "GO Back");
+        return new WelcomePage();
     }
 }

@@ -39,7 +39,7 @@ public class StayUpdatedPage {
      * @update 6/7/2022
      */
     public StayUpdatedPage check_and_validate_pageTitle() {
-        Assert.assertTrue(SeleniumUtils.isDisplayed(PAGE_TITLE, "Page Title"), "Oops.. Page title not matching");
+        Assert.assertEquals(SeleniumUtils.getContentDesc(PAGE_TITLE),"Page Title","Oops.. Stay update page does not load !");
         return this;
     }
 

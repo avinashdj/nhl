@@ -1,13 +1,10 @@
 package com.nhl.pages;
 
 import com.google.common.util.concurrent.Uninterruptibles;
-import com.nhl.driver.Driver;
 import com.nhl.driver.DriverManager;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
@@ -22,7 +19,7 @@ import static com.nhl.utils.SeleniumUtils.*;
  */
 public class SetPinPage {
 
-    public static final By PAGE_TITLE = By.xpath("//android.view.View[contains(@content-desc,'PIN code')]");
+    public static final By PAGE_TITLE = By.xpath("//android.view.View[@content-desc='Set PIN']");
     public static final By PIN_TEXT = By.xpath("//android.widget.EditText");
     private static final By NEXT = By.xpath("//android.widget.Button[@content-desc=\"Next\"]");
 
@@ -46,7 +43,7 @@ public class SetPinPage {
      * @update 6/7/2022
      */
     public SetPinPage check_and_validate_pageTitle() {
-        Assert.assertTrue(SeleniumUtils.isDisplayed(PAGE_TITLE, "Page Title"), "Oops.. Page title not matching");
+        Assert.assertEquals(SeleniumUtils.getContentDesc(PAGE_TITLE),"Set PIN","Oops.. Set PIN page does not load !");
         return this;
     }
 
@@ -65,14 +62,36 @@ public class SetPinPage {
     }
 
     /**
+     * Step : User given secret pin number for quick sign-in
+     *
+     * @author shiwantha
+     * @update 6/7/2022
+     */
+    public NewPinPage step_setCurrentPin(String pin) {
+        sendKeys(PIN_TEXT,pin,"Pin Code");
+        return new NewPinPage();
+    }
+
+    /**
      * Step : User move into next phase by clicking next button
      *
      * @author shiwantha
      * @update 6/7/2022
      */
-    public ConfirmPinPage step_moveNext(){
-        SeleniumUtils.click(NEXT,"Move Next");
+    public ConfirmPinPage step_nextToConfirm(){
+        SeleniumUtils.click(NEXT,"Move Next to Confirm");
         return new ConfirmPinPage();
+    }
+
+    /**
+     * Step : User move into next phase by clicking next button
+     *
+     * @author shiwantha
+     * @update 6/7/2022
+     */
+    public NewPinPage step_nextToNew(){
+        SeleniumUtils.click(NEXT,"Move Next To New");
+        return new NewPinPage();
     }
 
     /**

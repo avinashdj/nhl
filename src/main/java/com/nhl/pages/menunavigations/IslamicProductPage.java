@@ -19,7 +19,7 @@ public class IslamicProductPage {
     public IslamicProductPage() {
     }
 
-    private static final By PAGE_TITLE = By.xpath("(//*[@class='android.view.View'])[0]");
+    private static final By PAGE_TITLE = By.xpath("//android.view.View[@content-desc='FAB ISLAMIC PRODUCTS']");
     private static final By CURRENT_SAVING_OPTION = By.xpath("//*[contains(text(),'Current & Savings accounts')]");
     private static final By CREDIT_CARD_OPTION = By.xpath("//*[contains(text(),'Credit Cards')]");
     private static final By PERSONAL_FINANCE_OPTION = By.xpath("//*[contains(text(),'Personal finance')]");
@@ -33,7 +33,7 @@ public class IslamicProductPage {
      * @update 4/7/2022
      */
     public IslamicProductPage check_and_validate_branchNHLTitle() {
-        Assert.assertTrue(SeleniumUtils.isDisplayed(PAGE_TITLE, "Page Title - Islamic Products"));
+        Assert.assertEquals(SeleniumUtils.getContentDesc(PAGE_TITLE),"FAB ISLAMIC PRODUCTS","Oops.. Islamic page does not load !");
         return this;
     }
 
