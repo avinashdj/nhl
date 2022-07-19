@@ -1,6 +1,6 @@
 package stepdefs;
 
-import com.nhl.pages.registeredmortgage.RegisteredMortgagePage;
+import com.nhl.pages.accountcreation.mrn.MRNPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,34 +10,34 @@ public class MRNConfirmationStepDef {
 
     @When("the user lands on MRN page {string}")
     public void theUserLandsOnMrnPage(String title) {
-        RegisteredMortgagePage mrn = new RegisteredMortgagePage();
+        MRNPage mrn = new MRNPage();
         Assert.assertTrue(title.equalsIgnoreCase(mrn.getScreenTitle()));
     }
 
     @When("the continue button on MRN should be disabled")
     public void theContinueButtonOnMRNShouldBeDisabled() {
-        Assert.assertFalse(new RegisteredMortgagePage().isContinueButtonClickable());
+        Assert.assertFalse(new MRNPage().isContinueButtonClickable());
     }
 
     @When("the user enters MRN {string}")
     public void theUserEntersMrn(String mortgageNumber) {
-        RegisteredMortgagePage mrn = new RegisteredMortgagePage();
+        MRNPage mrn = new MRNPage();
         mrn.enterMRN(mortgageNumber);
     }
 
     @When("the user re enters MRN {string}")
     public void theUserReEntersMrn(String reEnterMRN) {
-        new RegisteredMortgagePage().enterConfirmMRN(reEnterMRN);
+        new MRNPage().enterConfirmMRN(reEnterMRN);
     }
 
     @When("the continue button for MRN should be enabled")
     public void theContinueButtonForMrnShouldBeEnabled() {
-        Assert.assertTrue(new RegisteredMortgagePage().isContinueButtonClickable());
+        Assert.assertTrue(new MRNPage().isContinueButtonClickable());
     }
 
     @When("the user clicks on continue on MRN")
     public void theUserClicksOnContinueOnMrn() {
-        new RegisteredMortgagePage().clickContinue();
+        new MRNPage().clickContinue();
     }
 
     @When("the user lands on the congratulations page")
@@ -58,7 +58,7 @@ public class MRNConfirmationStepDef {
 
     @And("the hypertext what is MRN should be enabled {string}")
     public void theHypertextWhatIsMRNShouldBeEnabled(String linkText) {
-        RegisteredMortgagePage mrn = new RegisteredMortgagePage();
+        MRNPage mrn = new MRNPage();
         mrn.clickMRNHelpLink();
         String text = mrn.getMRNHelpText();
         //mrn.theUserClicksOnDone();
