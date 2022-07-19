@@ -1,8 +1,8 @@
 package com.nhl.pages.menunavigations;
 
 import com.nhl.driver.DriverManager;
-import com.nhl.pages.SetPinPage;
-import com.nhl.pages.StayUpdatedPage;
+import com.nhl.pages.idandv.SetPinPage;
+import com.nhl.pages.idandv.StayUpdatedPage;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
