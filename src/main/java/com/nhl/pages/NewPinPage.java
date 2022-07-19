@@ -2,6 +2,7 @@ package com.nhl.pages;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.nhl.driver.DriverManager;
+import com.nhl.pages.idandv.ConfirmPinPage;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.interactions.Actions;

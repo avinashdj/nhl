@@ -4,6 +4,7 @@ import com.nhl.annotations.FrameworkAnnotation;
 import com.nhl.listeners.TestListener;
 import com.nhl.pages.GetStaterPage;
 import com.nhl.pages.SetPinPage;
+import com.nhl.pages.idandv.GetStaterPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 

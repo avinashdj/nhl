@@ -1,8 +1,8 @@
 package com.nhl.pages.idandv;
 
-import com.nhl.driver.DriverManager;
+
 import com.nhl.pages.menunavigations.MenuMainPage;
-import com.nhl.pages.pagecomponent.TopMenuComponent;
+import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
@@ -12,10 +12,10 @@ public class WelcomePage {
 
     private static final By LETS_GET_STARTED = By.xpath("(//android.widget.Button[(@content-desc,'Let')])[2]");
     private static final By WELCOME_TITLE = By.xpath("//android.view.View[@content-desc='Welcome!']");
-    private TopMenuComponent topMenuComponent;
+    //private TopMenuComponent topMenuComponent;
 
     public WelcomePage(){
-		this.topMenuComponent = new TopMenuComponent();
+		//this.topMenuComponent = new TopMenuComponent();
     }
 
     /**
@@ -45,7 +45,7 @@ public class WelcomePage {
      * @return
      */
     public MenuMainPage switchTOMenu(){
-        this.topMenuComponent.clickOnTopMenu();
+        //this.topMenuComponent.clickOnTopMenu();
         return new MenuMainPage();
     }
 }
