@@ -17,7 +17,7 @@ import static com.nhl.utils.SeleniumUtils.click;
 public class DashboardPage {
 
     private static final By LETS_GET_STARTED = By.xpath("//*[@content-desc=\"Let’s get started\"]");
-
+    private static final By WELCOME_TITLE = By.xpath("//android.view.View[@content-desc='Welcome!']");
     public DashboardPage(){
     }
 
@@ -42,8 +42,25 @@ public class DashboardPage {
         }
     }
 
+    /**
+     * Step : User check and validate already loaded menu main page
+     *
+     * @author shiwantha
+     * @update 4/7/2022
+     */
+    public DashboardPage check_and_validate_menuTitle() {
+        Assert.assertEquals(SeleniumUtils.getContentDesc(WELCOME_TITLE),"Welcome!","Oops.. Welcome page does not load !");
+        return this;
+    }
+
     //====================================== Step 2 of 5 Widget ========================================================
 
+    /**
+     * Step : Validate 2 out of 5 widget content availability
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     */
     public WelcomePage check_and_validate_Step2OutOf5Widget(){
         By stepValue = By.xpath("//android.view.View[@content-desc='Step 2 of 5']");
         By widgetTitle = By.xpath("//android.view.View[@content-desc='Open your NHL account']");
@@ -52,6 +69,12 @@ public class DashboardPage {
         return null;
     }
 
+    /**
+     * Step : Validate 2 out of 5 widget continue event perform
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     */
     public WelcomePage step_Step2OutOf5WidgetContinue(){
         By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
         click(btnContinue,"Continue");
