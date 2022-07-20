@@ -1,6 +1,7 @@
 package com.nhl.pages.idandv;
 
 import com.nhl.driver.DriverManager;
+import com.nhl.pages.accountcreation.sourceofincome.IncomeDetailsPage;
 import com.nhl.pages.menunavigations.MenuMainPage;
 import com.nhl.utils.SeleniumUtils;
 import io.appium.java_client.PerformsTouchActions;
@@ -74,12 +75,12 @@ public class DashboardPage {
      * @author shiwantha
      * @update 19/7/2022
      */
-    public WelcomePage check_and_validate_Step2OutOf5Widget(){
+    public DashboardPage check_and_validate_Step2OutOf5Widget(){
         By stepValue = By.xpath("//android.view.View[@content-desc='Step 2 of 5']");
         By widgetTitle = By.xpath("//android.view.View[@content-desc='Open your NHL account']");
         Assert.assertEquals(SeleniumUtils.getContentDesc(stepValue),"Step 2 of 5");
         Assert.assertEquals(SeleniumUtils.getContentDesc(widgetTitle),"Open your NHL account");
-        return null;
+        return this;
     }
 
     /**
@@ -88,10 +89,10 @@ public class DashboardPage {
      * @author shiwantha
      * @update 19/7/2022
      */
-    public WelcomePage step_Step2OutOf5WidgetContinue(){
+    public IncomeDetailsPage step_Step2OutOf5WidgetContinue(){
         By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
         click(btnContinue,"Continue");
-        return null;
+        return new IncomeDetailsPage();
     }
 }
 

@@ -7,8 +7,7 @@ import static com.nhl.utils.SeleniumUtils.*;
 public class SalaryDetailsPage {
 
     //Back Button
-    private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
-
+    private static final By BACK = By.xpath("//android.view.View[@content-desc='Source of income']/preceding-sibling::android.widget.ImageView");
     private static final By SCREEN_NAME = By.xpath("//android.view.View[@content-desc='Source of income']");
     private static final By TITLE= By.xpath("//android.view.View[@content-desc='Salary details']");
     private static final By DESCRIPTION = By.xpath("//android.view.View[contains(@content-desc, 'source of income')]");
@@ -118,14 +117,20 @@ public class SalaryDetailsPage {
         click(ALL_DOCUMENT_REMOVAL_POPUP_REMOVE,  "Remove in Income Details popup");
     }
 
-    public void clickBackButton(){
-        click(BACK, "BACK Button");
-    }
 
     public boolean iSFileExceedsMaxLimitErrorShown(){
         waitUntilElementPresent(FILE_EXCEEDS_4MB);
         return isDisplayed(FILE_EXCEEDS_4MB, "File Exceeds 4MB error message");
     }
 
-
+    /**
+     * Step : User got back to previous screen using top back button
+     *
+     * @author avinash
+     * @update 20/7/2022 - shiwantha (reason : back btn click event didn't work)
+     */
+    public IncomeDetailsPage step_navigateBack(){
+        click(BACK, "GO Back");
+        return new IncomeDetailsPage();
+    }
 }

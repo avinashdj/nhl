@@ -1,17 +1,20 @@
 package com.nhl.pages.accountcreation.sourceofincome;
 
+import com.nhl.pages.idandv.DashboardPage;
+import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 import static com.nhl.utils.SeleniumUtils.*;
 
 public class IncomeDetailsPage {
 
     //Back Button
-    private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
+    private static final By BACK = By.xpath("//android.view.View[@content-desc='Source of income']/preceding-sibling::android.widget.ImageView");
 
     //Title, Screen title and Subtitle
     private static final By SCREEN_NAME = By.xpath("//android.view.View[@content-desc='Source of income']");
-    private static final By TITLE= By.xpath("//android.view.View[@content-desc='Income details']");
+    private static final By PAGE_TITLE = By.xpath("//android.view.View[@content-desc='Income details']");
     private static final By SUB_TITLE = By.xpath("//android.view.View[contains(@content-desc, 'source of income')]");
 
     //cards
@@ -30,7 +33,7 @@ public class IncomeDetailsPage {
     }
 
     public String getTitle(){
-        return getContentDesc(TITLE);
+        return getContentDesc(PAGE_TITLE);
     }
 
     public String getSubTitle() {
@@ -77,4 +80,51 @@ public class IncomeDetailsPage {
     // Total monthly salary Salary certificate, Bank statement
     // OWN BUSINESS Total monthly income Trade licence, Bank statement
     // ADDITIONAL INCOME Total monthly income Pension certificate/Rental agreement, Bank statement
+
+    /**
+     * Step : User check and validate already loaded income-source page
+     *
+     * @author shiwantha
+     * @update 20/7/2022
+     */
+    public IncomeDetailsPage check_and_validate_incomeSourceTitle() {
+        Assert.assertEquals(SeleniumUtils.getContentDesc(PAGE_TITLE),"Income details","Oops.. Income source page does not load !");
+        return this;
+    }
+
+    /**
+     * Step :  User going to provide fixed salary details by choosing 'Total Monthly Salary' option
+     *
+     * @author shiwnatha
+     * @update 20/7/2022
+     * @return SalaryDetailsPage
+     */
+    public SalaryDetailsPage step_navigateToMonthlySalaryIncome(){
+        SeleniumUtils.click(SALARY_DETAILS,"Salary Monthly Income");
+        return new SalaryDetailsPage();
+    }
+
+    /**
+     * Step :  User going to provide business income details by choosing 'Own Business' option
+     *
+     * @author shiwnatha
+     * @update 20/7/2022
+     * @return OwnBusinessPage
+     */
+    public OwnBusinessPage step_navigateToOwnBusinessIncome(){
+        SeleniumUtils.click(OWN_BUSINESS,"Own Business Income");
+        return new OwnBusinessPage();
+    }
+
+    /**
+     * Step :  User going to provide additional income details by choosing 'Total Monthly Salary' option
+     *
+     * @author shiwnatha
+     * @update 20/7/2022
+     * @return AdditionalIncomePage
+     */
+    public AdditionalIncomePage step_navigateToAdditionalIncome(){
+        SeleniumUtils.click(ADDITIONAL_INCOME,"Additional Income");
+        return new AdditionalIncomePage();
+    }
 }

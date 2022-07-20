@@ -7,7 +7,7 @@ import static com.nhl.utils.SeleniumUtils.*;
 public class AdditionalIncomePage {
 
     //Back Button
-    private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
+    private static final By BACK = By.xpath("//android.view.View[@content-desc='Source of income']/preceding-sibling::android.widget.ImageView");
 
     private static final By SCREEN_NAME = By.xpath("//android.view.View[@content-desc='Source of income']");
     private static final By TITLE= By.xpath("//android.view.View[@content-desc='Additional income']");
@@ -57,6 +57,7 @@ public class AdditionalIncomePage {
     public void clickBankStatement(){
         click(BANK_STATEMENT, "Bank Statement");
     }
+
 
     public void enterTotalMonthlyIncome(final String income){
         click(TOTAL_MONTHLY_INCOME, "Total Monthly Income text field");
@@ -117,10 +118,15 @@ public class AdditionalIncomePage {
         click(ALL_DOCUMENT_REMOVAL_POPUP_REMOVE,  "Remove in Income Details popup");
     }
 
-    public void clickBackButton(){
-        click(BACK, "BACK Button");
+    /**
+     * Step : User got back to previous screen using top back button
+     *
+     * @author shiwnatha
+     * @update 20/7/2022
+     */
+    public IncomeDetailsPage step_navigateBack(){
+        click(BACK, "GO Back");
+        return new IncomeDetailsPage();
     }
-
-
 
 }
