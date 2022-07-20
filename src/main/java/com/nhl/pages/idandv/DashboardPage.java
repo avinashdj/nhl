@@ -50,7 +50,7 @@ public class DashboardPage {
      * @author shiwantha
      * @update 4/7/2022
      */
-    public DashboardPage check_and_validate_menuTitle() {
+    public DashboardPage check_and_validate_welcomeTitle() {
         Assert.assertEquals(SeleniumUtils.getContentDesc(WELCOME_TITLE),"Welcome!","Oops.. Welcome page does not load !");
         return this;
     }

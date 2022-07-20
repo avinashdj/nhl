@@ -30,6 +30,9 @@ public final class DriverFactory {
             capabilties.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".MainActivity");
             capabilties.setCapability(MobileCapabilityType.NO_RESET, true);
             capabilties.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
+            //new session always install while execute
+            capabilties.setCapability(MobileCapabilityType.FULL_RESET, true);
+            capabilties.setCapability(MobileCapabilityType.NO_RESET, false);
             try {
                 driver =  new AndroidDriver<AndroidElement>(new URL("http://localhost:4723/wd/hub"), capabilties);
             } catch (MalformedURLException e) {

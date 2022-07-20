@@ -15,7 +15,7 @@ import static com.nhl.utils.SeleniumUtils.*;
 public class RegisterYourMobilePage {
 
     public static final By PAGE_TITLE = By.xpath("//android.view.View[contains(@content-desc,'contact number')]");
-    private static final By PHONE_NUMBER = By.xpath("//android.widget.Button[@content-desc=\"Register\"]/preceding-sibling::android.widget.EditText");
+    private static final By PHONE_NUMBER = By.className("android.widget.EditText");
     //By.xpath("//android.widget.EditText");
     private static final By SUBMIT_REGISTER = By.xpath("//android.widget.Button[@content-desc=\"Register\"]");
 
@@ -64,6 +64,7 @@ public class RegisterYourMobilePage {
      */
     public RegisterYourMobilePage step_registeredMobileNumber(String mobile) {
         sendKeys(PHONE_NUMBER, mobile, "Registered Mobile Info");
+        SeleniumUtils.hideKeyboard();
         return this;
     }
 

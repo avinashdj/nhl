@@ -96,6 +96,7 @@ public final class SeleniumUtils {
 
     public static void hideKeyboard(){
         ((AndroidDriver) DriverManager.getDriver()).hideKeyboard();
+        waitFor(2000);
     }
 
     private static String getFileFromResourceAsStream(String fileName) {
@@ -168,6 +169,13 @@ public final class SeleniumUtils {
         return isElementPresent;
     }
 
+    public static void waitFor(long mili){
+        try {
+            Thread.sleep(mili);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 }
 

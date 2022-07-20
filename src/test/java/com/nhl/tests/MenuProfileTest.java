@@ -134,13 +134,15 @@ public class MenuProfileTest extends BaseTest {
     }
 
     @FrameworkAnnotation
-    @Test(description = "User able to change login pin-code though menu profile security section")
+    @Test(description = "CPR Testing")
     public void XX() {
-        new SetPinPage().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").
+        new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760182").
+                step_registrationSubmit().step_setContinueWithOTP("").
+                step_SkipWithoutEmail().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").
                 step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
-                switchTOMenu().check_and_validate_menuTitle().
-                step_identityVerifyClickAndNavigate().check_and_validate_personalInfoTitle().
-                step_switchToChangeLoginPin().step_setCurrentPin("1234").step_setPin("4321").
-                step_nextToConfirm().step_setConfirmPin("4321").step_makeConfirmed();
+                // 2 Out of 5 Phase - Open NHL Account Widget
+                // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs
+                check_and_validate_welcomeTitle().check_and_validate_Step2OutOf5Widget();
+
     }
 }

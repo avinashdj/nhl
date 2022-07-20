@@ -101,8 +101,8 @@ public class SetPinPage {
      * @author shiwantha
      * @update 6/7/2022
      */
-    public WelcomePage step_SignIn(){
+    public DashboardPage step_SignIn(){
         SeleniumUtils.click(NEXT,"Move Next");
-        return new WelcomePage();
+        return new DashboardPage();
     }
 }
