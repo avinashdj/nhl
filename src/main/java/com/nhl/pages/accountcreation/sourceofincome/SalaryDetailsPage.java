@@ -1,5 +1,6 @@
 package com.nhl.pages.accountcreation.sourceofincome;
 
+import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 
 import static com.nhl.utils.SeleniumUtils.*;
@@ -57,16 +58,9 @@ public class SalaryDetailsPage {
         click(BANK_STATEMENT, "Bank Statement");
     }
 
-    public void enterTotalMonthlySalary(final String salary){
-        click(TOTAL_MONTHLY_SALARY, "Total Monthly salary text field");
-        sendKeys(TOTAL_MONTHLY_SALARY, salary, "Total Monthly Salary");
-        hideKeyboard();
-    }
-
     public void uploadSalaryCertificate(){
         uploadDocument("file1.pdf", SALARY_CERTIFICATE, "Salary Certificate");
     }
-
     public void uploadSalaryCertificateGreaterThan4MB(){
         uploadDocument("file10MB.pdf", SALARY_CERTIFICATE, "Salary Certificate");
     }
@@ -87,10 +81,6 @@ public class SalaryDetailsPage {
     public void removeBankStatement(){
         click(BANK_STATEMENT_REMOVE_ICON, "Bank Statement remove icon");
         click(DOCUMENT_REMOVAL_POPUP_REMOVE, "Remove option on Document Removal");
-    }
-
-    public void clickAdd(){
-        click(ADD, "Add Button");
     }
 
     public boolean isAddEnabled(){
@@ -131,6 +121,56 @@ public class SalaryDetailsPage {
      */
     public IncomeDetailsPage step_navigateBack(){
         click(BACK, "GO Back");
+        return new IncomeDetailsPage();
+    }
+
+    /**
+     * Step : User provide monthly salary details
+     *
+     * @author avinash
+     * @update 20/7/2022 - shiwantha
+     * @return SalaryDetailsPage
+     */
+    public SalaryDetailsPage step_enterTotalMonthlySalary(final String salary){
+        click(TOTAL_MONTHLY_SALARY, "Total Monthly salary text field");
+        sendKeys(TOTAL_MONTHLY_SALARY, salary, "Total Monthly Salary");
+        hideKeyboard();
+        return new SalaryDetailsPage();
+    }
+
+    /**
+     * Step : User provide monthly salary details
+     *
+     * @author avinash
+     * @update 20/7/2022 - shiwantha
+     * @return SalaryDetailsPage
+     */
+    public SalaryDetailsPage step_uploadSalaryCertificate(){
+        SeleniumUtils.waitFor(10000);
+        return new SalaryDetailsPage();
+    }
+
+    /**
+     * Step : User provide monthly salary details
+     *
+     * @author avinash
+     * @update 20/7/2022 - shiwantha
+     * @return SalaryDetailsPage
+     */
+    public SalaryDetailsPage step_uploadBankStatement(){
+        SeleniumUtils.waitFor(10000);
+        return new SalaryDetailsPage();
+    }
+
+    /**
+     * Step : User submit monthly salary details and submit
+     *
+     * @author avinash
+     * @update 20/7/2022 - shiwantha
+     * @return IncomeDetailsPage
+     */
+    public IncomeDetailsPage step_clickAdd(){
+        click(ADD, "Add Button");
         return new IncomeDetailsPage();
     }
 }

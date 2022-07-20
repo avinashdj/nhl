@@ -28,8 +28,8 @@ public class BiometricsPage {
      * @author shiwantha
      * @update 6/7/2022
      */
-    public WelcomePage step_biometricsPermissionLater(){
+    public DashboardPage step_biometricsPermissionLater(){
         click(LATER, "Later link");
-        return new WelcomePage();
+        return new DashboardPage();
     }
 }

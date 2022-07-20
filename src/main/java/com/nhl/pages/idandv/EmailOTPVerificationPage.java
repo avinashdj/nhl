@@ -54,13 +54,13 @@ public class EmailOTPVerificationPage {
      */
     public StayUpdatedPage step_setContinueWithOTP(String code) {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(15000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         //Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
         //new Actions(DriverManager.getDriver()).sendKeys(code).perform();
-        SeleniumUtils.click(CONTINUE,"Continue");
+        //SeleniumUtils.click(CONTINUE,"Continue");
         return new StayUpdatedPage();
     }
 

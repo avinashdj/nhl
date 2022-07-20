@@ -15,11 +15,11 @@ public class ReferenceDetailsPage {
     private static final By SUB_HEADING = By.xpath("//android.view.View[contains(@content-desc,'two people')]");
 
     //First Reference
-    private static final By FIRST_REF_FULL_NAME = By.xpath("//android.widget.EditText[contains(@text,'Full name')][1]");
-    private static final By FIRST_REF_RELATIONSHIP = By.xpath("//android.widget.EditText[contains(@text,'Relationship')][1]");
-    private static final By FIRST_REF_MOBILE_NUMBER = By.xpath("//android.widget.EditText[contains(@text,'Mobile number')][1]");
+    private static final By FIRST_REF_FULL_NAME = By.xpath("//android.view.View[@content-desc='FIRST REFERENCE']/following-sibling::android.widget.EditText[1]");
+    private static final By FIRST_REF_RELATIONSHIP = By.xpath("//android.view.View[@content-desc='FIRST REFERENCE']/following-sibling::android.widget.EditText[2]");
+    private static final By FIRST_REF_MOBILE_NUMBER = By.xpath("//android.view.View[@content-desc='FIRST REFERENCE']/following-sibling::android.widget.EditText[3]");
     private static final By ERROR_MESSAGE_REF_NO1 = By.xpath("//android.widget.EditText[contains(@text,'Mobile number')][1]/following-sibling::android.view.View[1]");
-    private static final By FIRST_REF_ALT_CONTACT_NUMBER = By.xpath("//android.widget.EditText[contains(@text,'Alternate contact number')][1]");
+    private static final By FIRST_REF_ALT_CONTACT_NUMBER = By.xpath("//android.view.View[@content-desc='FIRST REFERENCE']/following-sibling::android.widget.EditText[4]");
     private static final By ERROR_MESSAGE_ALT_NO1 = By.xpath("//android.widget.EditText[contains(@text,'Alternate contact number')][1]/following-sibling::android.view.View[1]");
     private static final By FIRST_REF_OFFICE_NUMBER = By.xpath("//android.widget.EditText[contains(@text,'Office number')][1]");
     private static final By ERROR_MESSAGE_OFF_NO1 = By.xpath("//android.widget.EditText[contains(@text,'Office number')][1]/following-sibling::android.view.View[1]");
@@ -40,30 +40,58 @@ public class ReferenceDetailsPage {
     public ReferenceDetailsPage(){
     }
 
-    public ReferenceDetailsPage enterFirstReferenceFullName(final String value){
-        click(FIRST_REF_FULL_NAME, "First Reference Full name");
-        sendKeys(FIRST_REF_FULL_NAME, value, "First Reference Full name");
+    /**
+     * Step :  User enter 1st reference contact person - full name
+     *
+     * @author avinsh
+     * @update 20/7/2022 - shiwantha (reason : cleanup)
+     * @return ReferenceDetailsPage
+     */
+    public ReferenceDetailsPage step_enterFirstReferenceFullName(final String value){
+        click(FIRST_REF_FULL_NAME, "Full name");
+        sendKeys(FIRST_REF_FULL_NAME, value, "Full name");
         hideKeyboard();
         return this;
     }
 
-    public ReferenceDetailsPage enterFirstReferenceRelationship(final String value){
-        click(FIRST_REF_RELATIONSHIP, "First Reference Relationship");
-        sendKeys(FIRST_REF_RELATIONSHIP, value, "First Reference Relationship");
+    /**
+     * Step :  User enter 1st reference contact person - relationship
+     *
+     * @author avinsh
+     * @update 20/7/2022 - shiwantha (reason : cleanup)
+     * @return ReferenceDetailsPage
+     */
+    public ReferenceDetailsPage step_enterFirstReferenceRelationship(final String value){
+        click(FIRST_REF_RELATIONSHIP, "Relationship");
+        sendKeys(FIRST_REF_RELATIONSHIP, value, "Relationship");
         hideKeyboard();
         return this;
     }
 
-    public ReferenceDetailsPage enterFirstReferenceMobileNumber(final String value){
-        click(FIRST_REF_MOBILE_NUMBER, "First Reference Mobile Number");
-        sendKeys(FIRST_REF_MOBILE_NUMBER, value, "First Reference Mobile Number");
+    /**
+     * Step :  User enter 1st reference contact person - primary mobile
+     *
+     * @author avinsh
+     * @update 20/7/2022 - shiwantha (reason : cleanup)
+     * @return ReferenceDetailsPage
+     */
+    public ReferenceDetailsPage step_enterFirstReferenceMobileNumber(final String value){
+        click(FIRST_REF_MOBILE_NUMBER, "Mobile Number");
+        sendKeys(FIRST_REF_MOBILE_NUMBER, value, "Mobile Number");
         hideKeyboard();
         return this;
     }
 
-    public ReferenceDetailsPage enterFirstReferenceAltContactNumber(final String value){
-        click(FIRST_REF_ALT_CONTACT_NUMBER, "First Reference Alt contact Number");
-        sendKeys(FIRST_REF_ALT_CONTACT_NUMBER, value, "First Reference Alt contact Number");
+    /**
+     * Step :  User enter 1st reference contact person - secondary mobile
+     *
+     * @author avinsh
+     * @update 20/7/2022 - shiwantha (reason : cleanup)
+     * @return ReferenceDetailsPage
+     */
+    public ReferenceDetailsPage step_enterFirstReferenceAltContactNumber(final String value){
+        click(FIRST_REF_ALT_CONTACT_NUMBER, "Alt. Reference Number");
+        sendKeys(FIRST_REF_ALT_CONTACT_NUMBER, value, "Alt. Reference Number");
         hideKeyboard();
         return this;
     }
@@ -78,30 +106,30 @@ public class ReferenceDetailsPage {
     //Second Reference
 
 
-    public ReferenceDetailsPage enterSecondReferenceFullName(final String value){
-        click(SECOND_REF_FULL_NAME, "Second Reference Full name");
-        sendKeys(SECOND_REF_FULL_NAME, value, "Second Reference Full name");
+    public ReferenceDetailsPage step_enterSecondReferenceFullName(final String value){
+        click(SECOND_REF_FULL_NAME, "Full name");
+        sendKeys(SECOND_REF_FULL_NAME, value, "Full name");
         hideKeyboard();
         return this;
     }
 
-    public ReferenceDetailsPage enterSecondReferenceRelationship(final String value){
-        click(SECOND_REF_RELATIONSHIP, "Second Reference Relationship");
-        sendKeys(SECOND_REF_RELATIONSHIP, value, "Second Reference Relationship");
+    public ReferenceDetailsPage step_enterSecondReferenceRelationship(final String value){
+        click(SECOND_REF_RELATIONSHIP, "Relationship");
+        sendKeys(SECOND_REF_RELATIONSHIP, value, "Relationship");
         hideKeyboard();
         return this;
     }
 
-    public ReferenceDetailsPage enterSecondReferenceMobileNumber(final String value){
-        click(SECOND_REF_MOBILE_NUMBER, "Second Reference Mobile Number");
-        sendKeys(SECOND_REF_MOBILE_NUMBER, value, "Second Reference Mobile Number");
+    public ReferenceDetailsPage step_enterSecondReferenceMobileNumber(final String value){
+        click(SECOND_REF_MOBILE_NUMBER, "Mobile Number");
+        sendKeys(SECOND_REF_MOBILE_NUMBER, value, "Mobile Number");
         hideKeyboard();
         return this;
     }
 
-    public ReferenceDetailsPage enterSecondReferenceAltContactNumber(final String value){
-        click(SECOND_REF_ALT_CONTACT_NUMBER, "Second Reference Alt contact Number");
-        sendKeys(SECOND_REF_ALT_CONTACT_NUMBER, value, "Second Reference Alt contact Number");
+    public ReferenceDetailsPage step_enterSecondReferenceAltContactNumber(final String value){
+        click(SECOND_REF_ALT_CONTACT_NUMBER, "Alt Mobile Number");
+        sendKeys(SECOND_REF_ALT_CONTACT_NUMBER, value, "Alt Mobile Number");
         hideKeyboard();
         return this;
     }
@@ -113,7 +141,7 @@ public class ReferenceDetailsPage {
         return this;
     }
 
-    public void clickContinue(){
+    public void step_clickContinue(){
         click(CONTINUE, "Continue Button");
     }
 

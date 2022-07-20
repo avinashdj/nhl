@@ -22,10 +22,10 @@ public class ReferenceDetailsStepDef {
     public void theUserEntersTheDetailsOfFirstReference(DataTable dt) {
         ReferenceDetailsPage rdp = new ReferenceDetailsPage();
         List<String> rdl = dt.asList();
-        rdp.enterFirstReferenceFullName(rdl.get(0));
-        rdp.enterFirstReferenceRelationship(rdl.get(1));
-        rdp.enterFirstReferenceMobileNumber(rdl.get(2));
-        rdp.enterFirstReferenceAltContactNumber(rdl.get(3));
+        rdp.step_enterFirstReferenceFullName(rdl.get(0));
+        rdp.step_enterFirstReferenceRelationship(rdl.get(1));
+        rdp.step_enterFirstReferenceMobileNumber(rdl.get(2));
+        rdp.step_enterFirstReferenceAltContactNumber(rdl.get(3));
         rdp.enterFirstReferenceOfficeNumber(rdl.get(4));
     }
 
@@ -33,16 +33,16 @@ public class ReferenceDetailsStepDef {
     public void theUserEntersTheDetailsOfSecondReference(DataTable dt) {
         ReferenceDetailsPage rdp = new ReferenceDetailsPage();
         List<String> rdl = dt.asList();
-        rdp.enterSecondReferenceFullName(rdl.get(0));
-        rdp.enterSecondReferenceRelationship(rdl.get(1));
-        rdp.enterSecondReferenceMobileNumber(rdl.get(2));
-        rdp.enterSecondReferenceAltContactNumber(rdl.get(3));
+        rdp.step_enterSecondReferenceFullName(rdl.get(0));
+        rdp.step_enterSecondReferenceRelationship(rdl.get(1));
+        rdp.step_enterSecondReferenceMobileNumber(rdl.get(2));
+        rdp.step_enterSecondReferenceAltContactNumber(rdl.get(3));
         rdp.enterSecondReferenceOfficeNumber(rdl.get(4));
     }
 
     @When("the user press on continue on reference details screen")
     public void theUserPressOnContinueOnReferenceDetailsScreen() {
-        new ReferenceDetailsPage().clickContinue();
+        new ReferenceDetailsPage().step_clickContinue();
     }
 
     @Then("the consent screen is displayed")
@@ -109,20 +109,20 @@ public class ReferenceDetailsStepDef {
         ReferenceDetailsPage rdp2 = new ReferenceDetailsPage();
         List<List<String>> rdl = dt.asLists();
         for(List l : rdl){
-            rdp1.enterFirstReferenceFullName(l.get(0).toString());
-            rdp1.enterFirstReferenceRelationship(l.get(1).toString());
-            rdp1.enterFirstReferenceMobileNumber(l.get(2).toString());
-            rdp1.enterFirstReferenceAltContactNumber(l.get(3).toString());
+            rdp1.step_enterFirstReferenceFullName(l.get(0).toString());
+            rdp1.step_enterFirstReferenceRelationship(l.get(1).toString());
+            rdp1.step_enterFirstReferenceMobileNumber(l.get(2).toString());
+            rdp1.step_enterFirstReferenceAltContactNumber(l.get(3).toString());
             rdp1.enterFirstReferenceOfficeNumber(l.get(4).toString());
-            rdp1.enterSecondReferenceFullName(l.get(5).toString());
-            rdp1.enterSecondReferenceRelationship(l.get(6).toString());
-            rdp1.enterSecondReferenceMobileNumber(l.get(7).toString());
-            rdp1.enterSecondReferenceAltContactNumber(l.get(8).toString());
+            rdp1.step_enterSecondReferenceFullName(l.get(5).toString());
+            rdp1.step_enterSecondReferenceRelationship(l.get(6).toString());
+            rdp1.step_enterSecondReferenceMobileNumber(l.get(7).toString());
+            rdp1.step_enterSecondReferenceAltContactNumber(l.get(8).toString());
             rdp1.enterSecondReferenceOfficeNumber(l.get(9).toString());
 
 
             //click on contine after entering the data
-            new ReferenceDetailsPage().clickContinue();
+            new ReferenceDetailsPage().step_clickContinue();
 
             //Error check for first reference contact numbers
             if(!l.get(2).toString().startsWith("5")){
@@ -192,15 +192,15 @@ public class ReferenceDetailsStepDef {
         ReferenceDetailsPage rdp1 = new ReferenceDetailsPage();
         List<List<String>> rdl = dt.asLists();
         for(List l : rdl) {
-            rdp1.enterFirstReferenceFullName(l.get(0).toString());
-            rdp1.enterFirstReferenceRelationship(l.get(1).toString());
-            rdp1.enterFirstReferenceMobileNumber(l.get(2).toString());
-            rdp1.enterFirstReferenceAltContactNumber(l.get(3).toString());
+            rdp1.step_enterFirstReferenceFullName(l.get(0).toString());
+            rdp1.step_enterFirstReferenceRelationship(l.get(1).toString());
+            rdp1.step_enterFirstReferenceMobileNumber(l.get(2).toString());
+            rdp1.step_enterFirstReferenceAltContactNumber(l.get(3).toString());
             rdp1.enterFirstReferenceOfficeNumber(l.get(4).toString());
-            rdp1.enterSecondReferenceFullName(l.get(5).toString());
-            rdp1.enterSecondReferenceRelationship(l.get(6).toString());
-            rdp1.enterSecondReferenceMobileNumber(l.get(7).toString());
-            rdp1.enterSecondReferenceAltContactNumber(l.get(8).toString());
+            rdp1.step_enterSecondReferenceFullName(l.get(5).toString());
+            rdp1.step_enterSecondReferenceRelationship(l.get(6).toString());
+            rdp1.step_enterSecondReferenceMobileNumber(l.get(7).toString());
+            rdp1.step_enterSecondReferenceAltContactNumber(l.get(8).toString());
             rdp1.enterSecondReferenceOfficeNumber(l.get(9).toString());
         }
             Assert.assertFalse(new ReferenceDetailsPage().isContinueButtonClickable());

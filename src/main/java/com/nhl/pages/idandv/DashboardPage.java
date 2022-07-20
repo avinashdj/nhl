@@ -70,15 +70,15 @@ public class DashboardPage {
     //====================================== Step 2 of 5 Widget ========================================================
 
     /**
-     * Step : Validate 2 out of 5 widget content availability
+     * Step : Validate 3 out of 5 widget content availability
      *
      * @author shiwantha
      * @update 19/7/2022
      */
     public DashboardPage check_and_validate_Step2OutOf5Widget(){
-        By stepValue = By.xpath("//android.view.View[@content-desc='Step 2 of 5']");
+        By stepValue = By.xpath("//android.view.View[@content-desc='Step 3 of 5']");
         By widgetTitle = By.xpath("//android.view.View[@content-desc='Open your NHL account']");
-        Assert.assertEquals(SeleniumUtils.getContentDesc(stepValue),"Step 2 of 5");
+        Assert.assertEquals(SeleniumUtils.getContentDesc(stepValue),"Step 3 of 5");
         Assert.assertEquals(SeleniumUtils.getContentDesc(widgetTitle),"Open your NHL account");
         return this;
     }
@@ -89,7 +89,7 @@ public class DashboardPage {
      * @author shiwantha
      * @update 19/7/2022
      */
-    public IncomeDetailsPage step_Step2OutOf5WidgetContinue(){
+    public IncomeDetailsPage step_StepWidgetContinue(){
         By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
         click(btnContinue,"Continue");
         return new IncomeDetailsPage();

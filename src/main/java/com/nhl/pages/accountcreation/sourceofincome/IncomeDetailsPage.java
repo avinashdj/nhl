@@ -1,6 +1,6 @@
 package com.nhl.pages.accountcreation.sourceofincome;
 
-import com.nhl.pages.idandv.DashboardPage;
+import com.nhl.pages.accountcreation.referencedetails.ReferenceDetailsPage;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -72,10 +72,6 @@ public class IncomeDetailsPage {
         return isEnabled(CONTINUE, "Continue Button");
     }
 
-    public void clickContinue(){
-        click(CONTINUE, "Continue Button");
-    }
-
     //Text to validate
     // Total monthly salary Salary certificate, Bank statement
     // OWN BUSINESS Total monthly income Trade licence, Bank statement
@@ -126,5 +122,17 @@ public class IncomeDetailsPage {
     public AdditionalIncomePage step_navigateToAdditionalIncome(){
         SeleniumUtils.click(ADDITIONAL_INCOME,"Additional Income");
         return new AdditionalIncomePage();
+    }
+
+    /**
+     * Step :  User completed income-source details submission and continue
+     *
+     * @author shiwnatha
+     * @update 20/7/2022
+     * @return AdditionalIncomePage
+     */
+    public ReferenceDetailsPage step_clickContinue(){
+        click(CONTINUE, "Continue Button");
+        return new ReferenceDetailsPage();
     }
 }

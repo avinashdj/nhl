@@ -34,7 +34,7 @@ public class SourceOfIncomeStepDef {
 
     @When("the user enter the total Monthly Salary as {string}")
     public void theUserEnterTheTotalMonthlySalaryAs(String salary) {
-        new SalaryDetailsPage().enterTotalMonthlySalary(salary);
+        new SalaryDetailsPage().step_enterTotalMonthlySalary(salary);
     }
 
 
@@ -69,7 +69,7 @@ public class SourceOfIncomeStepDef {
     }
     @When("Clicks on add button")
     public void clicksOnAddButton() {
-       new SalaryDetailsPage().clickAdd();
+       new SalaryDetailsPage().step_clickAdd();
     }
 
     @When("click on Remove link")
@@ -103,7 +103,7 @@ public class SourceOfIncomeStepDef {
     public void theUserEnterTheTotalIncomeAs(final String incomeSource, final String income) {
         switch(incomeSource){
             case "Salary":
-                new SalaryDetailsPage().enterTotalMonthlySalary(income);
+                new SalaryDetailsPage().step_enterTotalMonthlySalary(income);
                 break;
             case "Own Business" :
                 new OwnBusinessPage().enterTotalMonthlyIncome(income);
