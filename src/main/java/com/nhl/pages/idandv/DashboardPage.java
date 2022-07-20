@@ -1,6 +1,7 @@
 package com.nhl.pages.idandv;
 
 import com.nhl.driver.DriverManager;
+import com.nhl.pages.menunavigations.MenuMainPage;
 import com.nhl.utils.SeleniumUtils;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
@@ -18,6 +19,7 @@ public class DashboardPage {
 
     private static final By LETS_GET_STARTED = By.xpath("//*[@content-desc=\"Let’s get started\"]");
     private static final By WELCOME_TITLE = By.xpath("//android.view.View[@content-desc='Welcome!']");
+    private static final By MENU_ICON = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.widget.ImageView[2]");
     public DashboardPage(){
     }
 
@@ -51,6 +53,17 @@ public class DashboardPage {
     public DashboardPage check_and_validate_menuTitle() {
         Assert.assertEquals(SeleniumUtils.getContentDesc(WELCOME_TITLE),"Welcome!","Oops.. Welcome page does not load !");
         return this;
+    }
+
+    /**
+     * Step : perform top right-corner menu icon
+     * @author shiwantha
+     * @update 5/7/2022
+     * @return
+     */
+    public MenuMainPage switchTOMenu(){
+        SeleniumUtils.click(MENU_ICON,"Menu Icon");
+        return new MenuMainPage();
     }
 
     //====================================== Step 2 of 5 Widget ========================================================

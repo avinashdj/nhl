@@ -89,6 +89,8 @@ public class MenuProfileTest extends BaseTest {
                 step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
                 switchTOMenu().check_and_validate_menuTitle().
                 step_identityVerifyClickAndNavigate().check_and_validate_personalInfoTitle();
+
+
     }
 
     //====================================== MENU 1st LEVEL VIEW COVERAGE DONE =========================================
