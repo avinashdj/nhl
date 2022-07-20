@@ -7,16 +7,15 @@ import com.nhl.pages.accountcreation.mrn.MRNPage;
 import com.nhl.pages.accountcreation.referencedetails.ReferenceDetailsPage;
 import com.nhl.pages.accountcreation.sourceofincome.IncomeDetailsPage;
 import com.nhl.pages.idandv.GetStaterPage;
-import com.nhl.pages.idandv.SetPinPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
-public class WelcomePageTest extends BaseTest {
+public class CPRTermsTest extends BaseTest {
 
     @FrameworkAnnotation
-    @Test(description = "User able to follow and complete welcome dashboard guid steps under open NHL account creation")
-    public void user_able_to_see_welcome_dashboard_steps_navigation_and_its_behaviour_under_open_nhl_account_flow() {
+    @Test(description = "User make accept mandatory consumer protection right terms and conditions")
+    public void test_user_able_to_make_confirm_consumer_protection_right_terms_conditions() {
         new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760182").
                 step_registrationSubmit().step_setContinueWithOTP("").
                 step_SkipWithoutEmail().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").

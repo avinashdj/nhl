@@ -2,7 +2,11 @@ package com.nhl.tests;
 
 import com.nhl.annotations.FrameworkAnnotation;
 import com.nhl.listeners.TestListener;
+import com.nhl.pages.accountcreation.additionaldetails.CPRConditionsPage;
+import com.nhl.pages.accountcreation.additionaldetails.PEPPage;
+import com.nhl.pages.accountcreation.mrn.MRNPage;
 import com.nhl.pages.accountcreation.referencedetails.ReferenceDetailsPage;
+import com.nhl.pages.accountcreation.sourceofincome.IncomeDetailsPage;
 import com.nhl.pages.idandv.GetStaterPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -133,26 +137,5 @@ public class MenuProfileTest extends BaseTest {
                 step_nextToConfirm().step_setConfirmPin("4321").step_makeConfirmed();
     }
 
-    @FrameworkAnnotation
-    @Test(description = "CPR Testing")
-    public void XX() {
-        new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760182").
-                step_registrationSubmit().step_setContinueWithOTP("").
-                step_SkipWithoutEmail().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").
-                step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
 
-                // 2 Out of 5 Phase - Open NHL Account Widget
-                // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs
-                step_StepWidgetContinue();
-                /**check_and_validate_incomeSourceTitle().step_navigateToMonthlySalaryIncome().step_enterTotalMonthlySalary("15000").
-                step_uploadSalaryCertificate().step_uploadBankStatement().step_clickAdd().step_clickContinue();**/
-
-                // 3 Out of 5 Phase - Open NHL Account Widget
-                // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs + Income Source completion required
-                new ReferenceDetailsPage().step_enterFirstReferenceFullName("Jonny Rome").step_enterFirstReferenceRelationship("Wife").
-                step_enterFirstReferenceMobileNumber("569760183").step_enterFirstReferenceAltContactNumber("569760184").
-                step_enterSecondReferenceFullName("Joson Jo").step_enterSecondReferenceRelationship("Brother").
-                step_enterSecondReferenceMobileNumber("569760185").step_enterSecondReferenceAltContactNumber("569760186").step_clickContinue();
-
-    }
 }

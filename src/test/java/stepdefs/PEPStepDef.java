@@ -34,7 +34,7 @@ public class PEPStepDef {
 
     @When("the user clicks on continue on PEP")
     public void theUserClicksOnContinueOnPEP() {
-        new PEPPage().clickContinue();
+        new PEPPage().step_clickContinue();
 
     }
 

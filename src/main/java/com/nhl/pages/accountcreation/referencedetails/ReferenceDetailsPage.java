@@ -1,5 +1,6 @@
 package com.nhl.pages.accountcreation.referencedetails;
 
+import com.nhl.pages.accountcreation.additionaldetails.PEPPage;
 import org.openqa.selenium.By;
 
 import static com.nhl.utils.SeleniumUtils.*;
@@ -141,8 +142,16 @@ public class ReferenceDetailsPage {
         return this;
     }
 
-    public void step_clickContinue(){
+    /**
+     * Step :  User completed 3rd party reference details and continue
+     *
+     * @author shiwnatha
+     * @update 20/7/2022
+     * @return PEPPage
+     */
+    public PEPPage step_clickContinue(){
         click(CONTINUE, "Continue Button");
+        return new PEPPage();
     }
 
     public void clickBackButton(){

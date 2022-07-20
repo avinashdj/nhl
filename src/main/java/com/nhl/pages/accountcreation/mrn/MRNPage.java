@@ -1,5 +1,6 @@
 package com.nhl.pages.accountcreation.mrn;
 
+import com.nhl.pages.congratsmessages.CongratsPageAccountOpening;
 import org.openqa.selenium.By;
 
 import static com.nhl.utils.SeleniumUtils.*;
@@ -34,14 +35,17 @@ public class MRNPage {
     //Button
     private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");
 
-    public void enterMRN(final String value){
+    public MRNPage step_enterRegistrationNumber(final String value){
         sendKeys(MRN, value, "Mortgage Registration number");
         hideKeyboard();
+        return new MRNPage();
     }
 
-    public void enterConfirmMRN(final String value){
+    public MRNPage step_enterConfirmRegistrationNumber(final String value){
+        click(CONFIRM_MRN,"Confirm MRN");
         sendKeys(CONFIRM_MRN, value, "Confirm Mortgage Registration number");
         hideKeyboard();
+        return new MRNPage();
     }
 
     public String getErrorMessageForMRNDigitsNotEqualTo12(){
@@ -89,8 +93,9 @@ public class MRNPage {
         return getContentDesc(SUB_HEADING);
     }
 
-    public void clickContinue(){
+    public CongratsPageAccountOpening step_clickContinue(){
         click(CONTINUE, "Continue Button");
+        return new CongratsPageAccountOpening();
     }
 
     public void clickBackButton(){

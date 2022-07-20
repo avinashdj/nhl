@@ -22,12 +22,12 @@ public class MRNConfirmationStepDef {
     @When("the user enters MRN {string}")
     public void theUserEntersMrn(String mortgageNumber) {
         MRNPage mrn = new MRNPage();
-        mrn.enterMRN(mortgageNumber);
+        mrn.step_enterRegistrationNumber(mortgageNumber);
     }
 
     @When("the user re enters MRN {string}")
     public void theUserReEntersMrn(String reEnterMRN) {
-        new MRNPage().enterConfirmMRN(reEnterMRN);
+        new MRNPage().step_enterConfirmRegistrationNumber(reEnterMRN);
     }
 
     @When("the continue button for MRN should be enabled")
@@ -37,7 +37,7 @@ public class MRNConfirmationStepDef {
 
     @When("the user clicks on continue on MRN")
     public void theUserClicksOnContinueOnMrn() {
-        new MRNPage().clickContinue();
+        new MRNPage().step_clickContinue();
     }
 
     @When("the user lands on the congratulations page")

@@ -2,8 +2,6 @@ package com.nhl.pages.accountcreation.additionaldetails;
 
 import org.openqa.selenium.By;
 
-import java.io.InputStream;
-
 import static com.nhl.utils.SeleniumUtils.*;
 
 public class PEPPage {
@@ -12,7 +10,7 @@ public class PEPPage {
     private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
 
     //Screen title and Other headings
-    private static final By SCREEN_TITLE = By.xpath("//android.view.View[@content-desc='Additional details'][1]");
+    private static final By PAGE_TITLE = By.xpath("//android.view.View[@content-desc='Additional details'][1]");
     private static final By HEADING = By.xpath("(//android.view.View[@content-desc='Additional details'][2]");
     private static final By SUB_HEADING = By.xpath("//android.view.View[contains(@content-desc,'position?')]");
 
@@ -61,12 +59,20 @@ public class PEPPage {
     public PEPPage(){
     }
 
-    public void setPoliticallyExposed(final boolean isPEP){
+    /**
+     * Step :  User choose political expose status
+     *
+     * @author avinash
+     * @update 20/7/2022 - shiwantha (reason : cleanup code)
+     * @return PEPPage
+     */
+    public PEPPage setPoliticallyExposed(final boolean isPEP){
         if(isPEP) {
             click(PEP_YES, "PEP Yes");
         } else {
             click(PEP_NO, "PEP No");
         }
+        return this;
     }
 
     public boolean isPostionHeldDisplayed(){
@@ -86,7 +92,7 @@ public class PEPPage {
     }
 
     public String getScreenTitle(){
-        return getContentDesc(SCREEN_TITLE);
+        return getContentDesc(PAGE_TITLE);
     }
 
     public String getHeading(){
@@ -109,8 +115,16 @@ public class PEPPage {
         return getContentDesc(By.xpath(String.format(content, (Integer.parseInt(bullet) + 1 + ""))));
     }
 
-    public void clickContinue(){
-        click(CONTINUE, "Continue Button");
+    /**
+     * Step : User completed PEP status and continue
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     * @return CPRConditionsPage
+     */
+    public CPRConditionsPage step_clickContinue(){
+        click(CONTINUE, "Continue");
+        return new CPRConditionsPage();
     }
 
     public void clickBackButton(){
