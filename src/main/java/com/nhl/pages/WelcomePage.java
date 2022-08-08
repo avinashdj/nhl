@@ -10,6 +10,7 @@ public class WelcomePage {
 
     private static final By LETS_GET_STARTED = By.xpath("(//android.widget.Button[(@content-desc,'Let')])[2]");
     private TopMenuComponent topMenuComponent;
+    private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");
 
     public WelcomePage(){
 		this.topMenuComponent = new TopMenuComponent();
@@ -21,7 +22,9 @@ public class WelcomePage {
     public void clickLetsGetStartedButton(){
         click(LETS_GET_STARTED, "Let's Get Started Button");
     }
-	
+    public void clickContinue(){
+        click(CONTINUE, "Continue Button");
+    }
 	/**
      * Step : perform top right-conver menu icon
      * @author shiwantha

@@ -55,58 +55,10 @@ public class ReferenceDetailsStepDef {
         Assert.assertFalse(new ReferenceDetailsPage().isContinueButtonClickable(),"Continue button is not Clickable");
     }
 
-    @And("the user gets {string} error in first reference contact number")
-    public void theUserGetsErrorInFirstReferenceContactNumber(String errMsg) {
-        String actErr = new ReferenceDetailsPage().errContactNumberFirst();
-        Assert.assertEquals(actErr, errMsg,
-                String.format("Actual message %s does not match expected message %s",
-                        actErr, errMsg ));
-    }
 
-    @And("the user gets {string} error in first reference alternate contact number")
-    public void theUserGetsErrorInFirstReferenceAlternateContactNumber(String errMsg) {
-        String actErr = new ReferenceDetailsPage().errAltContactNumberFirst();
-        Assert.assertEquals(actErr, errMsg,
-                String.format("Actual message %s does not match expected message %s",
-                        actErr, errMsg ));
-    }
-
-    @And("the user gets {string} error in first reference office contact number")
-    public void theUserGetsErrorInFirstReferenceOfficeContactNumber(String errMsg) {
-        String actErr = new ReferenceDetailsPage().errOfficeNumberFirst();
-        Assert.assertEquals(actErr, errMsg,
-                String.format("Actual message %s does not match expected message %s",
-                        actErr, errMsg ));
-    }
-
-    @And("the user gets {string} error in Second reference contact number")
-    public void theUserGetsErrorInSecondReferenceContactNumber(String errMsg) {
-        String actErr = new ReferenceDetailsPage().errContactNumberSecond();
-        Assert.assertEquals(actErr, errMsg,
-                String.format("Actual message %s does not match expected message %s",
-                        actErr, errMsg ));
-    }
-
-    @And("the user gets {string} error in Second reference alternate contact number")
-    public void theUserGetsErrorInSecondReferenceAlternateContactNumber(String errMsg) {
-        String actErr = new ReferenceDetailsPage().errAltContactNumberSecond();
-        Assert.assertEquals(actErr, errMsg,
-                String.format("Actual message %s does not match expected message %s",
-                        actErr, errMsg ));
-    }
-
-    @And("the user gets {string} error in Second reference office contact number")
-    public void theUserGetsErrorInSecondReferenceOfficeContactNumber(String errMsg) {
-        String actErr = new ReferenceDetailsPage().errOfficeNumberSecond();
-        Assert.assertEquals(actErr, errMsg,
-                String.format("Actual message %s does not match expected message %s",
-                        actErr, errMsg ));
-    }
-
-    @When("the user enters the details of reference details list")
+    @When("the user enters the details of invalid reference details list")
     public void theUserEntersTheDetailsOfReferenceDetailsList(DataTable dt) {
         ReferenceDetailsPage rdp1 = new ReferenceDetailsPage();
-        ReferenceDetailsPage rdp2 = new ReferenceDetailsPage();
         List<List<String>> rdl = dt.asLists();
         for(List l : rdl){
             rdp1.enterFirstReferenceFullName(l.get(0).toString());
@@ -120,68 +72,34 @@ public class ReferenceDetailsStepDef {
             rdp1.enterSecondReferenceAltContactNumber(l.get(8).toString());
             rdp1.enterSecondReferenceOfficeNumber(l.get(9).toString());
 
-
-            //click on contine after entering the data
-            new ReferenceDetailsPage().clickContinue();
+            rdp1.clickContinue();
+            Assert.assertFalse(rdp1.isContinueButtonClickable(),"Continue button is clickable");
 
             //Error check for first reference contact numbers
             if(!l.get(2).toString().startsWith("5")){
-                theUserGetsErrorInFirstReferenceContactNumber("Please enter a valid number");
-            }
-            if(!l.get(3).toString().startsWith("5")){
-                theUserGetsErrorInFirstReferenceAlternateContactNumber("Please enter a valid number");
-            }
-            if(!(l.get(4).toString().startsWith("02") || l.get(4).toString().startsWith("04") || l.get(4).toString().startsWith("08"))){
-                theUserGetsErrorInFirstReferenceOfficeContactNumber("Please enter a valid number");
-            }
+                Assert.assertTrue(rdp1.VerifyNumberError("Mobile number","1"),"Error message mismatch");
 
+            }
+            if(!(l.get(3).toString().startsWith("5") || l.get(3).toString().startsWith("02") || l.get(3).toString().startsWith("04") || l.get(3).toString().startsWith("06") || l.get(3).toString().startsWith("08"))){
+                Assert.assertTrue(rdp1.VerifyNumberError("Alternate contact number", "1"),"Error message mismatch");
+            }
+            if(!(l.get(4).toString().startsWith("02") || l.get(4).toString().startsWith("04") || l.get(4).toString().startsWith("06") || l.get(4).toString().startsWith("08"))){
+                Assert.assertTrue(rdp1.VerifyNumberError("Office number", "1"),"Error message mismatch");
+            }
 
             //Error check for second reference contact numbers
 
             if(!l.get(7).toString().startsWith("5")){
-                theUserGetsErrorInFirstReferenceContactNumber("Please enter a valid number");
+                Assert.assertTrue(rdp1.VerifyNumberError("Mobile number","2"),"Error message mismatch");
+
             }
-            if(!l.get(8).toString().startsWith("5")){
-                theUserGetsErrorInFirstReferenceAlternateContactNumber("Please enter a valid number");
+            if(!(l.get(8).toString().startsWith("5") || l.get(8).toString().startsWith("02") || l.get(8).toString().startsWith("04") || l.get(8).toString().startsWith("06") || l.get(8).toString().startsWith("08"))){
+                Assert.assertTrue(rdp1.VerifyNumberError("Alternate contact number", "2"),"Error message mismatch");
             }
-            if(!(l.get(9).toString().startsWith("02") || l.get(9).toString().startsWith("04") || l.get(9).toString().startsWith("08"))){
-                theUserGetsErrorInFirstReferenceOfficeContactNumber("Please enter a valid number");
+            if(!(l.get(9).toString().startsWith("02") || l.get(9).toString().startsWith("04") || l.get(9).toString().startsWith("06") || l.get(9).toString().startsWith("08"))){
+                Assert.assertTrue(rdp1.VerifyNumberError("Office number", "2"),"Error message mismatch");
             }
 
-//            //Blank check
-//            if(l.get(0).toString().isBlank() || l.get(1).toString().isBlank() || l.get(2).toString().isBlank() || l.get(3).toString().isBlank() || l.get(5).toString().isBlank() || l.get(6).toString().isBlank() || l.get(7).toString().isBlank() || l.get(8).toString().isBlank()){
-//                theContinueButtonOnReferenceDetailsShouldBeDisabled();
-//            }
-//
-//            //
-//            else
-//            {
-//                //click on continue
-//                new ReferenceDetailsPage().clickContinue();
-//                //Error check for first reference contact numbers
-//                if(!l.get(2).toString().startsWith("5")){
-//                    theUserGetsErrorInFirstReferenceContactNumber("Please enter a valid number");
-//                }
-//                if(!l.get(3).toString().startsWith("5")){
-//                    theUserGetsErrorInFirstReferenceAlternateContactNumber("Please enter a valid number");
-//                }
-//                if(!(l.get(4).toString().startsWith("02") || l.get(4).toString().startsWith("04") || l.get(4).toString().startsWith("08"))){
-//                    theUserGetsErrorInFirstReferenceOfficeContactNumber("Please enter a valid number");
-//                }
-//
-//
-//                //Error check for second reference contact numbers
-//
-//                if(!l.get(7).toString().startsWith("5")){
-//                    theUserGetsErrorInFirstReferenceContactNumber("Please enter a valid number");
-//                }
-//                if(!l.get(8).toString().startsWith("5")){
-//                    theUserGetsErrorInFirstReferenceAlternateContactNumber("Please enter a valid number");
-//                }
-//                if(!(l.get(9).toString().startsWith("02") || l.get(9).toString().startsWith("04") || l.get(9).toString().startsWith("08"))){
-//                    theUserGetsErrorInFirstReferenceOfficeContactNumber("Please enter a valid number");
-//                }
-//            }
             }
         }
 
@@ -203,11 +121,31 @@ public class ReferenceDetailsStepDef {
             rdp1.enterSecondReferenceAltContactNumber(l.get(8).toString());
             rdp1.enterSecondReferenceOfficeNumber(l.get(9).toString());
         }
-            Assert.assertFalse(new ReferenceDetailsPage().isContinueButtonClickable());
+            Assert.assertFalse(new ReferenceDetailsPage().isContinueButtonClickable(),"Continue button is clickable");
     }
 
     @And("the user swipes to Account Opening card")
     public void theUserSwipesToAccountOpeningCard() {
         new LoginPage().swapRightToLeftMortgage();
     }
+
+    @When("the user enters the details valid of reference details list")
+    public void theUserEntersTheDetailsValidOfReferenceDetailsList(DataTable dt) {
+        ReferenceDetailsPage rdp1 = new ReferenceDetailsPage();
+        List<List<String>> rdl = dt.asLists();
+        for(List l : rdl) {
+            rdp1.enterFirstReferenceFullName(l.get(0).toString());
+            rdp1.enterFirstReferenceRelationship(l.get(1).toString());
+            rdp1.enterFirstReferenceMobileNumber(l.get(2).toString());
+            rdp1.enterFirstReferenceAltContactNumber(l.get(3).toString());
+            rdp1.enterFirstReferenceOfficeNumber(l.get(4).toString());
+            rdp1.enterSecondReferenceFullName(l.get(5).toString());
+            rdp1.enterSecondReferenceRelationship(l.get(6).toString());
+            rdp1.enterSecondReferenceMobileNumber(l.get(7).toString());
+            rdp1.enterSecondReferenceAltContactNumber(l.get(8).toString());
+            rdp1.enterSecondReferenceOfficeNumber(l.get(9).toString());
+        }
+        Assert.assertTrue(new ReferenceDetailsPage().isContinueButtonClickable(),"Continue button is not enabled");
+    }
+
 }
