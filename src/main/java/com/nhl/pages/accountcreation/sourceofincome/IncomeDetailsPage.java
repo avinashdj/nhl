@@ -9,6 +9,9 @@ import static com.nhl.utils.SeleniumUtils.*;
 
 public class IncomeDetailsPage {
 
+    public IncomeDetailsPage(){
+    }
+
     //Back Button
     private static final By BACK = By.xpath("//android.view.View[@content-desc='Source of income']/preceding-sibling::android.widget.ImageView");
 
@@ -24,9 +27,6 @@ public class IncomeDetailsPage {
 
     //Continue button
     private static final By CONTINUE = By.xpath("//*[@content-desc='Continue']");
-
-    public IncomeDetailsPage(){
-    }
 
     public String getScreenName(){
         return getContentDesc(SCREEN_NAME);
@@ -133,6 +133,7 @@ public class IncomeDetailsPage {
      */
     public ReferenceDetailsPage step_clickContinue(){
         click(CONTINUE, "Continue Button");
+        waitFor(5000);
         return new ReferenceDetailsPage();
     }
 }

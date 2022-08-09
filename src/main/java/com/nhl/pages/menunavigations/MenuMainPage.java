@@ -19,7 +19,8 @@ public class MenuMainPage {
     public MenuMainPage() {
     }
 
-    private static final By BACK = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button");
+    private static final By BACK = By.xpath("\t\n" +
+            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ImageView");
     private static final By PAGE_TITLE = By.xpath("//android.view.View[@content-desc='Menu']");
     private static final By IDENTITY_VERIFY_TAB = By.xpath("//android.view.View[@content-desc='OTHER FAB PRODUCTS']/preceding-sibling::*");
     private static final By ISLAMIC_PRODUCTS_TAB = By.xpath("//android.view.View[@content-desc='OTHER FAB PRODUCTS']/following-sibling::android.view.View[1]");

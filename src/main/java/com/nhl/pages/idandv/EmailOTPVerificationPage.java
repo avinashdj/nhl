@@ -10,6 +10,7 @@ import org.testng.Assert;
 import java.util.concurrent.TimeUnit;
 
 import static com.nhl.utils.SeleniumUtils.click;
+import static com.nhl.utils.SeleniumUtils.sendKeys;
 
 /**
  * Capture verification code send to user's mobile ot email
@@ -54,13 +55,14 @@ public class EmailOTPVerificationPage {
      */
     public StayUpdatedPage step_setContinueWithOTP(String code) {
         try {
-            Thread.sleep(15000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        //Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
-        //new Actions(DriverManager.getDriver()).sendKeys(code).perform();
-        //SeleniumUtils.click(CONTINUE,"Continue");
+//        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
+//        sendKeys(,code,"Pin Code");
+//        SeleniumUtils.hideKeyboard();
+//        SeleniumUtils.click(CONTINUE,"Continue");
         return new StayUpdatedPage();
     }
 

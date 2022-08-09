@@ -146,7 +146,7 @@ public class SalaryDetailsPage {
      * @return SalaryDetailsPage
      */
     public SalaryDetailsPage step_uploadSalaryCertificate(){
-        SeleniumUtils.waitFor(10000);
+        SeleniumUtils.waitFor(8000);
         return new SalaryDetailsPage();
     }
 
@@ -158,7 +158,7 @@ public class SalaryDetailsPage {
      * @return SalaryDetailsPage
      */
     public SalaryDetailsPage step_uploadBankStatement(){
-        SeleniumUtils.waitFor(10000);
+        SeleniumUtils.waitFor(8000);
         return new SalaryDetailsPage();
     }
 

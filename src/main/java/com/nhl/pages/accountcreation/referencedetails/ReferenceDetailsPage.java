@@ -1,11 +1,16 @@
 package com.nhl.pages.accountcreation.referencedetails;
 
 import com.nhl.pages.accountcreation.additionaldetails.PEPPage;
+import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 
 import static com.nhl.utils.SeleniumUtils.*;
 
 public class ReferenceDetailsPage {
+
+    public ReferenceDetailsPage(){
+    }
+
 
     //Back Button
     private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
@@ -39,6 +44,7 @@ public class ReferenceDetailsPage {
     //Button
     private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");
 
+
     //create generic xpath
     private static String genericEditXpath = "//android.widget.EditText[contains(@text,'%s')][%s]";
 
@@ -53,9 +59,6 @@ public class ReferenceDetailsPage {
         return By.xpath(String.format(genericErrorEditXpath, identifier, index));
     }
 
-
-    public ReferenceDetailsPage(){
-    }
 
     /**
      * Step :  User enter 1st reference contact person - full name
@@ -214,6 +217,7 @@ public class ReferenceDetailsPage {
      */
     public PEPPage step_clickContinue(){
         click(CONTINUE, "Continue Button");
+        SeleniumUtils.waitFor(3000);
         return new PEPPage();
     }
 

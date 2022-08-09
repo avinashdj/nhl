@@ -24,16 +24,27 @@ public class FaqsNHLPage {
 
     private static final By PAGE_TITLE = By.xpath("//android.view.View[@content-desc='FAQs']");
     private static final By QUESTION_ITEMS = By.className("android.widget.ScrollView");
-    private static final By BACK = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.Button");
-
+    private static final By BACK = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ImageView");
     /**
      * Step : User check and validate already loaded faq's page
      *
      * @author shiwantha
      * @update 4/7/2022
      */
-    public void check_and_validate_faqsNHLTitle() {
+    public FaqsNHLPage check_and_validate_faqsNHLTitle() {
         Assert.assertTrue(SeleniumUtils.isDisplayed(PAGE_TITLE, "Page Title - Faq"));
+        return this;
+    }
+
+    /**
+     * Step : User move back from FAQ's screen
+     *
+     * @author shiwantha
+     * @update 4/7/2022
+     */
+    public MenuMainPage step_goBack(){
+        SeleniumUtils.click(BACK, "BACK");
+        return new MenuMainPage();
     }
 
     /**
@@ -42,7 +53,7 @@ public class FaqsNHLPage {
      * @author shiwantha
      * @update 4/7/2022
      */
-    public void check_and_validate_faqQuestionsBody() {
+    public FaqsNHLPage check_and_validate_faqQuestionsBody() {
         Map<String, String> map = new HashMap<>();
         map.put("Why do I need to register?", "You need to register in order to access your grant details");
         map.put("My Emirates ID is not scanning - what can I do?", "Please bring your Emirates ID closer to the camera");
@@ -69,6 +80,6 @@ public class FaqsNHLPage {
             Assert.assertTrue(eleAnswer.getAttribute("content-desc").contains(answer),"Oops.. Faqs answer does not match !");
             SeleniumUtils.click(BACK,"Move Back");
         }
-
+        return this;
     }
 }

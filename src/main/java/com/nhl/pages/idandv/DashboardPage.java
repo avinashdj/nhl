@@ -1,8 +1,10 @@
 package com.nhl.pages.idandv;
 
 import com.nhl.driver.DriverManager;
+import com.nhl.pages.accountcreation.YourHomeAddressPage;
 import com.nhl.pages.accountcreation.sourceofincome.IncomeDetailsPage;
 import com.nhl.pages.menunavigations.MenuMainPage;
+import com.nhl.pages.verifyidentityphase.ADHAApplicationPage;
 import com.nhl.utils.SeleniumUtils;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
@@ -52,6 +54,7 @@ public class DashboardPage {
      * @update 4/7/2022
      */
     public DashboardPage check_and_validate_welcomeTitle() {
+        SeleniumUtils.waitUntilElementPresent(WELCOME_TITLE);
         Assert.assertEquals(SeleniumUtils.getContentDesc(WELCOME_TITLE),"Welcome!","Oops.. Welcome page does not load !");
         return this;
     }
@@ -84,15 +87,75 @@ public class DashboardPage {
     }
 
     /**
-     * Step : Validate 2 out of 5 widget continue event perform
+     * Step : Validate 1 out of 5 widget continue event perform
      *
      * @author shiwantha
      * @update 19/7/2022
      */
-    public IncomeDetailsPage step_StepWidgetContinue(){
+    public YourHomeAddressPage step_StepWidgetContinueForOpenNHLAccount1Out5(){
+        By btnContinue = By.xpath("//android.widget.Button[@content-desc=\"Let’s get started\"]");
+        click(btnContinue,"Continue");
+        return new YourHomeAddressPage();
+    }
+
+    /**
+     * Step : Validate 1 out of 5 widget continue event perform
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     */
+    public YourHomeAddressPage step_StepWidgetContinueForOpenNHLAccount2Out5(){
         By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
         click(btnContinue,"Continue");
-        return new IncomeDetailsPage();
+        return new YourHomeAddressPage();
+    }
+
+    /**
+     * Step : Validate 1 out of 5 widget continue event perform
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     */
+    public YourHomeAddressPage step_StepWidgetContinueForOpenNHLAccount3Out5(){
+        By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
+        click(btnContinue,"Continue");
+        return new YourHomeAddressPage();
+    }
+
+    /**
+     * Step : Validate 1 out of 5 widget continue event perform
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     */
+    public YourHomeAddressPage step_StepWidgetContinueForOpenNHLAccount4Out5(){
+        By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
+        SeleniumUtils.waitUntilElementToBeClickable(btnContinue).click();
+        return new YourHomeAddressPage();
+    }
+
+    /**
+     * Step : Validate 1 out of 5 widget continue event perform
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     */
+    public YourHomeAddressPage step_StepWidgetContinueForOpenNHLAccount5Out5(){
+        By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
+        click(btnContinue,"Continue");
+        return new YourHomeAddressPage();
+    }
+
+    /**
+     * Step : Validate 1 out of 3 widget continue event perform
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     */
+    public ADHAApplicationPage step_StepWidgetContinueForVerifyIdentity(){
+        By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
+        click(btnContinue,"Continue");
+        return new ADHAApplicationPage();
     }
 }
 

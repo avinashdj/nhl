@@ -1,6 +1,9 @@
 package com.nhl.pages.accountcreation;
 
 import com.google.common.util.concurrent.Uninterruptibles;
+import com.nhl.pages.accountcreation.sourceofincome.IncomeDetailsPage;
+import com.nhl.pages.idandv.DashboardPage;
+import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 
 import java.util.Objects;
@@ -9,6 +12,9 @@ import java.util.concurrent.TimeUnit;
 import static com.nhl.utils.SeleniumUtils.*;
 
 public class YourHomeAddressPage {
+
+    public YourHomeAddressPage(){
+    }
 
     //Links
     private static final By UPDATE = By.xpath("//android.widget.Button[@content-desc='Update']");
@@ -43,10 +49,7 @@ public class YourHomeAddressPage {
 
     //Button
     private static final By CONTINUE = By.xpath("//*[@content-desc='Continue']");
-    private static final By CONFIRM = By.xpath("//*[@content-desc='Confirm']");
-
-    public YourHomeAddressPage(){
-    }
+    private static final By CONFIRM = By.xpath("//android.widget.Button[@content-desc='Confirm']");
 
     public YourHomeAddressPage enterVillaNumber(final String value){
         click(VILLA_NUMBER, "Villa Number");
@@ -177,5 +180,17 @@ public class YourHomeAddressPage {
             }
         }
         return isShown;
+    }
+
+    /**
+     * Step : User make confirm given address details
+     *
+     * @author shiwantha
+     * @update 8/8/2022
+     */
+    public IncomeDetailsPage step_confirmAddress(){
+        SeleniumUtils.waitFor(3000);
+        SeleniumUtils.waitUntilElementToBeClickable(CONFIRM).click();
+        return new IncomeDetailsPage();
     }
 }

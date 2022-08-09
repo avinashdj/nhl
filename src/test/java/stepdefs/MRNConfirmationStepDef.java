@@ -48,7 +48,7 @@ public class MRNConfirmationStepDef {
 
     @When("the user clicks on continue on MRN")
     public void theUserClicksOnContinueOnMrn() {
-        new MRNPage().step_clickContinue();
+        new MRNPage().step_clickDone();
     }
 
 

@@ -1,8 +1,11 @@
 package com.nhl.pages.idandv;
 
+import com.google.common.util.concurrent.Uninterruptibles;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.testng.Assert;
+
+import java.util.concurrent.TimeUnit;
 
 import static com.nhl.utils.SeleniumUtils.click;
 
@@ -64,6 +67,7 @@ public class LocationPage {
      * @update 6/7/2022
      */
     public BiometricsPage step_locationPermissionLater(){
+        Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
         click(LATER, "Later link");
         return new BiometricsPage();
     }

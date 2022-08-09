@@ -81,7 +81,7 @@ public class MenuProfileTest extends BaseTest {
                 step_SkipWithoutEmail().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").
                 step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
                 switchTOMenu().check_and_validate_menuTitle().
-                step_islamicProductClickAndNavigate().check_and_validate_branchNHLTitle();
+                step_islamicProductClickAndNavigate().check_and_validate_islamicProductsTitle();
     }
 
     @FrameworkAnnotation
@@ -107,7 +107,8 @@ public class MenuProfileTest extends BaseTest {
                 step_SkipWithoutEmail().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").
                 step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
                 switchTOMenu().check_and_validate_menuTitle().
-                step_identityVerifyClickAndNavigate().check_and_validate_personalInfoTitle().
+                step_identityVerifyClickAndNavigate().
+                check_and_validate_personalInfoTitle().
                 check_and_validate_customerName("Shiwantha Lakmal").
                 check_and_validate_customerEmail("Stay updated about your application").check_and_validate_customerMobile("+971 56 976 0182");
     }

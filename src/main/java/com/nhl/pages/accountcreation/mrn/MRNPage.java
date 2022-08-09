@@ -1,13 +1,15 @@
 package com.nhl.pages.accountcreation.mrn;
 
 
-import com.nhl.pages.congratsmessages.CongratsPageAccountOpening;
+//import com.nhl.pages.congratsmessages.CongratsPageAccountOpening;
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.nhl.driver.DriverManager;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
+import com.nhl.pages.accountcreation.CongratsPageAccountOpening;
+import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 
@@ -120,8 +122,9 @@ public class MRNPage {
         return getContentDesc(SUB_HEADING);
     }
 
-    public CongratsPageAccountOpening step_clickContinue(){
+    public CongratsPageAccountOpening step_clickDone(){
         click(CONTINUE, "Continue Button");
+        SeleniumUtils.waitFor(10000);
         return new CongratsPageAccountOpening();
     }
 
