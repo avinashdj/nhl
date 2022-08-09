@@ -154,7 +154,7 @@ public class ReferenceDetailsPage {
      */
     public PEPPage step_clickContinue(){
         click(CONTINUE, "Continue Button");
-        SeleniumUtils.waitFor(5000);
+        SeleniumUtils.waitFor(3000);
         return new PEPPage();
     }
 

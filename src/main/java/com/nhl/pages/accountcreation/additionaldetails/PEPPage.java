@@ -8,8 +8,7 @@ import static com.nhl.utils.SeleniumUtils.*;
 public class PEPPage {
 
     public PEPPage(){
-        //Makesure Page Loaded ! and Visible..
-        //SeleniumUtils.waitUntilElementToBeClickable(PEP_YES);
+
     }
 
     //Back Arrow

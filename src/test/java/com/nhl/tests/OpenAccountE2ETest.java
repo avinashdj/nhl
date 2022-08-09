@@ -30,7 +30,7 @@ public class OpenAccountE2ETest extends BaseTest {
 
         // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs
         // 3 Out of 3 Phase - Verify Your Identity ====================================================================
-        new ADHAApplicationPage().check_and_validate_personalInfoTitle().check_and_validate_applicationNo("SL823022").
+        new ADHAApplicationPage().check_and_validate_personalInfoTitle().check_and_validate_applicationNo("SL823025").
                 check_and_validate_applicationType("appType").
                 check_and_validate_grantedAmount("AED 800,000.00").
                 check_and_validate_serviceType("250000").
@@ -64,7 +64,7 @@ public class OpenAccountE2ETest extends BaseTest {
                 step_enterSecondReferenceMobileNumber("569760185").
                 step_enterSecondReferenceAltContactNumber("569760186").step_clickContinue();
 
-        new DashboardPage().step_StepWidgetContinueForOpenNHLAccount4Out5();
+        //new DashboardPage().step_StepWidgetContinueForOpenNHLAccount4Out5();
 
         // 4 Out of 5 Phase - Open NHL Account Widget =================================================================
         // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs + Income Source + Reference Details completion required

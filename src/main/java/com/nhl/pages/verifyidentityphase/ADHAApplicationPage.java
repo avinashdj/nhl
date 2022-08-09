@@ -157,7 +157,6 @@ public class ADHAApplicationPage {
      */
     public KeyFactsStatementPage step_confirmedADHAApplication() {
         //TODO build logic when its enable / disable checkbox
-        //SeleniumUtils.click(APPROVED_CONFIRMED,"APPROVED INFO");
         SeleniumUtils.click(CONTINUE,"CONTINUE");
         return new KeyFactsStatementPage();
     }

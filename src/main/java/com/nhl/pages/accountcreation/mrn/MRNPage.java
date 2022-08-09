@@ -1,6 +1,7 @@
 package com.nhl.pages.accountcreation.mrn;
 
 import com.nhl.pages.accountcreation.CongratsPageAccountOpening;
+import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 
 import static com.nhl.utils.SeleniumUtils.*;
@@ -95,6 +96,7 @@ public class MRNPage {
 
     public CongratsPageAccountOpening step_clickDone(){
         click(CONTINUE, "Continue Button");
+        SeleniumUtils.waitFor(10000);
         return new CongratsPageAccountOpening();
     }
 

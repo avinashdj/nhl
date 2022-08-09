@@ -20,7 +20,7 @@ public class KeyFactsStatementPage {
 
     private static final By PAGE_TITLE = By.xpath("//android.view.View[@content-desc='Key facts statement']");
     private static final By APPROVED_CONFIRMED = By.className("android.widget.CheckBox");
-    private static final By CONTINUE = By.className("android.widget.Button");
+    private static final By CONTINUE = By.xpath("//*[@content-desc='Continue']");
 
     /**
      * Step : User check and validate already loaded adha-application page
@@ -44,7 +44,7 @@ public class KeyFactsStatementPage {
         Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
         SeleniumUtils.click(CONTINUE,"CONTINUE");
         Uninterruptibles.sleepUninterruptibly(10, TimeUnit.SECONDS);
-        SeleniumUtils.waitFor(15000);
+        SeleniumUtils.waitFor(10000);
         return new CongratsPageVerifyIdentity();
     }
 
