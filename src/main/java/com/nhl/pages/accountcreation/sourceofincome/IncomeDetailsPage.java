@@ -133,6 +133,7 @@ public class IncomeDetailsPage {
      */
     public ReferenceDetailsPage step_clickContinue(){
         click(CONTINUE, "Continue Button");
+        waitFor(5000);
         return new ReferenceDetailsPage();
     }
 }

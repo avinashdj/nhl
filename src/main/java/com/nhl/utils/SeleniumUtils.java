@@ -10,6 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -67,6 +68,12 @@ public final class SeleniumUtils {
 
     public static void enterPin(final String value){
         new Actions(DriverManager.getDriver()).sendKeys(value).perform();
+    }
+
+    public static void getScrollToElement(By by){
+        TouchActions action = new TouchActions(DriverManager.getDriver());
+        action.scroll(DriverManager.getDriver().findElement(by), 10, 100);
+        action.perform();
     }
 
     public static WebElement waitUntilElementToBeVisible(By by) {

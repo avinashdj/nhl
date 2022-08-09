@@ -1,6 +1,8 @@
 package com.nhl.pages.accountcreation;
 
 import com.google.common.util.concurrent.Uninterruptibles;
+import com.nhl.pages.accountcreation.sourceofincome.IncomeDetailsPage;
+import com.nhl.pages.idandv.DashboardPage;
 import org.openqa.selenium.By;
 
 import java.util.Objects;
@@ -43,7 +45,7 @@ public class YourHomeAddressPage {
 
     //Button
     private static final By CONTINUE = By.xpath("//*[@content-desc='Continue']");
-    private static final By CONFIRM = By.xpath("//*[@content-desc='Confirm']");
+    private static final By CONFIRM = By.xpath("//android.widget.Button[@content-desc='Confirm']");
 
     public YourHomeAddressPage(){
     }
@@ -177,5 +179,16 @@ public class YourHomeAddressPage {
             }
         }
         return isShown;
+    }
+
+    /**
+     * Step : User make confirm given address details
+     *
+     * @author shiwantha
+     * @update 8/8/2022
+     */
+    public IncomeDetailsPage step_confirmAddress(){
+        click(CONFIRM,"CONFIRM");
+        return new IncomeDetailsPage();
     }
 }

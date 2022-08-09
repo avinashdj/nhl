@@ -11,13 +11,13 @@ import java.util.List;
 
 import static com.nhl.utils.SeleniumUtils.click;
 
-public class TermsConditionsPage {
+public class CustomerDeclarationPage {
 
     private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
     private static final By PAGE_TITLE = By.xpath("(//android.view.View[@content-desc='Terms and Conditions'])[2]");
     private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");
 
-    public TermsConditionsPage() {
+    public CustomerDeclarationPage() {
     }
 
 
@@ -28,7 +28,8 @@ public class TermsConditionsPage {
      * @update 20/7/2022
      * @return CPRConditionsPage
      */
-    public TermsConditionsPage check_and_validate_CPRTermsTitle() {
+    public CustomerDeclarationPage check_and_validate_CustomerDeclarationTitle() {
+        //TODO need to fix assertion
         Assert.assertEquals(SeleniumUtils.getContentDesc(PAGE_TITLE),"Terms and Conditions","Oops.. Terms page does not load !");
         return this;
     }
@@ -40,8 +41,10 @@ public class TermsConditionsPage {
      * @update 20/7/2022
      * @return TermsConditionsPage
      */
-    public TermsConditionsPage step_confirmTermsCondition(){
-        SeleniumUtils.click(By.className("android.widget.CheckBox"),"Terms Condition");
+    public CustomerDeclarationPage step_acceptDeclarationCondition(){
+        List<WebElement> selectionList = DriverManager.getDriver().findElements(By.className("android.widget.CheckBox"));
+        selectionList.get(0).click();
+        selectionList.get(1).click();
         return this;
     }
 
@@ -52,8 +55,8 @@ public class TermsConditionsPage {
      * @update 19/7/2022
      * @return MRNPage
      */
-    public MRNPage step_clickContinue(){
+    public CoolingOffPeriodPage step_clickContinue(){
         click(CONTINUE, "Continue");
-        return new MRNPage();
+        return new CoolingOffPeriodPage();
     }
 }

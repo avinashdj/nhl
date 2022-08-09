@@ -19,7 +19,8 @@ public class CPRTermsTest extends BaseTest {
         new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760182").
                 step_registrationSubmit().step_setContinueWithOTP("").
                 step_SkipWithoutEmail().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").
-                step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().step_StepWidgetContinue();
+                step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().step_StepWidgetContinueForVerifyIdentity();
+
 
         // 2 Out of 5 Phase - Open NHL Account Widget
         // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs
@@ -36,11 +37,11 @@ public class CPRTermsTest extends BaseTest {
         // 4 Out of 5 Phase - Open NHL Account Widget
         // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs + Income Source + Reference Details completion required
         new PEPPage().setPoliticallyExposed(false).step_clickContinue().check_and_validate_CPRTermsTitle().
-                step_selectAllMandatoryTerms().step_clickContinue().step_confirmTermsCondition().step_confirmTermsCondition().step_clickContinue();
+                step_selectAllMandatoryTerms().step_clickContinue().step_acceptDeclarationCondition().step_acceptDeclarationCondition().step_clickContinue();
 
         // 5 Out of 5 Phase - Open NHL Account Widget
         // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs + Income Source + Reference + CPR Terms Details completion required
         new MRNPage().step_enterRegistrationNumber("1111111111111").step_enterConfirmRegistrationNumber("1111111111111").
-                step_clickContinue().step_clickDone();
+                step_clickDone().step_clickDone();
     }
 }

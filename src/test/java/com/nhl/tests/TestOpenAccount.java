@@ -14,7 +14,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
-public class WelcomePageTest extends BaseTest {
+public class TestOpenAccount extends BaseTest {
 
     @FrameworkAnnotation
     @Test(description = "User able to follow and complete welcome dashboard guid steps under open NHL account creation")

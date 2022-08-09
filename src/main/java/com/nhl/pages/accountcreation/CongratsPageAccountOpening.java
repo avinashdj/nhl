@@ -1,4 +1,4 @@
-package com.nhl.pages.congratsmessages;
+package com.nhl.pages.accountcreation;
 
 import org.openqa.selenium.By;
 import static com.nhl.utils.SeleniumUtils.*;

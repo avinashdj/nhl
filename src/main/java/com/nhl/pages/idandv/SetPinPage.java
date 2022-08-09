@@ -25,6 +25,7 @@ public class SetPinPage {
     private static final By NEXT = By.xpath("//android.widget.Button[@content-desc=\"Next\"]");
 
     public SetPinPage() {
+
     }
 
     public SetPinPage setPin(final String value) {
@@ -58,6 +59,7 @@ public class SetPinPage {
         /**WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 100);
         wait.until(ExpectedConditions.visibilityOf(DriverManager.getDriver().findElement(PIN_TEXT)));
         driver.findElement(PIN_TEXT).sendKeys("1234");**/
+        Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
         sendKeys(PIN_TEXT,pin,"Pin Code");
         return this;
     }

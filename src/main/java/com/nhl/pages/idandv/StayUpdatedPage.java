@@ -55,10 +55,10 @@ public class StayUpdatedPage {
     }
 
     /**
-     * Step : User not provide registered email address and make skipping the optional flow
+     * Step : User will continue after verify ADHA Application content
      *
      * @author shiwantha
-     * @update 6/7/2022
+     * @update 8/8/2022
      */
     public SetPinPage step_SkipWithoutEmail() {
         SeleniumUtils.click(SKIP_FLOW, "Skip");
