@@ -130,7 +130,7 @@ public class DashboardPage {
      */
     public YourHomeAddressPage step_StepWidgetContinueForOpenNHLAccount4Out5(){
         By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
-        click(btnContinue,"Continue");
+        SeleniumUtils.waitUntilElementToBeClickable(btnContinue).click();
         return new YourHomeAddressPage();
     }
 

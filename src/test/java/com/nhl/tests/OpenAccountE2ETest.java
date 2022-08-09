@@ -14,7 +14,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(TestListener.class)
-public class TestOpenAccount extends BaseTest {
+public class OpenAccountE2ETest extends BaseTest {
 
     @FrameworkAnnotation
     @Test(description = "User able to follow and complete welcome dashboard guid steps under open NHL account creation")
@@ -38,7 +38,7 @@ public class TestOpenAccount extends BaseTest {
                 check_and_validate_addressInfo("1427, Al Oud", "Abu Dhabi", "Abu Dhabi", "1427, Al Oud").
                 check_and_validate_signaturePics().step_confirmedADHAApplication().step_confirmedKeyStatement().step_clickDone();
 
-        new DashboardPage().step_StepWidgetContinueForOpenNHLAccount1Out5();
+        //new DashboardPage().step_StepWidgetContinueForOpenNHLAccount1Out5();
 
         // 1 Out of 5 Phase - Open NHL Account Widget =================================================================
         new YourHomeAddressPage().step_confirmAddress();
@@ -64,7 +64,7 @@ public class TestOpenAccount extends BaseTest {
                 step_enterSecondReferenceMobileNumber("569760185").
                 step_enterSecondReferenceAltContactNumber("569760186").step_clickContinue();
 
-        //new DashboardPage().step_StepWidgetContinueForOpenNHLAccount4Out5();
+        new DashboardPage().step_StepWidgetContinueForOpenNHLAccount4Out5();
 
         // 4 Out of 5 Phase - Open NHL Account Widget =================================================================
         // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs + Income Source + Reference Details completion required
@@ -80,6 +80,10 @@ public class TestOpenAccount extends BaseTest {
         // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs + Income Source + Reference + CPR Terms Details completion required
         new MRNPage().step_enterRegistrationNumber("1111111111111").
                 step_enterConfirmRegistrationNumber("1111111111111").
-                step_clickDone().step_clickDone();
+                step_clickDone().step_clickDone().
+
+        // ===========================================================================================================
+        // =============================== OPEN ACCOUNT FLOW COMPLETED - SUCCESSFULLY ================================
+                check_and_validate_welcomeTitle();
     }
 }

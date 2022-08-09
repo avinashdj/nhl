@@ -1,10 +1,16 @@
 package com.nhl.pages.accountcreation.additionaldetails;
 
+import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
 
 import static com.nhl.utils.SeleniumUtils.*;
 
 public class PEPPage {
+
+    public PEPPage(){
+        //Makesure Page Loaded ! and Visible..
+        //SeleniumUtils.waitUntilElementToBeClickable(PEP_YES);
+    }
 
     //Back Arrow
     private static final By BACK = By.xpath("//android.widget.Button[@content-desc='Back']");
@@ -53,10 +59,6 @@ public class PEPPage {
 
     public boolean isOutsideUAEEnabled(){
         return isEnabled(OUTSIDE_UAE, "Outside UAE");
-    }
-
-
-    public PEPPage(){
     }
 
     /**

@@ -1,5 +1,6 @@
 package com.nhl.pages.accountcreation;
 
+import com.nhl.pages.idandv.DashboardPage;
 import org.openqa.selenium.By;
 import static com.nhl.utils.SeleniumUtils.*;
 
@@ -24,7 +25,8 @@ public class CongratsPageAccountOpening {
         return getContentDesc(getXpathforListItems(index));
     }
 
-    public void step_clickDone(){
+    public DashboardPage step_clickDone(){
         click(DONE, "Continue Button");
+        return new DashboardPage();
     }
 }
