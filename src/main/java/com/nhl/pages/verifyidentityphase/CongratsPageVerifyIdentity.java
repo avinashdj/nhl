@@ -41,8 +41,6 @@ public class CongratsPageVerifyIdentity {
     public YourHomeAddressPage step_clickDone(){
         Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
         SeleniumUtils.waitUntilElementToBeClickable(DONE).click();
-        //click(DONE, "Let's Go");
-
         return new YourHomeAddressPage();
     }
 }

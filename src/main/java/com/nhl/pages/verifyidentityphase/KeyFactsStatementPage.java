@@ -44,6 +44,7 @@ public class KeyFactsStatementPage {
         Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
         SeleniumUtils.click(CONTINUE,"CONTINUE");
         Uninterruptibles.sleepUninterruptibly(10, TimeUnit.SECONDS);
+        SeleniumUtils.waitFor(15000);
         return new CongratsPageVerifyIdentity();
     }
 
