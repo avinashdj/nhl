@@ -15,6 +15,7 @@ public class ReferenceDetailsPage {
     private static final By HEADING = By.xpath("//android.view.View[contains(@content-desc,'Share a contact')]");
     private static final By SUB_HEADING = By.xpath("//android.view.View[contains(@content-desc,'two people')]");
 
+
     //First Reference
     private static final By FIRST_REF_FULL_NAME = By.xpath("//android.view.View[@content-desc='FIRST REFERENCE']/following-sibling::android.widget.EditText[1]");
     private static final By FIRST_REF_RELATIONSHIP = By.xpath("//android.view.View[@content-desc='FIRST REFERENCE']/following-sibling::android.widget.EditText[2]");
@@ -38,6 +39,21 @@ public class ReferenceDetailsPage {
     //Button
     private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");
 
+    //create generic xpath
+    private static String genericEditXpath = "//android.widget.EditText[contains(@text,'%s')][%s]";
+
+    public By getXpath(final String identifier, final String index){
+        return By.xpath(String.format(genericEditXpath, identifier, index));
+    }
+
+    //create error xpath
+    private static String genericErrorEditXpath = "//android.widget.EditText[contains(@text,'%s')][%s]/following-sibling::android.view.View[1]";
+
+    public By getErrorXpath(final String identifier, final String index){
+        return By.xpath(String.format(genericErrorEditXpath, identifier, index));
+    }
+
+
     public ReferenceDetailsPage(){
     }
 
@@ -51,9 +67,15 @@ public class ReferenceDetailsPage {
     public ReferenceDetailsPage step_enterFirstReferenceFullName(final String value){
         click(FIRST_REF_FULL_NAME, "Full name");
         sendKeys(FIRST_REF_FULL_NAME, value, "Full name");
+//=======
+//    public ReferenceDetailsPage enterFirstReferenceFullName(final String value){
+//        click(getXpath("Full name", "1"), "First Reference Full name");
+//        sendKeys(getXpath("Full name", "1"), value, "First Reference Full name");
+//>>>>>>> 03739cfdeff7dec0a45df37f79636d3503bc41f5:src/main/java/com/nhl/pages/referencedetails/ReferenceDetailsPage.java
         hideKeyboard();
         return this;
     }
+
 
     /**
      * Step :  User enter 1st reference contact person - relationship
@@ -65,9 +87,15 @@ public class ReferenceDetailsPage {
     public ReferenceDetailsPage step_enterFirstReferenceRelationship(final String value){
         click(FIRST_REF_RELATIONSHIP, "Relationship");
         sendKeys(FIRST_REF_RELATIONSHIP, value, "Relationship");
+//=======
+//    public ReferenceDetailsPage enterFirstReferenceRelationship(final String value){
+//        click(getXpath("Relationship", "1"), "First Reference Relationship");
+//        sendKeys(getXpath("Relationship", "1"), value, "First Reference Relationship");
+//>>>>>>> 03739cfdeff7dec0a45df37f79636d3503bc41f5:src/main/java/com/nhl/pages/referencedetails/ReferenceDetailsPage.java
         hideKeyboard();
         return this;
     }
+
 
     /**
      * Step :  User enter 1st reference contact person - primary mobile
@@ -79,9 +107,15 @@ public class ReferenceDetailsPage {
     public ReferenceDetailsPage step_enterFirstReferenceMobileNumber(final String value){
         click(FIRST_REF_MOBILE_NUMBER, "Mobile Number");
         sendKeys(FIRST_REF_MOBILE_NUMBER, value, "Mobile Number");
+//=======
+//    public ReferenceDetailsPage enterFirstReferenceMobileNumber(final String value){
+//        click(getXpath("Mobile number", "1"), "First Reference Mobile Number");
+//        sendKeys(getXpath("Mobile number", "1"), value, "First Reference Mobile Number");
+//>>>>>>> 03739cfdeff7dec0a45df37f79636d3503bc41f5:src/main/java/com/nhl/pages/referencedetails/ReferenceDetailsPage.java
         hideKeyboard();
         return this;
     }
+
 
     /**
      * Step :  User enter 1st reference contact person - secondary mobile
@@ -93,13 +127,18 @@ public class ReferenceDetailsPage {
     public ReferenceDetailsPage step_enterFirstReferenceAltContactNumber(final String value){
         click(FIRST_REF_ALT_CONTACT_NUMBER, "Alt. Reference Number");
         sendKeys(FIRST_REF_ALT_CONTACT_NUMBER, value, "Alt. Reference Number");
+//=======
+//    public ReferenceDetailsPage enterFirstReferenceAltContactNumber(final String value){
+//        click(getXpath("Alternate contact number", "1"), "First Reference Alt contact Number");
+//        sendKeys(getXpath("Alternate contact number", "1"), value, "First Reference Alt contact Number");
+//>>>>>>> 03739cfdeff7dec0a45df37f79636d3503bc41f5:src/main/java/com/nhl/pages/referencedetails/ReferenceDetailsPage.java
         hideKeyboard();
         return this;
     }
 
     public ReferenceDetailsPage enterFirstReferenceOfficeNumber(final String value){
-        click(FIRST_REF_OFFICE_NUMBER, "First Reference Office Number");
-        sendKeys(FIRST_REF_OFFICE_NUMBER, value, "First Reference Office Number");
+        click(getXpath("Office number", "1"), "First Reference Office Number");
+        sendKeys(getXpath("Office number", "1"), value, "First Reference Office Number");
         hideKeyboard();
         return this;
     }
@@ -107,37 +146,61 @@ public class ReferenceDetailsPage {
     //Second Reference
 
 
+
     public ReferenceDetailsPage step_enterSecondReferenceFullName(final String value){
         click(SECOND_REF_FULL_NAME, "Full name");
         sendKeys(SECOND_REF_FULL_NAME, value, "Full name");
+//=======
+//    public ReferenceDetailsPage enterSecondReferenceFullName(final String value){
+//        click(getXpath("Full name", "2"), "Second Reference Full name");
+//        sendKeys(getXpath("Full name", "2"), value, "Second Reference Full name");
+//>>>>>>> 03739cfdeff7dec0a45df37f79636d3503bc41f5:src/main/java/com/nhl/pages/referencedetails/ReferenceDetailsPage.java
         hideKeyboard();
         return this;
     }
+
 
     public ReferenceDetailsPage step_enterSecondReferenceRelationship(final String value){
         click(SECOND_REF_RELATIONSHIP, "Relationship");
         sendKeys(SECOND_REF_RELATIONSHIP, value, "Relationship");
+//=======
+//    public ReferenceDetailsPage enterSecondReferenceRelationship(final String value){
+//        click(getXpath("Relationship", "2"), "Second Reference Relationship");
+//        sendKeys(getXpath("Relationship", "2"), value, "Second Reference Relationship");
+//>>>>>>> 03739cfdeff7dec0a45df37f79636d3503bc41f5:src/main/java/com/nhl/pages/referencedetails/ReferenceDetailsPage.java
         hideKeyboard();
         return this;
     }
+
 
     public ReferenceDetailsPage step_enterSecondReferenceMobileNumber(final String value){
         click(SECOND_REF_MOBILE_NUMBER, "Mobile Number");
         sendKeys(SECOND_REF_MOBILE_NUMBER, value, "Mobile Number");
+//=======
+//    public ReferenceDetailsPage enterSecondReferenceMobileNumber(final String value){
+//        click(getXpath("Mobile number", "2"), "Second Reference Mobile Number");
+//        sendKeys(getXpath("Mobile number", "2"), value, "Second Reference Mobile Number");
+//>>>>>>> 03739cfdeff7dec0a45df37f79636d3503bc41f5:src/main/java/com/nhl/pages/referencedetails/ReferenceDetailsPage.java
         hideKeyboard();
         return this;
     }
 
+
     public ReferenceDetailsPage step_enterSecondReferenceAltContactNumber(final String value){
         click(SECOND_REF_ALT_CONTACT_NUMBER, "Alt Mobile Number");
         sendKeys(SECOND_REF_ALT_CONTACT_NUMBER, value, "Alt Mobile Number");
+//=======
+//    public ReferenceDetailsPage enterSecondReferenceAltContactNumber(final String value){
+//        click(getXpath("Alternate contact number", "2"), "Second Reference Alt contact Number");
+//        sendKeys(getXpath("Alternate contact number", "2"), value, "Second Reference Alt contact Number");
+//>>>>>>> 03739cfdeff7dec0a45df37f79636d3503bc41f5:src/main/java/com/nhl/pages/referencedetails/ReferenceDetailsPage.java
         hideKeyboard();
         return this;
     }
 
     public ReferenceDetailsPage enterSecondReferenceOfficeNumber(final String value){
-        click(SECOND_REF_OFFICE_NUMBER, "Second Reference Office Number");
-        sendKeys(SECOND_REF_OFFICE_NUMBER, value, "Second Reference Office Number");
+        click(getXpath("Office number", "2"), "Second Reference Office Number");
+        sendKeys(getXpath("Office number", "2"), value, "Second Reference Office Number");
         hideKeyboard();
         return this;
     }
@@ -160,17 +223,17 @@ public class ReferenceDetailsPage {
 
     public boolean isContinueButtonClickable() {return isClickable(CONTINUE,"Continue Button");}
 
-    public String errContactNumberFirst(){return getContentDesc(ERROR_MESSAGE_REF_NO1);}
+    public String errContactNumberFirst(){return getContentDesc(getErrorXpath("Mobile number", "1"));}
 
-    public String errContactNumberSecond(){return getContentDesc(ERROR_MESSAGE_REF_NO2);}
+    public String errContactNumberSecond(){return getContentDesc(getErrorXpath("Mobile number", "2"));}
 
-    public String errAltContactNumberFirst(){return getContentDesc(ERROR_MESSAGE_ALT_NO1);}
+    public String errAltContactNumberFirst(){return getContentDesc(getErrorXpath("Alternate contact number", "1"));}
 
-    public String errAltContactNumberSecond(){return getContentDesc(ERROR_MESSAGE_ALT_NO2);}
+    public String errAltContactNumberSecond(){return getContentDesc(getErrorXpath("Alternate contact number", "2"));}
 
-    public String errOfficeNumberFirst(){return getContentDesc(ERROR_MESSAGE_OFF_NO1);}
+    public String errOfficeNumberFirst(){return getContentDesc(getErrorXpath("Office number", "1"));}
 
-    public String errOfficeNumberSecond(){return getContentDesc(ERROR_MESSAGE_OFF_NO2);}
+    public String errOfficeNumberSecond(){return getContentDesc(getErrorXpath("Office number", "2"));}
 
     public String getScreenTitle(){
         return getContentDesc(SCREEN_TITLE);
@@ -182,6 +245,13 @@ public class ReferenceDetailsPage {
 
     public String getSubHeading(){
         return getContentDesc(SUB_HEADING);
+    }
+
+    public boolean VerifyNumberError(final String num,final String id){
+        if(getContentDesc(getErrorXpath(num,id)).equals("Please enter a valid number")){
+            return true;
+        }
+        return false;
     }
 
 }
