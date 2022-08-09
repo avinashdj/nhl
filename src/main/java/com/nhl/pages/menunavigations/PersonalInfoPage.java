@@ -28,6 +28,8 @@ public class PersonalInfoPage {
     private static final By CHANGE_LANG = By.xpath("//*[@contentDescription='MORE OPTIONS']/following-sibling::android.view.View[position()=1]");
     private static final By ABOUT_NHL = By.xpath("//*[@contentDescription='MORE OPTIONS']/following-sibling::android.view.View[position()=2]");
 
+    private static final By BACK = By.xpath("\t\n" +
+            "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ImageView");
     /**
      * Step : User check and validate already loaded personal-info page
      *
@@ -73,6 +75,17 @@ public class PersonalInfoPage {
     public StayUpdatedPage step_addEmail() {
         SeleniumUtils.click(EMAIL_ADD, "Add New Email");
         return new StayUpdatedPage();
+    }
+
+    /**
+     * Step : User try go back from personal details section
+     *
+     * @author shiwantha
+     * @update 5/7/2022
+     */
+    public MenuMainPage step_goBack() {
+        SeleniumUtils.click(BACK, "BACK");
+        return new MenuMainPage();
     }
 
     /**

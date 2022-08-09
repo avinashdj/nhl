@@ -20,11 +20,14 @@ public class IslamicProductPage {
     }
 
     private static final By PAGE_TITLE = By.xpath("//android.view.View[@content-desc='FAB ISLAMIC PRODUCTS']");
-    private static final By CURRENT_SAVING_OPTION = By.xpath("//*[contains(text(),'Current & Savings accounts')]");
-    private static final By CREDIT_CARD_OPTION = By.xpath("//*[contains(text(),'Credit Cards')]");
-    private static final By PERSONAL_FINANCE_OPTION = By.xpath("//*[contains(text(),'Personal finance')]");
-    private static final By CAR_FINANCE_OPTION = By.xpath("//*[contains(text(),'Car finance')]");
-    private static final By HOME_FINANCE_OPTION = By.xpath("//*[contains(text(),'Home finance')]");
+    private static final By CURRENT_SAVING_OPTION = By.xpath("//android.view.View[@content-desc='Current & Savings accounts Your everyday banking needs']/android.widget.ImageView[2]");
+    private static final By CREDIT_CARD_OPTION = By.xpath("//android.view.View[@content-desc='Credit Cards Exceptional & exciting features']");
+    private static final By PERSONAL_FINANCE_OPTION = By.xpath("//android.view.View[@content-desc='Personal finance Exceptional services and features']");
+    private static final By CAR_FINANCE_OPTION = By.xpath("//android.view.View[@content-desc='Car finance Your dream car through FAB Islamic']");
+    private static final By HOME_FINANCE_OPTION = By.xpath("//android.view.View[@content-desc='Home finance Shariah-compliant home finance']");
+    private static final By NEXT = By.xpath("//android.widget.Button[@content-desc='Next']");
+    private static final By DONE = By.xpath("//android.widget.Button[@content-desc='Done']");
+    private static final By BACK = By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.widget.ImageView");
 
     /**
      * Step : User check and validate already loaded islamic-product page
@@ -32,7 +35,7 @@ public class IslamicProductPage {
      * @author shiwantha
      * @update 4/7/2022
      */
-    public IslamicProductPage check_and_validate_branchNHLTitle() {
+    public IslamicProductPage check_and_validate_islamicProductsTitle() {
         Assert.assertEquals(SeleniumUtils.getContentDesc(PAGE_TITLE),"FAB ISLAMIC PRODUCTS","Oops.. Islamic page does not load !");
         return this;
     }
@@ -44,7 +47,7 @@ public class IslamicProductPage {
      * @update 4/7/2022
      */
     public IslamicProductPage step_chooseCurrentSavingOption() {
-        SeleniumUtils.click(CURRENT_SAVING_OPTION, "Choose current-saving");
+        SeleniumUtils.waitUntilElementToBeClickable(CURRENT_SAVING_OPTION).click();
         return this;
     }
 
@@ -55,7 +58,7 @@ public class IslamicProductPage {
      * @update 4/7/2022
      */
     public IslamicProductPage step_chooseCreditCardOption() {
-        SeleniumUtils.click(CREDIT_CARD_OPTION, "Choose credit card");
+        SeleniumUtils.waitUntilElementToBeClickable(CREDIT_CARD_OPTION).click();
         return this;
     }
 
@@ -66,7 +69,7 @@ public class IslamicProductPage {
      * @update 4/7/2022
      */
     public IslamicProductPage step_choosePersonalFinanceOption() {
-        SeleniumUtils.click(PERSONAL_FINANCE_OPTION, "Choose personal finance");
+        SeleniumUtils.waitUntilElementToBeClickable(PERSONAL_FINANCE_OPTION).click();
         return this;
     }
 
@@ -77,7 +80,7 @@ public class IslamicProductPage {
      * @update 4/7/2022
      */
     public IslamicProductPage step_chooseCarFinanceOption() {
-        SeleniumUtils.click(CAR_FINANCE_OPTION, "Choose car finance");
+        SeleniumUtils.waitUntilElementToBeClickable(CAR_FINANCE_OPTION).click();
         return this;
     }
 
@@ -88,25 +91,40 @@ public class IslamicProductPage {
      * @update 4/7/2022
      */
     public IslamicProductPage step_chooseHomeFinanceOption() {
-        SeleniumUtils.click(HOME_FINANCE_OPTION, "Choose house finance");
+        SeleniumUtils.waitUntilElementToBeClickable(HOME_FINANCE_OPTION).click();
         return this;
     }
 
     /**
-     * Step : User choose specific given location and proceed
+     * Step : User confirm and move next with selected products
      *
      * @author shiwantha
      * @update 4/7/2022
      */
-    public IslamicProductPage step_chooseRequiredProduct(String product) {
-        boolean results_found = false;
-        List<WebElement> question_list = DriverManager.getDriver().findElements(By.xpath("(//*[@class='android.view.View'])[1]"));
-        for (WebElement item : question_list) {
-            if (item.getTagName().equals(product)) {
-                item.click();
-                break;
-            }
-        }
+    public IslamicProductPage step_moveNext(){
+        SeleniumUtils.click(NEXT,"NEXT");
         return this;
+    }
+
+    /**
+     * Step : User back to main menu screen
+     *
+     * @author shiwantha
+     * @update 4/7/2022
+     */
+    public MenuMainPage step_completeFABProduct(){
+        SeleniumUtils.click(DONE,"DONE");
+        return new MenuMainPage();
+    }
+
+    /**
+     * Step : User back to main menu screen
+     *
+     * @author shiwantha
+     * @update 4/7/2022
+     */
+    public MenuMainPage step_goBack(){
+        SeleniumUtils.click(BACK,"BACK");
+        return new MenuMainPage();
     }
 }
