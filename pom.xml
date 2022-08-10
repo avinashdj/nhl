@@ -131,7 +131,7 @@
 
     <profiles>
         <profile>
-            <id>all</id>
+            <id>BAT_NHL</id>
             <build>
                 <pluginManagement>
                     <plugins>

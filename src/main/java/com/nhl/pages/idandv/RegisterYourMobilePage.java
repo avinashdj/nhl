@@ -76,6 +76,7 @@ public class RegisterYourMobilePage {
      */
     public EmailOTPVerificationPage step_registrationSubmit(){
         click(SUBMIT_REGISTER,"Register");
+        SeleniumUtils.waitFor(5000);
         return new EmailOTPVerificationPage();
     }
 }

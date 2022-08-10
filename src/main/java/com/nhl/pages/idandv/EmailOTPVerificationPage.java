@@ -21,6 +21,8 @@ import static com.nhl.utils.SeleniumUtils.sendKeys;
 public class EmailOTPVerificationPage {
 
     public static final By PAGE_TITLE = By.xpath("//android.view.View[contains(@content-desc,'OTP')]");
+
+    public static final By OTP_TEXT = By.className("android.widget.EditText");
     private static final By CONTINUE = By.xpath("//*[@content-desc='Continue']");
 
     public EmailOTPVerificationPage() {
@@ -54,15 +56,15 @@ public class EmailOTPVerificationPage {
      * @update 6/7/2022
      */
     public StayUpdatedPage step_setContinueWithOTP(String code) {
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-//        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
-//        sendKeys(,code,"Pin Code");
-//        SeleniumUtils.hideKeyboard();
-//        SeleniumUtils.click(CONTINUE,"Continue");
+//        try {
+//            Thread.sleep(10000);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        Uninterruptibles.sleepUninterruptibly(1, TimeUnit.SECONDS);
+        click(OTP_TEXT,"OTP");
+        sendKeys(OTP_TEXT,code,"OTP Code");
         return new StayUpdatedPage();
     }
 
