@@ -2,14 +2,12 @@ package com.nhl.tests;
 
 import com.nhl.annotations.FrameworkAnnotation;
 import com.nhl.listeners.TestListener;
-import com.nhl.pages.accountcreation.YourHomeAddressPage;
-import com.nhl.pages.accountcreation.additionaldetails.PEPPage;
-import com.nhl.pages.accountcreation.mrn.MRNPage;
-import com.nhl.pages.accountcreation.referencedetails.ReferenceDetailsPage;
-import com.nhl.pages.accountcreation.sourceofincome.IncomeDetailsPage;
+import com.nhl.pages.accountactivation.HomeDocumentsPage;
+import com.nhl.pages.accountactivation.LoanAgreementPage;
+import com.nhl.pages.accountactivation.MortgageContractPage;
+import com.nhl.pages.accountactivation.YourBankAccountPage;
 import com.nhl.pages.idandv.DashboardPage;
 import com.nhl.pages.idandv.GetStaterPage;
-import com.nhl.pages.verifyidentityphase.ADHAApplicationPage;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
@@ -26,7 +24,22 @@ public class ActivationAccountE2ETest extends BaseTest {
                 step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
                 check_and_validate_welcomeTitle();
 
-        new DashboardPage().step_StepWidgetContinueForVerifyIdentity();
+        new DashboardPage().step_StepWidgetAccountActivation();
+
+        // Include Your Bank Details + SIO Approved +
+        new YourBankAccountPage().step_clickChooseFabBank().
+                step_enterFabAccountDetails("1234567890123456","12345678901234567","Al Barsha").
+                step_clickContinue().step_acceptInstructionOrderCondition().step_clickContinue();
+
+        new MortgageContractPage().step_acceptInstructionOrderCondition().step_clickContinue().
+               check_and_validate_termsConditionsTitle().step_clickContinue();
+
+        // Upload Home Documentation
+       new HomeDocumentsPage().step_sitePlanUpload().step_certificateUpload().step_clickContinue();
+
+        // Loan Agreement & Mortgage Contract Flow Colplete
+        new LoanAgreementPage().step_acceptLoanAgreement().step_clickContinue().step_clickContinue().
+                check_and_validate_mortgageContractSuccessMsg().step_clickDone().check_and_validate_welcomeTitle();
 
     }
 }

@@ -56,6 +56,7 @@ public class DashboardPage {
     public DashboardPage check_and_validate_welcomeTitle() {
         SeleniumUtils.waitUntilElementPresent(WELCOME_TITLE);
         Assert.assertEquals(SeleniumUtils.getContentDesc(WELCOME_TITLE),"Welcome!","Oops.. Welcome page does not load !");
+        SeleniumUtils.waitFor(2000);
         return this;
     }
 
@@ -157,5 +158,30 @@ public class DashboardPage {
         click(btnContinue,"Continue");
         return new ADHAApplicationPage();
     }
+
+    /**
+     * Step : Validate 1 out of 3 widget continue event perform
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     */
+    public ADHAApplicationPage step_StepWidgetPrepareRequiredDocument(){
+        By btnContinue = By.xpath("//android.widget.Button[@content-desc='Continue']");
+        click(btnContinue,"Continue");
+        return new ADHAApplicationPage();
+    }
+
+    /**
+     * Step : Validate 1 out of 4 widget continue account activation
+     *
+     * @author shiwantha
+     * @update 19/7/2022
+     */
+    public ADHAApplicationPage step_StepWidgetAccountActivation(){
+        By btnContinue = By.className("android.widget.Button");
+        click(btnContinue,"Continue");
+        return new ADHAApplicationPage();
+    }
+
 }
 
