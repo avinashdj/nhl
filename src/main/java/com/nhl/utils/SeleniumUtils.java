@@ -103,7 +103,7 @@ public final class SeleniumUtils {
 
     public static void hideKeyboard(){
         ((AndroidDriver) DriverManager.getDriver()).hideKeyboard();
-        waitFor(2000);
+        waitFor(1000);
     }
 
     private static String getFileFromResourceAsStream(String fileName) {

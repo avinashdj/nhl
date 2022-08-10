@@ -152,9 +152,28 @@ public class NHLAccountActivationAddressStepdef {
             yourHomeAddressPage.enterArea(data.get("area"));
             yourHomeAddressPage.enterPOBox(data.get("poBox"));
             yourHomeAddressPage.clickDone();
-            Assert.assertTrue(yourHomeAddressPage.isRequiredFieldErrorMessageShown(), "Error message - Please enter the required field is not shown");
+            Assert.assertTrue(yourHomeAddressPage.isRequiredFieldErrorMessageShown(),
+                    "Error message - Please enter the required field is not shown");
         }
     }
 
 }
 
+
+//        Dimension size = DriverManager.getDriver().manage().window().getSize();
+//        //Starting x location set to 5% of the width (near left)
+//        int startx = (int) (size.width * 0.05);
+//        //Ending x location set to 95% of the width (near right)
+//        int endx = (int) (size.width * 0.05);
+//        //y position set to mid-screen vertically
+//        int starty = (int) (size.width * 0.05);
+//        int endy = (int) (size.width * 0.95);
+//        ((AndroidDriver) DriverManager.getDriver()).hideKeyboard();
+//        //new TouchAction((AndroidDriver) DriverManager.getDriver()).press(startx, starty).waitAction(Duration.ofMillis(500)).moveTo(endx, endy).release().perform();
+//        TouchAction touchAction = new TouchAction((PerformsTouchActions) DriverManager.getDriver());
+//
+//        touchAction.longPress(PointOption.point(startx, starty))
+//                .waitAction(WaitOptions.waitOptions(ofSeconds(1)))
+//                .moveTo(PointOption.point(endx, endy))
+//                .release()
+//                .perform();

@@ -46,5 +46,6 @@ public class MainMenuE2ETest extends BaseTest {
                 // Islamic Product Section Validation
                 step_islamicProductClickAndNavigate().check_and_validate_islamicProductsTitle().step_goBack().step_logoutNHL();
 
+
     }
 }

@@ -12,8 +12,6 @@ public class WelcomePage {
 
     private static final By LETS_GET_STARTED = By.xpath("(//android.widget.Button[(@content-desc,'Let')])[2]");
     private static final By WELCOME_TITLE = By.xpath("//android.view.View[@content-desc='Welcome!']");
-    private static final By PREP_REQ_DOCS = By.xpath("//android.widget.Button[@content-desc='Prepare required documents']");
-    private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");
     //private TopMenuComponent topMenuComponent;
 
     public WelcomePage(){
@@ -27,9 +25,7 @@ public class WelcomePage {
         click(LETS_GET_STARTED, "Let's Get Started Button");
     }
 
-    public void clickContinue(){
-        click(CONTINUE, "Continue Button");
-    }
+
 
     /**
      * Step : User check and validate already loaded menu main page

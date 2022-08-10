@@ -1,20 +1,8 @@
 package com.nhl.pages.accountcreation.mrn;
 
-
-//import com.nhl.pages.congratsmessages.CongratsPageAccountOpening;
-import com.google.common.util.concurrent.Uninterruptibles;
-import com.nhl.driver.DriverManager;
-import io.appium.java_client.PerformsTouchActions;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
 import com.nhl.pages.accountcreation.CongratsPageAccountOpening;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-
-import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 import static com.nhl.utils.SeleniumUtils.*;
 
@@ -30,8 +18,7 @@ public class MRNPage {
 
     //Mortgage Registration number
     private static final By MRN = By.xpath("(//android.widget.EditText)[1]");
-    private static final By CONFIRM_MRN = By.xpath("//android.widget.EditText)[2]");
-
+    private static final By CONFIRM_MRN = By.xpath("(//android.widget.EditText)[2]");
 
     //MRN Help
     private static final By MRN_HELP_LINK = By.xpath("//android.widget.Button[@content-desc='What is the mortgage registration number?']");
@@ -40,11 +27,9 @@ public class MRNPage {
 
     //Error Message
     //(//android.widget.EditText)[1]/following-sibling::android.view.View
-    //no of digits mismatch
     private static final By MRN_DIGITS_MISMATCH = By.xpath("(//android.widget.EditText)[1]/following-sibling::android.view.View");
-    //no of digits mismatch
     private static final By CONFIRM_MRN_DIGITS_MISMATCH = By.xpath("(//android.widget.EditText)[1]/following-sibling::android.view.View");
-    //mrn mismatch
+
     private static final By MRN_MISMATCH = By.xpath("(//android.widget.EditText)[2]/following-sibling::android.view.View");
 
 
@@ -57,11 +42,11 @@ public class MRNPage {
         return new MRNPage();
     }
 
-
-    public void enterConfirmMRN(final String value){
-        click(CONFIRM_MRN,"Confirm MRN text box clicked");
+    public MRNPage step_enterConfirmRegistrationNumber(final String value){
+        click(CONFIRM_MRN,"Confirm MRN");
         sendKeys(CONFIRM_MRN, value, "Confirm Mortgage Registration number");
         hideKeyboard();
+        return new MRNPage();
     }
 
     public String getErrorMessageForMRNDigitsNotEqualTo12(){
@@ -75,7 +60,7 @@ public class MRNPage {
     }
 
     public String getErrorMessageForMRNConfirmMRNMismatch(){
-        return getContentDesc(MRN_MISMATCH);
+        return getContentDesc(MRN_DIGITS_MISMATCH);
         //Please share the same mortgage registration number as before.
     }
 
@@ -89,19 +74,6 @@ public class MRNPage {
     public String getMRNHelpText(){
         return getContentDesc(MRN_HELP_TEXT);
         //Mortgage Registration Number This is a short description of the Mortgage Registration Number.
-    }
-
-    public void swipeDownToCollapseMRNHelp(){
-        Dimension size = DriverManager.getDriver().manage().window().getSize();
-        int anchor = (int) (size.height * 0.6);
-        int startPoint = (int) (size.height * 0.30);
-        int endPoint = (int) (size.height * 0.70);
-        new TouchAction((PerformsTouchActions) DriverManager.getDriver())
-                .press(PointOption.point(startPoint, anchor))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000)))
-                .moveTo(PointOption.point(endPoint, anchor))
-                .release().perform();
-        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
     }
 
     public void closeMRNHelp(){
