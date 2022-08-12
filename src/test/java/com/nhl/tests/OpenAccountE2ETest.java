@@ -30,7 +30,7 @@ public class OpenAccountE2ETest extends BaseTest {
 
         // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs
         // 3 Out of 3 Phase - Verify Your Identity ====================================================================
-        new ADHAApplicationPage().check_and_validate_personalInfoTitle().check_and_validate_applicationNo("SL825011").
+        new ADHAApplicationPage().check_and_validate_personalInfoTitle().check_and_validate_applicationNo("SL825081").
                 check_and_validate_applicationType("appType").
                 check_and_validate_grantedAmount("AED 800,000.00").
                 check_and_validate_serviceType("250000").

@@ -40,7 +40,7 @@ public class GetStaterPage {
      * @update 6/7/2022
      */
     public RegisterYourMobilePage step_getStarted() {
-        SeleniumUtils.waitFor(5000);
+        SeleniumUtils.waitFor(8000);
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOf(DriverManager.getDriver().findElement(LETS_GET_STARTED)));
         SeleniumUtils.click(LETS_GET_STARTED,"LETS STARTED");
