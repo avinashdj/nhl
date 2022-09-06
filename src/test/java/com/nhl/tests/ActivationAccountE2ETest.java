@@ -35,7 +35,7 @@ public class ActivationAccountE2ETest extends BaseTest {
                check_and_validate_termsConditionsTitle().step_clickContinue();
 
         // Upload Home Documentation
-       new HomeDocumentsPage().step_sitePlanUpload().step_certificateUpload().step_clickContinue();
+        new HomeDocumentsPage().step_sitePlanUpload().step_certificateUpload().step_clickContinue();
 
         // Loan Agreement & Mortgage Contract Flow Colplete
         new LoanAgreementPage().step_acceptLoanAgreement().step_clickContinue().step_clickContinue().

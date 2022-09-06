@@ -20,7 +20,7 @@ public class OpenAccountE2ETest extends BaseTest {
     @Test(description = "User able to follow and complete welcome dashboard guid steps under open NHL account creation")
     public void user_able_to_see_welcome_dashboard_steps_navigation_and_its_behaviour_under_open_nhl_account_flow() {
         // 1 Out of 3 Phase - Workflow Started
-        new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760182").
+        new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760128").
                 step_registrationSubmit().step_setContinueWithOTP("123456").
                 step_SkipWithoutEmail().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").
                 step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
@@ -30,11 +30,11 @@ public class OpenAccountE2ETest extends BaseTest {
 
         // Preconditions : OCR + NFR + Face 3D work-flows should complete via APIs
         // 3 Out of 3 Phase - Verify Your Identity ====================================================================
-        new ADHAApplicationPage().check_and_validate_personalInfoTitle().check_and_validate_applicationNo("SL825081").
+        new ADHAApplicationPage().check_and_validate_personalInfoTitle().check_and_validate_applicationNo("008 250 28").
                 check_and_validate_applicationType("appType").
                 check_and_validate_grantedAmount("AED 800,000.00").
                 check_and_validate_serviceType("250000").
-                check_and_validate_mobileNumber("+971 56 976 0182").
+                check_and_validate_mobileNumber("+971 56 976 0128").
                 check_and_validate_addressInfo("1427, Al Oud", "Abu Dhabi", "Abu Dhabi", "1427, Al Oud").
                 check_and_validate_signaturePics().step_confirmedADHAApplication().step_confirmedKeyStatement().step_clickDone();
 

@@ -6,8 +6,7 @@
     </listeners>
     <test parallel="methods" thread-count="2" name="SeleniumFramework">
         <classes>
-            <class name="com.nhl.tests.HomePageTest"/>
-<!--            <class name="com.nhl.tests.PaymentTest"/>-->
+            <class name="com.nhl.tests.MainMenuE2ETest"/>
         </classes>
     </test>
 </suite>
