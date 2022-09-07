@@ -2,6 +2,7 @@ package stepdefs;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.nhl.pages.idandv.*;
+import com.nhl.pages.menunavigations.MenuMainPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -114,5 +115,44 @@ public class RegistrationStepDef {
     @And("the user clicks on skip link for email address")
     public void theUserClicksOnSkipLinkForEmailAddress() {
         //new StayUpdatedPage().clickSkip();
+    }
+
+    @Given("user complete customer verification flow and landing welcome screen with {string} {string} {string}")
+    public void userCompleteCustomerVerificationFlowAndLandingWelcomeScreenWith(String mobile, String otp, String pin) {
+        // 1 Out of 3 Phase - Workflow Started
+        new GetStaterPage().step_getStarted().step_registeredMobileNumber(mobile).
+                step_registrationSubmit().step_setContinueWithOTP(otp).
+                step_SkipWithoutEmail().step_setPin(pin).step_nextToConfirm().step_setConfirmPin(pin).
+                step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
+                check_and_validate_welcomeTitle();
+    }
+
+    @When("User landing to nhl menu screen through welcome screen")
+    public void userLandingToNhlMenuScreenThroughWelcomeScreen() {
+        new DashboardPage().switchTOMenu();
+    }
+
+    @Then("User landing faq's screen and validate its functionalities")
+    public void userLandingFaqSScreenAndValidateItsFunctionalities() {
+        new MenuMainPage().step_faqsClickAndNavigate().check_and_validate_faqsNHLTitle().
+                check_and_validate_faqQuestionsBody().step_goBack();
+    }
+
+    @Then("User landing about screen and validate its functionalities")
+    public void userLandingAboutScreenAndValidateItsFunctionalities() {
+        new MenuMainPage().step_aboutClickAndNavigate().check_and_validate_aboutNHLTitle().
+                check_and_validate_aboutNHLBody().step_goBack();
+    }
+
+    @Then("User landing personalize screen and validate its functionalities with {string} {string}")
+    public void userLandingPersonalizeScreenAndValidateItsFunctionalitiesWith(String name, String mobile) {
+        new MenuMainPage().step_identityVerifyClickAndNavigate().check_and_validate_personalInfoTitle().
+                check_and_validate_customerName(name).check_and_validate_customerEmail("Stay updated about your application").
+                check_and_validate_customerMobile(mobile).step_goBack();
+    }
+
+    @Then("User landing islamic screen and validate its functionalities")
+    public void userLandingIslamicScreenAndValidateItsFunctionalities() {
+        new MenuMainPage().step_islamicProductClickAndNavigate().check_and_validate_islamicProductsTitle().step_goBack().step_logoutNHL();
     }
 }

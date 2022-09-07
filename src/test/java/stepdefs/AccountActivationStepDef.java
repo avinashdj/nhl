@@ -3,6 +3,11 @@ package stepdefs;
 import com.nhl.pages.acccountactivation.DDAAuthorizationPage;
 import com.nhl.pages.acccountactivation.SIOAuthorizationPage;
 import com.nhl.pages.acccountactivation.YourBankAccountPage;
+import com.nhl.pages.accountactivation.CongratsPageMortgageContract;
+import com.nhl.pages.accountactivation.HomeDocumentsPage;
+import com.nhl.pages.accountactivation.LoanAgreementPage;
+import com.nhl.pages.accountactivation.MortgageContractPage;
+import com.nhl.pages.idandv.DashboardPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -133,5 +138,40 @@ public class AccountActivationStepDef {
         } else {
             new SIOAuthorizationPage().clickContinue();
         }
+    }
+
+    @When("user start account activation process using welcome screen")
+    public void userStartAccountActivationProcessUsingWelcomeScreen() {
+        new DashboardPage().step_StepWidgetAccountActivation();
+    }
+
+    @Then("user provide fab bank details for SIO approvals with {string} {string} {string}")
+    public void userProvideFabBankDetailsForSIOApprovalsWith(String account, String iban, String branch) {
+        // Include Your Bank Details + SIO Approved +
+        new com.nhl.pages.accountactivation.YourBankAccountPage().step_clickChooseFabBank().
+                step_enterFabAccountDetails(account,iban,branch).
+                step_clickContinue().step_acceptInstructionOrderCondition().step_clickContinue();
+    }
+
+    @Then("user accept mortgage contract and Instruction-order and terms conditions")
+    public void userAcceptMortgageContractAndInstructionOrderAndTermsConditions() {
+        new MortgageContractPage().step_acceptInstructionOrderCondition().step_clickContinue().
+                check_and_validate_termsConditionsTitle().step_clickContinue();
+    }
+
+    @Then("user upload requested home site plan and certificate documents")
+    public void userUploadRequestedHomeSitePlanAndCertificateDocuments() {
+        new HomeDocumentsPage().step_sitePlanUpload().step_certificateUpload().step_clickContinue();
+    }
+
+    @Then("user sign the loan agreement and mortgage agreement")
+    public void userSignTheLoanAgreementAndMortgageAgreement() {
+        // Loan Agreement & Mortgage Contract Flow Colplete
+        new LoanAgreementPage().step_acceptLoanAgreement().step_clickContinue().step_clickContinue();
+        }
+
+    @Then("user verify congratulations page for account activation and landing to welcome screen")
+    public void userVerifyCongratulationsPageForAccountActivationAndLandingToWelcomeScreen() {
+        new CongratsPageMortgageContract().check_and_validate_mortgageContractSuccessMsg().step_clickDone().check_and_validate_welcomeTitle();
     }
 }

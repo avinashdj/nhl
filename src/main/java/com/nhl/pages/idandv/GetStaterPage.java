@@ -19,9 +19,9 @@ public class GetStaterPage {
     }
 
     private static final By PAGE_TITLE = By.xpath("(//android.widget.Button[(@content-desc,'Let')])[2]");
-    private static final By LETS_GET_STARTED = By.xpath("//android.widget.Button[@content-desc=\"Let’s get started\"]");
+    private static final By LETS_GET_STARTED = By.className("android.widget.Button");
     private static final By not = By.xpath("//android.widget.Button[@content-desc=\"Not you?\"]");
-//By.xpath("//android.widget.Button[@content-desc=\"Let’s get started\"]");
+
     /**
      * Step : User validate current page
      *
@@ -40,7 +40,7 @@ public class GetStaterPage {
      * @update 6/7/2022
      */
     public RegisterYourMobilePage step_getStarted() {
-        SeleniumUtils.waitFor(8000);
+        SeleniumUtils.waitFor(5000);
         WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOf(DriverManager.getDriver().findElement(LETS_GET_STARTED)));
         SeleniumUtils.click(LETS_GET_STARTED,"LETS STARTED");
