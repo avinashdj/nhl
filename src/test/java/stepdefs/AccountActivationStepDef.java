@@ -167,7 +167,7 @@ public class AccountActivationStepDef {
     @Then("user sign the loan agreement and mortgage agreement")
     public void userSignTheLoanAgreementAndMortgageAgreement() {
         // Loan Agreement & Mortgage Contract Flow Colplete
-        new LoanAgreementPage().step_acceptLoanAgreement().step_clickContinue().step_clickContinue();
+        new LoanAgreementPage().step_acceptLoanAgreement().step_clickContinue();
         }
 
     @Then("user verify congratulations page for account activation and landing to welcome screen")

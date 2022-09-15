@@ -18,7 +18,7 @@ public class ActivationAccountE2ETest extends BaseTest {
     @Test(description = "User able to follow and complete welcome dashboard guid steps under open NHL account creation")
     public void user_able_to_see_welcome_dashboard_steps_navigation_and_its_behaviour_under_open_nhl_account_flow() {
         // 1 Out of 3 Phase - Account Activation Flow Started
-        new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760182").
+        new GetStaterPage().step_getStarted().step_registeredMobileNumber("567069024").
                 step_registrationSubmit().step_setContinueWithOTP("123456").
                 step_SkipWithoutEmail().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").
                 step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
@@ -28,7 +28,7 @@ public class ActivationAccountE2ETest extends BaseTest {
 
         // Include Your Bank Details + SIO Approved +
         new YourBankAccountPage().step_clickChooseFabBank().
-                step_enterFabAccountDetails("1234567890123456","12345678901234567","Al Barsha").
+                step_enterFabAccountDetails("1234567890123456","123456789012345672131","Al Barsha").
                 step_clickContinue().step_acceptInstructionOrderCondition().step_clickContinue();
 
         new MortgageContractPage().step_acceptInstructionOrderCondition().step_clickContinue().
@@ -38,7 +38,7 @@ public class ActivationAccountE2ETest extends BaseTest {
         new HomeDocumentsPage().step_sitePlanUpload().step_certificateUpload().step_clickContinue();
 
         // Loan Agreement & Mortgage Contract Flow Colplete
-        new LoanAgreementPage().step_acceptLoanAgreement().step_clickContinue().step_clickContinue().
+        new LoanAgreementPage().step_acceptLoanAgreement().step_clickContinue().
                 check_and_validate_mortgageContractSuccessMsg().step_clickDone().check_and_validate_welcomeTitle();
 
     }

@@ -16,6 +16,7 @@ public class HomeDocumentsPage {
 
     private static final By CONTINUE = By.xpath("//android.widget.Button[@content-desc='Continue']");
 
+    private static final By CHECK_CONSENT = By.xpath("");
 
     /**
      * Step : User xxxx
@@ -35,7 +36,8 @@ public class HomeDocumentsPage {
      * @update 10/8/2022
      */
     public HomeDocumentsPage step_sitePlanUpload(){
-        SeleniumUtils.waitFor(8000);
+        SeleniumUtils.waitFor(5000);
+        System.out.println("Uploading Site Plan upload");
         return this;
     }
 
@@ -46,7 +48,8 @@ public class HomeDocumentsPage {
      * @update 10/8/2022
      */
     public HomeDocumentsPage step_certificateUpload(){
-        SeleniumUtils.waitFor(8000);
+        SeleniumUtils.waitFor(5000);
+        System.out.println("Uploading Search Certificate upload");
         return this;
     }
 
@@ -57,8 +60,9 @@ public class HomeDocumentsPage {
      * @update 10/8/2022
      */
     public LoanAgreementPage step_clickContinue(){
-        SeleniumUtils.click(CONTINUE,"CONTINUE");
-        SeleniumUtils.waitFor(2000);
+
+        //SeleniumUtils.click(CONTINUE,"CONTINUE");
+        //SeleniumUtils.waitFor(2000);
         return new LoanAgreementPage();
     }
 

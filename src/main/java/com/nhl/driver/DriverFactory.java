@@ -22,14 +22,14 @@ public final class DriverFactory {
         WebDriver driver = null;
         if(browserName.equalsIgnoreCase("android")){
             DesiredCapabilities capabilties = new DesiredCapabilities();
-            capabilties.setCapability(MobileCapabilityType.APP,"D:\\app-debug.apk");
+//            capabilties.setCapability(MobileCapabilityType.APP,"D:\\IntelliJ\\nhlApps\\app-debug.apk");
             capabilties.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, "com.bankfab.nhl");
             capabilties.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, ".MainActivity");
             capabilties.setCapability(MobileCapabilityType.NO_RESET, true);
             capabilties.setCapability(MobileCapabilityType.AUTOMATION_NAME,"uiautomator2");
             //new session always install while execute
-            capabilties.setCapability(MobileCapabilityType.FULL_RESET, true);
-            capabilties.setCapability(MobileCapabilityType.NO_RESET, false);
+//            capabilties.setCapability(MobileCapabilityType.FULL_RESET, true);
+//            capabilties.setCapability(MobileCapabilityType.NO_RESET, false);
             capabilties.setCapability("autoGrantPermissions", "true");
             try {
                 driver =  new AndroidDriver<AndroidElement>(new URL("http://localhost:4723/wd/hub"), capabilties);

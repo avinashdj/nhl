@@ -2,6 +2,7 @@ package com.nhl.pages.accountactivation;
 
 import com.nhl.driver.DriverManager;
 import com.nhl.pages.accountcreation.additionaldetails.CPRConditionsPage;
+import com.nhl.pages.idandv.DashboardPage;
 import com.nhl.pages.verifyidentityphase.ADHAApplicationPage;
 import com.nhl.utils.SeleniumUtils;
 import org.openqa.selenium.By;
@@ -132,5 +133,7 @@ public class YourBankAccountPage {
         SeleniumUtils.waitFor(2000);
         return new StandingInstructionPage();
     }
+
+
 
 }

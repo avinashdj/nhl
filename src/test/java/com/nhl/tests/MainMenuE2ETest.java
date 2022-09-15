@@ -20,7 +20,7 @@ public class MainMenuE2ETest extends BaseTest {
     @Test(description = "User able to follow and complete welcome dashboard guid steps under open NHL account creation")
     public void user_able_to_see_welcome_dashboard_steps_navigation_and_its_behaviour_under_open_nhl_account_flow() {
         // 1 Out of 3 Phase - Workflow Started
-        new GetStaterPage().step_getStarted().step_registeredMobileNumber("569760191").
+        new GetStaterPage().step_getStarted().step_registeredMobileNumber("567069024").
                 step_registrationSubmit().step_setContinueWithOTP("123456").
                 step_SkipWithoutEmail().step_setPin("1234").step_nextToConfirm().step_setConfirmPin("1234").
                 step_makeConfirmed().step_locationPermissionLater().step_biometricsPermissionLater().
@@ -40,8 +40,8 @@ public class MainMenuE2ETest extends BaseTest {
 
                 // Personalize  Details Section Validation
                 step_identityVerifyClickAndNavigate().check_and_validate_personalInfoTitle().
-                check_and_validate_customerName("SHIWANTHA LAKMAL").check_and_validate_customerEmail("Stay updated about your application").
-                check_and_validate_customerMobile("+971 56 976 0182").step_goBack().
+                check_and_validate_customerName("Yashraj Sahu").check_and_validate_customerEmail("Stay updated about your application").
+                check_and_validate_customerMobile("+971 56 706 9024").step_goBack().
 
                 // Islamic Product Section Validation
                 step_islamicProductClickAndNavigate().check_and_validate_islamicProductsTitle().step_goBack().step_logoutNHL();

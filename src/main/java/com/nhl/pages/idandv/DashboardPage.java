@@ -1,6 +1,7 @@
 package com.nhl.pages.idandv;
 
 import com.nhl.driver.DriverManager;
+import com.nhl.pages.accountactivation.YourBankAccountPage;
 import com.nhl.pages.accountcreation.YourHomeAddressPage;
 import com.nhl.pages.accountcreation.sourceofincome.IncomeDetailsPage;
 import com.nhl.pages.menunavigations.MenuMainPage;
@@ -180,8 +181,10 @@ public class DashboardPage {
     public ADHAApplicationPage step_StepWidgetAccountActivation(){
         By btnContinue = By.className("android.widget.Button");
         click(btnContinue,"Continue");
+        System.out.println("At bank selection page");
         return new ADHAApplicationPage();
     }
+
 
 }
 

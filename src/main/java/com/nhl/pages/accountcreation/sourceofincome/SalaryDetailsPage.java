@@ -146,7 +146,9 @@ public class SalaryDetailsPage {
      * @return SalaryDetailsPage
      */
     public SalaryDetailsPage step_uploadSalaryCertificate(){
-        SeleniumUtils.waitFor(8000);
+        SeleniumUtils.waitFor(10000);
+//        uploadDocument("file1.pdf", SALARY_CERTIFICATE, "SALARY CERFITICATE");
+        System.out.println("Uploading Salary Slip document");
         return new SalaryDetailsPage();
     }
 
@@ -158,7 +160,9 @@ public class SalaryDetailsPage {
      * @return SalaryDetailsPage
      */
     public SalaryDetailsPage step_uploadBankStatement(){
-        SeleniumUtils.waitFor(8000);
+        SeleniumUtils.waitFor(10000);
+//        uploadDocument("file1.pdf", BANK_STATEMENT, "Bank Statement");
+        System.out.println("Uploading Bank Statement document");
         return new SalaryDetailsPage();
     }
 

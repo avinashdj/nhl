@@ -31,11 +31,11 @@ public class ReferenceDetailsPage {
     private static final By ERROR_MESSAGE_OFF_NO1 = By.xpath("//android.widget.EditText[contains(@text,'Office number')][1]/following-sibling::android.view.View[1]");
 
     //Second Reference
-    private static final By SECOND_REF_FULL_NAME = By.xpath("//android.widget.EditText[contains(@text,'Full name')][2]");
-    private static final By SECOND_REF_RELATIONSHIP = By.xpath("//android.widget.EditText[contains(@text,'Relationship')][2]");
-    private static final By SECOND_REF_MOBILE_NUMBER = By.xpath("//android.widget.EditText[contains(@text,'Mobile number')][2]");
+    private static final By SECOND_REF_FULL_NAME = By.xpath("//android.view.View[@content-desc='SECOND REFERENCE']/following-sibling::android.widget.EditText[1]");
+    private static final By SECOND_REF_RELATIONSHIP = By.xpath("//android.view.View[@content-desc='SECOND REFERENCE']/following-sibling::android.widget.EditText[2]");
+    private static final By SECOND_REF_MOBILE_NUMBER = By.xpath("//android.view.View[@content-desc='SECOND REFERENCE']/following-sibling::android.widget.EditText[3]");
     private static final By ERROR_MESSAGE_REF_NO2 = By.xpath("//android.widget.EditText[contains(@text,'Mobile number')][2]/following-sibling::android.view.View[1]");
-    private static final By SECOND_REF_ALT_CONTACT_NUMBER = By.xpath("//android.widget.EditText[contains(@text,'Alternate contact number')][2]");
+    private static final By SECOND_REF_ALT_CONTACT_NUMBER = By.xpath("//android.view.View[@content-desc='SECOND REFERENCE']/following-sibling::android.widget.EditText[4]");
     private static final By ERROR_MESSAGE_ALT_NO2 = By.xpath("//android.widget.EditText[contains(@text,'Alternate contact number')][2]/following-sibling::android.view.View[1]");
     private static final By SECOND_REF_OFFICE_NUMBER = By.xpath("//android.widget.EditText[contains(@text,'Office number')][2]");
     private static final By ERROR_MESSAGE_OFF_NO2 = By.xpath("//android.widget.EditText[contains(@text,'Office number')][2]/following-sibling::android.view.View[1]");

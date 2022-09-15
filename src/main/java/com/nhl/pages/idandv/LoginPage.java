@@ -35,7 +35,7 @@ public class LoginPage {
         Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
         new Actions(DriverManager.getDriver()).sendKeys(value).perform();
         Uninterruptibles.sleepUninterruptibly(5, TimeUnit.SECONDS);
-        swapRightToLeftMortgage();
+//        swapRightToLeftMortgage();
         return this;
     }
 

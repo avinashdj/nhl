@@ -30,7 +30,8 @@ public class MenuMainPage {
     private static final By ABOUT_NHL_TAB = By.xpath("//android.view.View[@content-desc='NATIONAL HOUSING LOAN']/following-sibling::android.view.View[3]");
 
     private static final By LOGOUT = By.xpath("//android.view.View[@content-desc='NATIONAL HOUSING LOAN']/following-sibling::android.view.View[4]");
-
+    private static final By OK_LOGOUT = By.xpath("//android.widget.Button[@content-desc='OK']");
+    private static final By CANCEL_LOGOUT = By.xpath("//android.widget.Button[@content-desc='Cancel']");
     /**
      * Step : User check and validate already loaded menu main page
      *
@@ -103,6 +104,7 @@ public class MenuMainPage {
      */
     public SetPinPage step_logoutNHL() {
         click(LOGOUT, "Logout");
+        click(OK_LOGOUT,"Confirm Logout");
         return new SetPinPage();
     }
 

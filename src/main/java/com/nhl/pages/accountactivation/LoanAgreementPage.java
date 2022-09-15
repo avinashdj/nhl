@@ -47,10 +47,10 @@ public class LoanAgreementPage {
      * @author shiwantha
      * @update 10/8/2022
      */
-    public LoanConditionsPage step_clickContinue(){
+    public CongratsPageMortgageContract step_clickContinue(){
         SeleniumUtils.click(CONTINUE,"CONTINUE");
         SeleniumUtils.waitFor(2000);
-        return new LoanConditionsPage();
+        return new CongratsPageMortgageContract();
     }
 
 }
